@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import AdSenseSlot from "./components/AdSenseSlot";
 
 type ResultType = "safe" | "suspicious" | "scam" | null;
 
@@ -174,6 +175,16 @@ export default function Home() {
 
       {/* Main */}
       <main className="max-w-2xl mx-auto px-4 pb-12">
+        {/* Top Ad */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+          className="mb-6"
+        >
+          <AdSenseSlot slot="top-banner" className="max-w-full" />
+        </motion.div>
+
         {/* Examples Section */}
         <motion.div 
           className="bg-white/80 rounded-2xl shadow-md p-5 mb-6"
@@ -375,6 +386,18 @@ export default function Home() {
           )}
         </AnimatePresence>
 
+        {/* Mid Ad */}
+        {result && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5 }}
+            className="mb-6"
+          >
+            <AdSenseSlot slot="mid-banner" className="max-w-full" />
+          </motion.div>
+        )}
+
         {/* History Section */}
         <AnimatePresence>
           {history.length > 0 && (
@@ -459,8 +482,38 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <footer className="text-center py-6 text-purple-600 text-sm">
-        <p>Feito com 💜 para proteger você</p>
+      <footer className="text-center py-8 px-4 text-purple-600 text-sm border-t border-purple-200 mt-12">
+        <div className="max-w-2xl mx-auto">
+          <p className="mb-4">Feito com 💜 para proteger você</p>
+          <div className="flex justify-center gap-6 mb-4 flex-wrap">
+            <a
+              href="/privacy"
+              className="hover:text-purple-800 underline"
+            >
+              Política de Privacidade
+            </a>
+            <a
+              href="/terms"
+              className="hover:text-purple-800 underline"
+            >
+              Termos de Uso
+            </a>
+            <a
+              href="https://github.com/sktbrd/vovo-detector-golpes"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-purple-800 underline"
+            >
+              GitHub
+            </a>
+          </div>
+          <p className="text-xs text-purple-500">
+            © 2026 Vovó Detector de Golpes. Todos os direitos reservados.
+          </p>
+          <p className="text-xs text-purple-500 mt-2">
+            Este site usa cookies para melhorar sua experiência.
+          </p>
+        </div>
       </footer>
     </div>
   );

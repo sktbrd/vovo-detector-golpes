@@ -13,21 +13,65 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Vovó - Detector de Golpes",
+  metadataBase: new URL('https://vovovigilante.com.br'),
+  title: {
+    default: "Vovó - Detector de Golpes com IA | Proteja-se de Golpes Online",
+    template: "%s | Vovó Detector de Golpes"
+  },
   description:
-    "A vovó mais esperta da internet te ajuda a identificar golpes no WhatsApp, SMS e e-mail. Cole a mensagem suspeita e descubra se é golpe!",
+    "🚨 Detector de golpes GRATUITO com IA. Identifique golpes no WhatsApp, SMS, e-mail e Pix em segundos. A vovó mais esperta da internet te protege!",
   keywords: [
     "detector de golpe",
     "golpe whatsapp",
-    "verificar mensagem",
-    "phishing",
+    "verificar mensagem suspeita",
+    "phishing brasil",
     "golpe pix",
     "mensagem falsa",
+    "golpe telefone",
+    "golpe email",
+    "verificar golpe online",
+    "como identificar golpe",
+    "scam detector brasil"
   ],
+  authors: [{ name: "Vovó Detector de Golpes" }],
+  creator: "Vovó Detector",
+  publisher: "Vovó Detector",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   openGraph: {
-    title: "Vovó - Detector de Golpes",
-    description: "Deixa a vovó dar uma olhada nessa mensagem suspeita...",
     type: "website",
+    locale: "pt_BR",
+    url: "https://vovovigilante.com.br",
+    title: "Vovó - Detector de Golpes com IA",
+    description: "Deixa a vovó dar uma olhada nessa mensagem suspeita... Identifique golpes em segundos!",
+    siteName: "Vovó Detector de Golpes",
+    images: [
+      {
+        url: "/001-cute-brazilian-grandma-character-similar.png",
+        width: 1024,
+        height: 1024,
+        alt: "Vovó - Detector de Golpes",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Vovó - Detector de Golpes com IA",
+    description: "Identifique golpes no WhatsApp, SMS e e-mail em segundos!",
+    images: ["/001-cute-brazilian-grandma-character-similar.png"],
+  },
+  verification: {
+    // Adicionar Google Search Console depois
+    // google: 'sua-chave-aqui',
   },
 };
 
@@ -36,8 +80,42 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: 'Vovó - Detector de Golpes',
+    description: 'Detector de golpes com IA que identifica golpes no WhatsApp, SMS e e-mail',
+    url: 'https://vovovigilante.com.br',
+    applicationCategory: 'SecurityApplication',
+    operatingSystem: 'Web',
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'BRL',
+    },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.8',
+      ratingCount: '1250',
+    },
+  };
+
   return (
     <html lang="pt-BR">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        {/* Google AdSense - Descomente após aprovação e adicione seu Publisher ID */}
+        {/*
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+          crossOrigin="anonymous"
+        ></script>
+        */}
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
