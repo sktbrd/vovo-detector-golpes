@@ -487,6 +487,12 @@ export default function Home() {
           <p className="mb-4">Feito com 💜 para proteger você</p>
           <div className="flex justify-center gap-6 mb-4 flex-wrap">
             <a
+              href="/blog"
+              className="hover:text-purple-800 underline font-medium"
+            >
+              📚 Blog
+            </a>
+            <a
               href="/privacy"
               className="hover:text-purple-800 underline"
             >
