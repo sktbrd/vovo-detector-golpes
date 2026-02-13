@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import AdSenseSlot from "./components/AdSenseSlot";
+import Navbar from "./components/Navbar";
 
 type ResultType = "safe" | "suspicious" | "scam" | null;
 
@@ -131,6 +132,8 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-purple-100 to-purple-50">
+      <Navbar />
+      
       {/* Header */}
       <motion.header 
         className="py-6 px-4 text-center"
