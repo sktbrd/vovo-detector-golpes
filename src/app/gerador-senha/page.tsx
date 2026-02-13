@@ -70,6 +70,18 @@ export default function GeradorSenhaPage() {
       emoji="🔐"
     >
       <div className="bg-white rounded-2xl shadow-lg p-8 mb-6">
+        {/* Vovó Message */}
+        <motion.div 
+          className="mb-6 p-4 bg-purple-50 border-l-4 border-purple-400 rounded-r-lg"
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.2 }}
+        >
+          <p className="text-purple-800 italic">
+            💜 <strong>A Vovó fala:</strong> "Uma senha forte é como a chave da sua casa, querido. Quanto mais complicada, mais segura! Deixa eu criar uma bem forte pra você."
+          </p>
+        </motion.div>
+
         {/* Controls */}
         <div className="mb-6">
           <label className="block text-gray-700 font-medium mb-3">
@@ -187,6 +199,26 @@ export default function GeradorSenhaPage() {
                     style={{ width: `${strength.value}%` }}
                   />
                 </div>
+                {/* Vovó Feedback */}
+                <motion.div 
+                  className={`mt-3 p-3 rounded-lg ${
+                    strength.color === "green" 
+                      ? "bg-green-50 text-green-800"
+                      : strength.color === "yellow"
+                      ? "bg-yellow-50 text-yellow-800"
+                      : "bg-red-50 text-red-800"
+                  }`}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                >
+                  <p className="text-sm italic">
+                    👵 {strength.color === "green" 
+                      ? "Muito bem! Essa senha tá forte que nem a vovó! 💪"
+                      : strength.color === "yellow"
+                      ? "Tá razoável, mas a vovó já viu senha mais forte. Aumenta mais um pouquinho!"
+                      : "Ih, querido... essa tá fraquinha. Vamos fazer uma mais forte?"}
+                  </p>
+                </motion.div>
               </div>
             )}
           </motion.div>

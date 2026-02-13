@@ -152,6 +152,18 @@ export default function VerificadorLinkPage() {
       emoji="🔗"
     >
       <div className="bg-white rounded-2xl shadow-lg p-8 mb-6">
+        {/* Vovó Message */}
+        <motion.div 
+          className="mb-6 p-4 bg-purple-50 border-l-4 border-purple-400 rounded-r-lg"
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.2 }}
+        >
+          <p className="text-purple-800 italic">
+            💜 <strong>A Vovó fala:</strong> "Recebeu um link e não sabe se pode confiar? Calma! A vovó olha esse link pra você antes de clicar. Melhor prevenir que remediar!"
+          </p>
+        </motion.div>
+
         <label className="block text-gray-700 font-medium mb-3">
           Cole o link suspeito:
         </label>

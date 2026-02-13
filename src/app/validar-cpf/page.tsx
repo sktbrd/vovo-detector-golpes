@@ -106,6 +106,18 @@ export default function ValidarCPFPage() {
       emoji="🏦"
     >
       <div className="bg-white rounded-2xl shadow-lg p-8 mb-6">
+        {/* Vovó Message */}
+        <motion.div 
+          className="mb-6 p-4 bg-purple-50 border-l-4 border-purple-400 rounded-r-lg"
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.2 }}
+        >
+          <p className="text-purple-800 italic">
+            💜 <strong>A Vovó fala:</strong> "Recebeu um CPF ou CNPJ e quer saber se é válido? Deixa a vovó verificar esses números pra você, meu bem!"
+          </p>
+        </motion.div>
+
         <label className="block text-gray-700 font-medium mb-3">
           Digite o CPF ou CNPJ:
         </label>
@@ -157,16 +169,38 @@ export default function ValidarCPFPage() {
             </div>
 
             {result.valid ? (
-              <div className={`text-green-700`}>
-                <p className="mb-2">✓ Dígitos verificadores corretos</p>
-                <p>✓ Formato válido</p>
+              <div>
+                <div className={`text-green-700 mb-3`}>
+                  <p className="mb-2">✓ Dígitos verificadores corretos</p>
+                  <p>✓ Formato válido</p>
+                </div>
+                <motion.div 
+                  className="bg-green-100 p-3 rounded-lg"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                >
+                  <p className="text-green-800 text-sm italic">
+                    👵 "Ó, que beleza! Esse número tá certinho. A matemática não mente, querido!"
+                  </p>
+                </motion.div>
               </div>
             ) : (
-              <div className={`text-red-700`}>
-                <p className="mb-2">✗ Dígitos verificadores incorretos</p>
-                <p className="text-sm">
-                  Este {result.type.toUpperCase()} não passou na validação oficial
-                </p>
+              <div>
+                <div className={`text-red-700 mb-3`}>
+                  <p className="mb-2">✗ Dígitos verificadores incorretos</p>
+                  <p className="text-sm">
+                    Este {result.type.toUpperCase()} não passou na validação oficial
+                  </p>
+                </div>
+                <motion.div 
+                  className="bg-red-100 p-3 rounded-lg"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                >
+                  <p className="text-red-800 text-sm italic">
+                    👵 "Eita! Esse número tá errado, viu? Ou digitaram errado ou é falso mesmo!"
+                  </p>
+                </motion.div>
               </div>
             )}
           </motion.div>
