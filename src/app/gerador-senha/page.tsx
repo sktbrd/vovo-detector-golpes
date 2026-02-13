@@ -68,6 +68,7 @@ export default function GeradorSenhaPage() {
       title="Gerador de Senha Forte"
       description="Crie senhas seguras e impossíveis de adivinhar"
       emoji="🔐"
+      image="/vovo-cadeado.png"
     >
       <div className="bg-white rounded-2xl shadow-lg p-8 mb-6">
         {/* Vovó Message */}

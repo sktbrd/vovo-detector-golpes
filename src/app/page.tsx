@@ -153,9 +153,9 @@ export default function Home() {
           }}
         >
           <img 
-            src="/001-cute-brazilian-grandma-character-similar.png" 
-            alt="Vovó" 
-            className="w-24 h-24 object-contain"
+            src="/vovo-lupa.png" 
+            alt="Vovó Detetive" 
+            className="w-32 h-32 object-contain"
           />
         </motion.div>
         <motion.h1 

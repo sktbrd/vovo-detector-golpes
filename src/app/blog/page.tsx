@@ -68,6 +68,13 @@ export default function BlogPage() {
       {/* Hero */}
       <div className="bg-purple-600 text-white py-12 px-4">
         <div className="max-w-4xl mx-auto text-center">
+          <div className="flex justify-center mb-4">
+            <img 
+              src="/vovo-alerta.png" 
+              alt="Vovó Alerta" 
+              className="w-32 h-32 object-contain"
+            />
+          </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             📚 Blog da Vovó
           </h1>

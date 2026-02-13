@@ -5,6 +5,7 @@ interface ToolLayoutProps {
   title: string;
   description: string;
   emoji: string;
+  image?: string;
   children: React.ReactNode;
 }
 
@@ -12,6 +13,7 @@ export default function ToolLayout({
   title,
   description,
   emoji,
+  image,
   children,
 }: ToolLayoutProps) {
   return (
@@ -21,7 +23,13 @@ export default function ToolLayout({
       {/* Header */}
       <div className="bg-purple-600 text-white py-12 px-4">
         <div className="max-w-3xl mx-auto text-center">
-          <div className="text-6xl mb-4">{emoji}</div>
+          {image ? (
+            <div className="flex justify-center mb-4">
+              <img src={image} alt={title} className="w-32 h-32 object-contain" />
+            </div>
+          ) : (
+            <div className="text-6xl mb-4">{emoji}</div>
+          )}
           <h1 className="text-4xl md:text-5xl font-bold mb-3">{title}</h1>
           <p className="text-xl text-purple-100">{description}</p>
         </div>

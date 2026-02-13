@@ -80,6 +80,13 @@ export default function FerramentasPage() {
       {/* Hero */}
       <div className="bg-purple-600 text-white py-16 px-4">
         <div className="max-w-5xl mx-auto text-center">
+          <div className="flex justify-center mb-6">
+            <img 
+              src="/vovo-escudo.png" 
+              alt="Vovó Protetora" 
+              className="w-32 h-32 object-contain"
+            />
+          </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             🛡️ Ferramentas de Segurança
           </h1>
