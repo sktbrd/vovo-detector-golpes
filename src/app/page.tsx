@@ -2,8 +2,28 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import confetti from "canvas-confetti";
+import toast, { Toaster } from "react-hot-toast";
+import { 
+  Search, 
+  Trash2, 
+  Copy, 
+  CheckCircle, 
+  AlertCircle, 
+  XCircle,
+  Clock,
+  FileText,
+  Lightbulb,
+  ChevronRight,
+  Heart,
+  BookOpen,
+  Github
+} from "lucide-react";
 import AdSenseSlot from "./components/AdSenseSlot";
 import Navbar from "./components/Navbar";
+import ScanAnimation from "./components/ScanAnimation";
+import ResultIcon from "./components/ResultIcons";
+import SmallResultIcon from "./components/SmallResultIcon";
 
 type ResultType = "safe" | "suspicious" | "scam" | null;
 
@@ -58,8 +78,44 @@ export default function Home() {
     localStorage.setItem("vovo-history", JSON.stringify(updated));
   };
 
+  // Confetti celebration
+  const celebrate = () => {
+    const duration = 3000;
+    const animationEnd = Date.now() + duration;
+    const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+    const randomInRange = (min: number, max: number) => {
+      return Math.random() * (max - min) + min;
+    };
+
+    const interval: NodeJS.Timeout = setInterval(() => {
+      const timeLeft = animationEnd - Date.now();
+
+      if (timeLeft <= 0) {
+        return clearInterval(interval);
+      }
+
+      const particleCount = 50 * (timeLeft / duration);
+      confetti({
+        ...defaults,
+        particleCount,
+        origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
+      });
+      confetti({
+        ...defaults,
+        particleCount,
+        origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
+      });
+    }, 250);
+  };
+
   const analyzeMessage = async () => {
-    if (!message.trim()) return;
+    if (!message.trim()) {
+      toast.error("Escreva uma mensagem primeiro", {
+        icon: <FileText className="w-5 h-5" />,
+      });
+      return;
+    }
 
     setLoading(true);
     setResult(null);
@@ -74,14 +130,39 @@ export default function Home() {
       const data = await response.json();
       setResult(data);
       saveToHistory(message, data);
+
+      // Efeitos baseados no resultado
+      setTimeout(() => {
+        if (data.type === "safe") {
+          celebrate();
+          toast.success("Mensagem segura!", {
+            icon: <CheckCircle className="w-5 h-5" />,
+          });
+        } else if (data.type === "scam") {
+          toast.error("Cuidado! Isso é golpe!", {
+            icon: <XCircle className="w-5 h-5" />,
+          });
+          // Vibração no mobile
+          if (navigator.vibrate) {
+            navigator.vibrate([200, 100, 200]);
+          }
+        } else {
+          toast("Fique atento!", {
+            icon: <AlertCircle className="w-5 h-5 text-yellow-600" />,
+          });
+        }
+      }, 300);
     } catch {
       const errorResult = {
         type: "suspicious" as ResultType,
         title: "Erro na análise",
-        message: "A vovó não conseguiu analisar. Tente novamente.",
+        message: "Não foi possível analisar. Tente novamente.",
         details: [],
       };
       setResult(errorResult);
+      toast.error("Erro na análise", {
+        icon: <XCircle className="w-5 h-5" />,
+      });
     } finally {
       setLoading(false);
     }
@@ -90,18 +171,33 @@ export default function Home() {
   const clearForm = () => {
     setMessage("");
     setResult(null);
+    toast("Formulário limpo", {
+      icon: <Trash2 className="w-5 h-5" />,
+      duration: 2000,
+    });
   };
 
   const loadExample = (example: string) => {
     setMessage(example);
     setResult(null);
+    toast("Exemplo carregado! Clique em verificar", {
+      icon: <FileText className="w-5 h-5" />,
+      duration: 2500,
+    });
+    // Scroll suave para o textarea
+    setTimeout(() => {
+      document.getElementById("message")?.focus();
+    }, 100);
   };
 
   const shareResult = () => {
     if (!result) return;
     const text = `${result.title}\n\n${result.message}\n\nAnalise feita em: vovo.app`;
     navigator.clipboard.writeText(text);
-    alert("Resultado copiado! ✅");
+    toast.success("Resultado copiado!", {
+      icon: <Copy className="w-5 h-5" />,
+      duration: 2000,
+    });
   };
 
   const getResultStyles = (type: ResultType) => {
@@ -117,21 +213,22 @@ export default function Home() {
     }
   };
 
-  const getEmoji = (type: ResultType) => {
-    switch (type) {
-      case "scam":
-        return "🚨";
-      case "suspicious":
-        return "⚠️";
-      case "safe":
-        return "✅";
-      default:
-        return "";
-    }
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-purple-100 to-purple-50">
+      <Toaster
+        position="top-center"
+        toastOptions={{
+          duration: 3000,
+          style: {
+            background: "#fff",
+            color: "#1f2937",
+            fontWeight: "500",
+            borderRadius: "12px",
+            padding: "16px",
+            boxShadow: "0 10px 25px rgba(0,0,0,0.1)",
+          },
+        }}
+      />
       <Navbar />
       
       {/* Header */}
@@ -195,8 +292,9 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.4 }}
         >
-          <h3 className="text-sm font-bold text-purple-800 mb-3">
-            📝 Exemplos de golpes comuns:
+          <h3 className="text-sm font-bold text-purple-800 mb-3 flex items-center gap-2">
+            <FileText className="w-4 h-4" />
+            Exemplos de golpes comuns:
           </h3>
           <div className="space-y-2">
             {EXAMPLES.map((example, i) => (
@@ -246,9 +344,23 @@ export default function Home() {
               onClick={analyzeMessage}
               disabled={loading || !message.trim()}
               className="flex-1 bg-purple-600 disabled:bg-purple-300 text-white font-bold py-4 px-6 rounded-xl text-lg"
+              animate={
+                message.trim() && !loading
+                  ? {
+                      boxShadow: [
+                        "0 0 0 0 rgba(126, 34, 206, 0.7)",
+                        "0 0 0 10px rgba(126, 34, 206, 0)",
+                      ],
+                    }
+                  : {}
+              }
+              transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                repeatType: "loop",
+              }}
               whileHover={{ scale: 1.02, backgroundColor: "rgb(126 34 206)" }}
               whileTap={{ scale: 0.98 }}
-              transition={{ duration: 0.2 }}
             >
               {loading ? (
                 <motion.span 
@@ -284,7 +396,10 @@ export default function Home() {
                   Vovó analisando...
                 </motion.span>
               ) : (
-                "🔍 Verificar mensagem"
+                <>
+                  <Search className="w-5 h-5 inline mr-2" />
+                  Verificar mensagem
+                </>
               )}
             </motion.button>
             <AnimatePresence>
@@ -299,12 +414,27 @@ export default function Home() {
                   whileHover={{ scale: 1.05, backgroundColor: "rgb(209 213 219)" }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  🗑️
+                  <Trash2 className="w-5 h-5" />
                 </motion.button>
               )}
             </AnimatePresence>
           </div>
         </motion.div>
+
+        {/* Loading Animation */}
+        <AnimatePresence mode="wait">
+          {loading && (
+            <motion.div
+              className="bg-white rounded-2xl shadow-lg p-8 mb-6"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.3 }}
+            >
+              <ScanAnimation />
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* Result Card */}
         <AnimatePresence mode="wait">
@@ -312,31 +442,25 @@ export default function Home() {
             <motion.div
               className={`rounded-2xl border-2 p-6 mb-6 ${getResultStyles(result.type)}`}
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
+              animate={{
+                opacity: 1,
+                scale: 1,
+                y: 0,
+                x: result.type === "scam" ? [0, -10, 10, -10, 10, -5, 5, 0] : 0,
+              }}
               exit={{ opacity: 0, scale: 0.9, y: -20 }}
-              transition={{ 
+              transition={{
                 type: "spring",
                 stiffness: 300,
-                damping: 25
+                damping: 25,
+                x: { duration: 0.5, delay: 0.2 },
               }}
             >
               <div className="flex items-start justify-between mb-3">
-                <motion.div 
-                  className="text-4xl"
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ 
-                    type: "spring",
-                    stiffness: 400,
-                    damping: 15,
-                    delay: 0.1
-                  }}
-                >
-                  {getEmoji(result.type)}
-                </motion.div>
+                <ResultIcon type={result.type} />
                 <motion.button
                   onClick={shareResult}
-                  className="px-4 py-2 bg-white/30 rounded-lg text-sm font-medium"
+                  className="px-4 py-2 bg-white/30 rounded-lg text-sm font-medium flex items-center gap-2"
                   title="Compartilhar resultado"
                   whileHover={{ 
                     scale: 1.05, 
@@ -344,7 +468,8 @@ export default function Home() {
                   }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  📋 Copiar
+                  <Copy className="w-4 h-4" />
+                  Copiar
                 </motion.button>
               </div>
               <motion.h2 
@@ -411,8 +536,9 @@ export default function Home() {
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
             >
-              <h3 className="text-xl font-bold text-purple-800 mb-4">
-                🕐 Últimas Análises
+              <h3 className="text-xl font-bold text-purple-800 mb-4 flex items-center gap-2">
+                <Clock className="w-5 h-5" />
+                Últimas Análises
               </h3>
               <div className="space-y-3">
                 {history.map((item, i) => (
@@ -432,8 +558,8 @@ export default function Home() {
                     }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    <div className="flex items-start gap-2">
-                      <span className="text-lg">{getEmoji(item.result.type)}</span>
+                    <div className="flex items-start gap-3">
+                      <SmallResultIcon type={item.result.type} />
                       <div className="flex-1 min-w-0">
                         <p className="text-sm font-medium text-gray-900 truncate">
                           {item.result.title}
@@ -458,8 +584,9 @@ export default function Home() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h3 className="text-xl font-bold text-purple-800 mb-4">
-            💡 Dicas da Vovó
+          <h3 className="text-xl font-bold text-purple-800 mb-4 flex items-center gap-2">
+            <Lightbulb className="w-5 h-5" />
+            Dicas da Vovó
           </h3>
           <ul className="space-y-3 text-gray-600">
             {[
@@ -470,13 +597,13 @@ export default function Home() {
             ].map((tip, i) => (
               <motion.li 
                 key={i}
-                className="flex items-start gap-2"
+                className="flex items-start gap-3"
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
               >
-                <span>🔸</span>
+                <ChevronRight className="w-5 h-5 text-purple-500 flex-shrink-0 mt-0.5" />
                 <span>{tip}</span>
               </motion.li>
             ))}
@@ -487,13 +614,16 @@ export default function Home() {
       {/* Footer */}
       <footer className="text-center py-8 px-4 text-purple-600 text-sm border-t border-purple-200 mt-12">
         <div className="max-w-2xl mx-auto">
-          <p className="mb-4">Feito com 💜 para proteger você</p>
+          <p className="mb-4 flex items-center justify-center gap-2">
+            Feito com <Heart className="w-4 h-4 fill-purple-600" /> para proteger você
+          </p>
           <div className="flex justify-center gap-6 mb-4 flex-wrap">
             <a
               href="/blog"
-              className="hover:text-purple-800 underline font-medium"
+              className="hover:text-purple-800 underline font-medium flex items-center gap-1.5"
             >
-              📚 Blog
+              <BookOpen className="w-4 h-4" />
+              Blog
             </a>
             <a
               href="/privacy"
@@ -511,8 +641,9 @@ export default function Home() {
               href="https://github.com/sktbrd/vovo-detector-golpes"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-purple-800 underline"
+              className="hover:text-purple-800 underline flex items-center gap-1.5"
             >
+              <Github className="w-4 h-4" />
               GitHub
             </a>
           </div>

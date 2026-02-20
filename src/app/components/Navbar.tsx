@@ -3,17 +3,18 @@
 import Link from "next/link";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Shield, Search, Link2, KeyRound, Building2, Smartphone, Mail, BookOpen, Menu, X } from "lucide-react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const tools = [
-    { name: "Detector de Golpes", href: "/", emoji: "🔍" },
-    { name: "Verificador de Link", href: "/verificador-link", emoji: "🔗" },
-    { name: "Gerador de Senha", href: "/gerador-senha", emoji: "🔐" },
-    { name: "Validador CPF/CNPJ", href: "/validar-cpf", emoji: "🏦" },
-    { name: "Verificar Número", href: "/verificar-numero", emoji: "📱" },
-    { name: "Email Vazado?", href: "/email-vazado", emoji: "📧" },
+    { name: "Detector de Golpes", href: "/", Icon: Search },
+    { name: "Verificador de Link", href: "/verificador-link", Icon: Link2 },
+    { name: "Gerador de Senha", href: "/gerador-senha", Icon: KeyRound },
+    { name: "Validador CPF/CNPJ", href: "/validar-cpf", Icon: Building2 },
+    { name: "Verificar Número", href: "/verificar-numero", Icon: Smartphone },
+    { name: "Email Vazado?", href: "/email-vazado", Icon: Mail },
   ];
 
   return (
@@ -25,7 +26,7 @@ export default function Navbar() {
             href="/"
             className="flex items-center gap-2 text-purple-800 hover:text-purple-600 transition-colors"
           >
-            <span className="text-2xl">👵</span>
+            <Shield className="w-7 h-7 text-purple-600" strokeWidth={2.5} />
             <span className="font-bold text-lg hidden sm:block">
               Vovó Vigilante
             </span>
@@ -36,21 +37,24 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-1">
             <Link
               href="/ferramentas"
-              className="px-4 py-2 text-purple-700 hover:bg-purple-50 rounded-lg font-medium transition-colors"
+              className="px-4 py-2 text-purple-700 hover:bg-purple-50 rounded-lg font-medium transition-colors flex items-center gap-2"
             >
-              🛡️ Ferramentas
+              <Shield className="w-4 h-4" />
+              Ferramentas
             </Link>
             <Link
               href="/blog"
-              className="px-4 py-2 text-purple-700 hover:bg-purple-50 rounded-lg font-medium transition-colors"
+              className="px-4 py-2 text-purple-700 hover:bg-purple-50 rounded-lg font-medium transition-colors flex items-center gap-2"
             >
-              📚 Blog
+              <BookOpen className="w-4 h-4" />
+              Blog
             </Link>
             <Link
               href="/"
-              className="ml-2 px-5 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors font-medium"
+              className="ml-2 px-5 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors font-medium flex items-center gap-2"
             >
-              🔍 Detector
+              <Search className="w-4 h-4" />
+              Detector
             </Link>
           </div>
 
@@ -60,21 +64,11 @@ export default function Navbar() {
             className="md:hidden p-2 rounded-lg hover:bg-purple-50 transition-colors"
             aria-label="Menu"
           >
-            <svg
-              className="w-6 h-6 text-purple-700"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              {isOpen ? (
-                <path d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
+            {isOpen ? (
+              <X className="w-6 h-6 text-purple-700" />
+            ) : (
+              <Menu className="w-6 h-6 text-purple-700" />
+            )}
           </button>
         </div>
 
@@ -92,29 +86,35 @@ export default function Navbar() {
                 <Link
                   href="/ferramentas"
                   onClick={() => setIsOpen(false)}
-                  className="block px-4 py-3 text-purple-700 hover:bg-purple-50 rounded-lg font-medium transition-colors"
+                  className="flex items-center gap-2 px-4 py-3 text-purple-700 hover:bg-purple-50 rounded-lg font-medium transition-colors"
                 >
-                  🛡️ Todas as Ferramentas
+                  <Shield className="w-4 h-4" />
+                  Todas as Ferramentas
                 </Link>
                 <div className="px-4 py-2 text-xs font-semibold text-purple-600 uppercase">
                   Ferramentas Rápidas
                 </div>
-                {tools.map((tool) => (
-                  <Link
-                    key={tool.href}
-                    href={tool.href}
-                    onClick={() => setIsOpen(false)}
-                    className="block px-4 py-2 text-sm text-purple-700 hover:bg-purple-50 rounded-lg transition-colors"
-                  >
-                    {tool.emoji} {tool.name}
-                  </Link>
-                ))}
+                {tools.map((tool) => {
+                  const IconComponent = tool.Icon;
+                  return (
+                    <Link
+                      key={tool.href}
+                      href={tool.href}
+                      onClick={() => setIsOpen(false)}
+                      className="flex items-center gap-2 px-4 py-2 text-sm text-purple-700 hover:bg-purple-50 rounded-lg transition-colors"
+                    >
+                      <IconComponent className="w-4 h-4" />
+                      {tool.name}
+                    </Link>
+                  );
+                })}
                 <Link
                   href="/blog"
                   onClick={() => setIsOpen(false)}
-                  className="block px-4 py-3 text-purple-700 hover:bg-purple-50 rounded-lg font-medium transition-colors"
+                  className="flex items-center gap-2 px-4 py-3 text-purple-700 hover:bg-purple-50 rounded-lg font-medium transition-colors"
                 >
-                  📚 Blog
+                  <BookOpen className="w-4 h-4" />
+                  Blog
                 </Link>
               </div>
             </motion.div>
