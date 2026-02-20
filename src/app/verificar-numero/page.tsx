@@ -149,7 +149,7 @@ export default function VerificarNumeroPage() {
           transition={{ delay: 0.2 }}
         >
           <p className="text-purple-800 italic">
-            💜 <strong>A Vovó fala:</strong> "Ligaram de um número estranho? Deixa eu dar uma olhada de onde é esse telefone. A vovó conhece todos os DDDs do Brasil!"
+            <strong>A Vovó fala:</strong> "Ligaram de um número estranho? Deixa eu dar uma olhada de onde é esse telefone. A vovó conhece todos os DDDs do Brasil!"
           </p>
         </motion.div>
 
@@ -172,7 +172,7 @@ export default function VerificarNumeroPage() {
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >
-          📱 Verificar Número
+          Verificar Número
         </motion.button>
 
         {/* Result */}
@@ -224,7 +224,7 @@ export default function VerificarNumeroPage() {
                 <div>
                   <span className="text-gray-600 text-sm block">Tipo:</span>
                   <span className="text-lg font-bold">
-                    {result.type === "mobile" ? "📱 Celular" : "☎️ Fixo"}
+                    {result.type === "mobile" ? "Celular" : "Fixo"}
                   </span>
                 </div>
               </div>
@@ -259,7 +259,7 @@ export default function VerificarNumeroPage() {
             </span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-purple-600 font-bold">✓</span>
+            <span className="text-purple-600 font-bold">Check</span>
             <span>
               <strong>Na dúvida:</strong> desligue e ligue VOCÊ para o número
               oficial

@@ -69,7 +69,7 @@ export default function EmailVazadoPage() {
           transition={{ delay: 0.2 }}
         >
           <p className="text-purple-800 italic">
-            💜 <strong>A Vovó fala:</strong> "Vem cá, querido! Deixa eu verificar se algum bandido roubou seus dados por aí. A vovó tem contatos que sabem de tudo!"
+            <strong>A Vovó fala:</strong> "Vem cá, querido! Deixa eu verificar se algum bandido roubou seus dados por aí. A vovó tem contatos que sabem de tudo!"
           </p>
         </motion.div>
 
@@ -113,7 +113,7 @@ export default function EmailVazadoPage() {
               Verificando...
             </span>
           ) : (
-            "🔍 Verificar E-mail"
+            "Verificar E-mail"
           )}
         </motion.button>
 
@@ -191,15 +191,15 @@ export default function EmailVazadoPage() {
 
                 <div className="mt-4 p-4 bg-red-100 rounded-lg">
                   <h4 className="font-bold text-red-800 mb-2">
-                    🛡️ O que fazer AGORA:
+                    O que fazer AGORA:
                   </h4>
                   <ul className="text-sm text-red-700 space-y-1">
-                    <li>✓ Troque IMEDIATAMENTE a senha deste e-mail</li>
+                    <li>Troque IMEDIATAMENTE a senha deste e-mail</li>
                     <li>
-                      ✓ Troque senhas de TODOS os sites que usam este e-mail
+                      Troque senhas de TODOS os sites que usam este e-mail
                     </li>
-                    <li>✓ Ative autenticação em 2 fatores onde possível</li>
-                    <li>✓ Monitore suas contas bancárias</li>
+                    <li>Ative autenticação em 2 fatores onde possível</li>
+                    <li>Monitore suas contas bancárias</li>
                   </ul>
                 </div>
               </div>

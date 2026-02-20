@@ -36,20 +36,20 @@ export default function ShareButtons({ title, description }: ShareButtonsProps) 
   return (
     <div className="mt-8 text-center">
       <p className="text-sm text-gray-500 mb-3">
-        💜 Ajude outras pessoas - compartilhe este artigo!
+        Ajude outras pessoas - compartilhe este artigo!
       </p>
       <div className="flex justify-center gap-3 flex-wrap">
         <button
           onClick={handleShare}
           className="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg text-sm font-medium transition-colors"
         >
-          📋 Copiar Link
+          Copiar Link
         </button>
         <button
           onClick={handleWhatsAppShare}
           className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg text-sm font-medium transition-colors"
         >
-          📱 WhatsApp
+          WhatsApp
         </button>
         <button
           onClick={handleTwitterShare}

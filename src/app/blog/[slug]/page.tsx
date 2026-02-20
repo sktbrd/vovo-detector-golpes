@@ -61,7 +61,7 @@ export default async function BlogPost({
             href="/"
             className="flex items-center gap-2 text-purple-800 hover:text-purple-600"
           >
-            <span className="text-2xl">👵</span>
+            <Shield className="w-7 h-7"</span>
             <span className="font-bold">Vovó Detector</span>
           </Link>
           <div className="flex gap-3">
@@ -75,7 +75,7 @@ export default async function BlogPost({
               href="/"
               className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors font-medium"
             >
-              🔍 Verificar
+              Verificar
             </Link>
           </div>
         </div>
@@ -101,7 +101,7 @@ export default async function BlogPost({
           {/* CTA */}
           <div className="mt-12 pt-8 border-t border-purple-200">
             <div className="bg-purple-50 rounded-xl p-6 text-center">
-              <div className="text-3xl mb-3">🔍</div>
+              <Search className="w-16 h-16"</div>
               <h3 className="text-xl font-bold text-purple-800 mb-2">
                 Recebeu uma mensagem suspeita?
               </h3>
@@ -124,7 +124,7 @@ export default async function BlogPost({
         {/* More Posts */}
         <div className="mt-12">
           <h3 className="text-2xl font-bold text-purple-800 mb-6">
-            📚 Leia Também
+            Leia Também
           </h3>
           <Link
             href="/blog"
@@ -137,7 +137,7 @@ export default async function BlogPost({
 
       {/* Footer */}
       <footer className="text-center py-8 px-4 text-purple-600 text-sm border-t border-purple-200 mt-12">
-        <p className="mb-2">Feito com 💜 para proteger você</p>
+        <p className="mb-2">Feito com para proteger você</p>
         <div className="flex justify-center gap-4">
           <Link href="/privacy" className="hover:text-purple-800 underline">
             Privacidade

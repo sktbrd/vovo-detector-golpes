@@ -115,7 +115,7 @@ export default function ValidarCPFPage() {
           transition={{ delay: 0.2 }}
         >
           <p className="text-purple-800 italic">
-            💜 <strong>A Vovó fala:</strong> "Recebeu um CPF ou CNPJ e quer saber se é válido? Deixa a vovó verificar esses números pra você, meu bem!"
+            <strong>A Vovó fala:</strong> "Recebeu um CPF ou CNPJ e quer saber se é válido? Deixa a vovó verificar esses números pra você, meu bem!"
           </p>
         </motion.div>
 
@@ -138,7 +138,7 @@ export default function ValidarCPFPage() {
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >
-          🔍 Validar
+          Validar
         </motion.button>
 
         {/* Result */}
@@ -172,8 +172,8 @@ export default function ValidarCPFPage() {
             {result.valid ? (
               <div>
                 <div className={`text-green-700 mb-3`}>
-                  <p className="mb-2">✓ Dígitos verificadores corretos</p>
-                  <p>✓ Formato válido</p>
+                  <p className="mb-2">Dígitos verificadores corretos</p>
+                  <p>Formato válido</p>
                 </div>
                 <motion.div 
                   className="bg-green-100 p-3 rounded-lg"
@@ -181,7 +181,7 @@ export default function ValidarCPFPage() {
                   animate={{ opacity: 1, y: 0 }}
                 >
                   <p className="text-green-800 text-sm italic">
-                    👵 "Ó, que beleza! Esse número tá certinho. A matemática não mente, querido!"
+                    "Ó, que beleza! Esse número tá certinho. A matemática não mente, querido!"
                   </p>
                 </motion.div>
               </div>
@@ -199,7 +199,7 @@ export default function ValidarCPFPage() {
                   animate={{ opacity: 1, y: 0 }}
                 >
                   <p className="text-red-800 text-sm italic">
-                    👵 "Eita! Esse número tá errado, viu? Ou digitaram errado ou é falso mesmo!"
+                    "Eita! Esse número tá errado, viu? Ou digitaram errado ou é falso mesmo!"
                   </p>
                 </motion.div>
               </div>
@@ -251,7 +251,7 @@ export default function ValidarCPFPage() {
             </span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-purple-600 font-bold">✓</span>
+            <span className="text-purple-600 font-bold">Check</span>
             <span>
               Use o <a href="/" className="text-purple-600 underline font-medium">
                 Detector da Vovó

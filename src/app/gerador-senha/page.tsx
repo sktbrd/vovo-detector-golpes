@@ -79,7 +79,7 @@ export default function GeradorSenhaPage() {
           transition={{ delay: 0.2 }}
         >
           <p className="text-purple-800 italic">
-            💜 <strong>A Vovó fala:</strong> "Uma senha forte é como a chave da sua casa, querido. Quanto mais complicada, mais segura! Deixa eu criar uma bem forte pra você."
+            <strong>A Vovó fala:</strong> "Uma senha forte é como a chave da sua casa, querido. Quanto mais complicada, mais segura! Deixa eu criar uma bem forte pra você."
           </p>
         </motion.div>
 
@@ -146,7 +146,7 @@ export default function GeradorSenhaPage() {
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >
-          🔐 Gerar Senha Forte
+          Gerar Senha Forte
         </motion.button>
 
         {/* Result */}
@@ -165,7 +165,7 @@ export default function GeradorSenhaPage() {
                 onClick={copyPassword}
                 className="absolute top-2 right-2 px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg text-sm font-medium transition-colors"
               >
-                {copied ? "✓ Copiado!" : "📋 Copiar"}
+                {copied ? "Copiado!" : "Copiar"}
               </button>
             </div>
 
@@ -213,7 +213,7 @@ export default function GeradorSenhaPage() {
                   animate={{ opacity: 1, y: 0 }}
                 >
                   <p className="text-sm italic">
-                    👵 {strength.color === "green" 
+                    {strength.color === "green" 
                       ? "Muito bem! Essa senha tá forte que nem a vovó! 💪"
                       : strength.color === "yellow"
                       ? "Tá razoável, mas a vovó já viu senha mais forte. Aumenta mais um pouquinho!"
@@ -233,26 +233,26 @@ export default function GeradorSenhaPage() {
         </h3>
         <ul className="space-y-3 text-gray-700">
           <li className="flex items-start gap-2">
-            <span className="text-purple-600 font-bold">✓</span>
+            <span className="text-purple-600 font-bold">Check</span>
             <span>
               <strong>Mínimo 12 caracteres</strong> - quanto maior, melhor
             </span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-purple-600 font-bold">✓</span>
+            <span className="text-purple-600 font-bold">Check</span>
             <span>
               <strong>Nunca reutilize</strong> - senha diferente pra cada site
             </span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-purple-600 font-bold">✓</span>
+            <span className="text-purple-600 font-bold">Check</span>
             <span>
               <strong>Use gerenciador de senhas</strong> - como 1Password,
               LastPass ou Bitwarden
             </span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-purple-600 font-bold">✓</span>
+            <span className="text-purple-600 font-bold">Check</span>
             <span>
               <strong>Ative autenticação em 2 fatores</strong> - sempre que
               possível

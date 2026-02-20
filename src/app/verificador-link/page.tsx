@@ -35,7 +35,7 @@ export default function VerificadorLinkPage() {
         "adf.ly",
       ];
       if (shorteners.some((s) => domain.includes(s))) {
-        warnings.push("🔗 Link encurtado - oculta o destino real");
+        warnings.push("Link encurtado - oculta o destino real");
       }
 
       // Suspicious TLDs
@@ -79,7 +79,7 @@ export default function VerificadorLinkPage() {
       if (urlObj.protocol === "http:") {
         warnings.push("🔓 Não usa HTTPS - conexão insegura");
       } else {
-        safe.push("✓ Usa HTTPS - conexão criptografada");
+        safe.push("Usa HTTPS - conexão criptografada");
       }
 
       // IP address instead of domain
@@ -115,7 +115,7 @@ export default function VerificadorLinkPage() {
         "nubank.com.br",
       ];
       if (safeDomains.some((sd) => domain.endsWith(sd) && domain === urlObj.hostname)) {
-        safe.push("✓ Domínio conhecido e confiável");
+        safe.push("Domínio conhecido e confiável");
       }
 
       return {
@@ -161,7 +161,7 @@ export default function VerificadorLinkPage() {
           transition={{ delay: 0.2 }}
         >
           <p className="text-purple-800 italic">
-            💜 <strong>A Vovó fala:</strong> "Recebeu um link e não sabe se pode confiar? Calma! A vovó olha esse link pra você antes de clicar. Melhor prevenir que remediar!"
+            <strong>A Vovó fala:</strong> "Recebeu um link e não sabe se pode confiar? Calma! A vovó olha esse link pra você antes de clicar. Melhor prevenir que remediar!"
           </p>
         </motion.div>
 
@@ -184,7 +184,7 @@ export default function VerificadorLinkPage() {
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >
-          🔍 Verificar Link
+          Verificar Link
         </motion.button>
 
         {/* Result */}
@@ -236,7 +236,7 @@ export default function VerificadorLinkPage() {
             {result.safe.length > 0 && (
               <div>
                 <h4 className="font-bold text-green-800 mb-2">
-                  ✓ Pontos Positivos:
+                  Pontos Positivos:
                 </h4>
                 <ul className="space-y-2">
                   {result.safe.map((point, i) => (
@@ -259,7 +259,7 @@ export default function VerificadorLinkPage() {
                   result.suspicious ? "text-red-800" : "text-green-800"
                 }`}
               >
-                🛡️ Recomendação da Vovó:
+                Recomendação da Vovó:
               </h4>
               <p
                 className={`text-sm ${
@@ -318,13 +318,13 @@ export default function VerificadorLinkPage() {
             </span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-green-600 font-bold">✓</span>
+            <span className="text-green-600 font-bold">Check</span>
             <span>
               <strong>SEMPRE verifique o domínio</strong> antes de clicar
             </span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-green-600 font-bold">✓</span>
+            <span className="text-green-600 font-bold">Check</span>
             <span>
               <strong>Na dúvida, digite</strong> o endereço manualmente
             </span>
@@ -335,7 +335,7 @@ export default function VerificadorLinkPage() {
       {/* Examples */}
       <div className="mt-6 bg-purple-50 border-2 border-purple-200 rounded-2xl p-6">
         <h3 className="text-xl font-bold text-purple-800 mb-4">
-          📝 Exemplos para Testar
+          Exemplos para Testar
         </h3>
         <div className="space-y-2">
           <button
