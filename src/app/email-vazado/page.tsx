@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import ToolLayout from "../components/ToolLayout";
+import { Mail } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function EmailVazadoPage() {
@@ -57,7 +58,7 @@ export default function EmailVazadoPage() {
     <ToolLayout
       title="Email Vazado?"
       description="Descubra se seu e-mail foi exposto em vazamentos de dados"
-      emoji="📧"
+      Icon={Mail}
     >
       <div className="bg-white rounded-2xl shadow-lg p-8 mb-6">
         {/* Vovó Message */}

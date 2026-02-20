@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import ToolLayout from "../components/ToolLayout";
+import { Smartphone } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function VerificarNumeroPage() {
@@ -137,7 +138,7 @@ export default function VerificarNumeroPage() {
     <ToolLayout
       title="Verificador de Número"
       description="Identifique operadora e valide números de telefone"
-      emoji="📱"
+      Icon={Smartphone}
     >
       <div className="bg-white rounded-2xl shadow-lg p-8 mb-6">
         {/* Vovó Message */}

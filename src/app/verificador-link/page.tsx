@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import ToolLayout from "../components/ToolLayout";
+import { Link2 } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function VerificadorLinkPage() {
@@ -149,7 +150,7 @@ export default function VerificadorLinkPage() {
     <ToolLayout
       title="Verificador de Link"
       description="Verifique se um link é seguro antes de clicar"
-      emoji="🔗"
+      Icon={Link2}
     >
       <div className="bg-white rounded-2xl shadow-lg p-8 mb-6">
         {/* Vovó Message */}

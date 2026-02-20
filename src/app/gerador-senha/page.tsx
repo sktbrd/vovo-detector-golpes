@@ -3,6 +3,7 @@
 import { useState } from "react";
 import ToolLayout from "../components/ToolLayout";
 import { motion } from "framer-motion";
+import { KeyRound } from "lucide-react";
 
 export default function GeradorSenhaPage() {
   const [length, setLength] = useState(16);
@@ -67,8 +68,7 @@ export default function GeradorSenhaPage() {
     <ToolLayout
       title="Gerador de Senha Forte"
       description="Crie senhas seguras e impossíveis de adivinhar"
-      emoji="🔐"
-      image="/vovo-cadeado.png"
+      Icon={KeyRound}
     >
       <div className="bg-white rounded-2xl shadow-lg p-8 mb-6">
         {/* Vovó Message */}

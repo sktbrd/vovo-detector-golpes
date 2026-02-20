@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import ToolLayout from "../components/ToolLayout";
+import { Building2 } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function ValidarCPFPage() {
@@ -103,7 +104,7 @@ export default function ValidarCPFPage() {
     <ToolLayout
       title="Validador CPF/CNPJ"
       description="Valide CPF ou CNPJ instantaneamente"
-      emoji="🏦"
+      Icon={Building2}
     >
       <div className="bg-white rounded-2xl shadow-lg p-8 mb-6">
         {/* Vovó Message */}
