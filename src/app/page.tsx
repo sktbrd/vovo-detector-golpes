@@ -25,7 +25,7 @@ import ScanAnimation from "./components/ScanAnimation";
 import ResultIcon from "./components/ResultIcons";
 import SmallResultIcon from "./components/SmallResultIcon";
 
-type ResultType = "safe" | "suspicious" | "scam" | null;
+type ResultType = "safe" | "suspicious" | "scam";
 
 interface AnalysisResult {
   type: ResultType;
@@ -200,7 +200,7 @@ export default function Home() {
     });
   };
 
-  const getResultStyles = (type: ResultType) => {
+  const getResultStyles = (type: ResultType | null) => {
     switch (type) {
       case "scam":
         return "bg-red-50 border-red-300 text-red-800";
