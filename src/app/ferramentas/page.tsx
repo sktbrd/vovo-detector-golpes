@@ -136,23 +136,25 @@ export default function FerramentasPage() {
                   colorClasses[tool.color as keyof typeof colorClasses]
                 } border-2 rounded-2xl p-6 transition-all hover:shadow-lg hover:-translate-y-1 group relative overflow-hidden`}
               >
-                {/* Badge */}
+                {/* Badge (top-right, does not affect layout) */}
                 {tool.badge && (
-                  <div className="mb-3">
-                    <span className="px-3 py-1 bg-purple-600 text-white text-xs font-bold rounded-full">
+                  <div className="absolute top-4 right-4">
+                    <span className="px-3 py-1 bg-purple-600 text-white text-xs font-bold rounded-full shadow-sm">
                       {tool.badge}
                     </span>
                   </div>
                 )}
 
-                {/* Icon */}
-                <div className="mb-4 relative">
-                  <IconComponent 
-                    className={`w-16 h-16 ${iconColorClasses[tool.color as keyof typeof iconColorClasses]} group-hover:scale-110 transition-transform`}
-                    strokeWidth={1.5}
-                  />
-                  {/* Subtle glow */}
-                  <div className={`absolute inset-0 ${iconColorClasses[tool.color as keyof typeof iconColorClasses]} opacity-20 blur-xl group-hover:opacity-30 transition-opacity`}></div>
+                {/* Icon (centered) */}
+                <div className="mb-4 relative flex justify-center">
+                  <div className="relative h-16 w-16">
+                    <IconComponent 
+                      className={`w-16 h-16 ${iconColorClasses[tool.color as keyof typeof iconColorClasses]} group-hover:scale-110 transition-transform`}
+                      strokeWidth={1.5}
+                    />
+                    {/* Subtle glow */}
+                    <div className={`absolute inset-0 ${iconColorClasses[tool.color as keyof typeof iconColorClasses]} opacity-20 blur-xl group-hover:opacity-30 transition-opacity`} />
+                  </div>
                 </div>
 
                 {/* Title */}
