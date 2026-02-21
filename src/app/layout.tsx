@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://vovovigilante.com.br'),
+  metadataBase: new URL('https://www.detectordegolpes.com.br'),
   title: {
     default: "Vovó - Detector de Golpes com IA | Proteja-se de Golpes Online",
     template: "%s | Vovó Detector de Golpes"
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "pt_BR",
-    url: "https://vovovigilante.com.br",
+    url: "https://www.detectordegolpes.com.br",
     title: "Vovó - Detector de Golpes com IA",
     description: "Deixa a vovó dar uma olhada nessa mensagem suspeita... Identifique golpes em segundos!",
     siteName: "Vovó Detector de Golpes",
@@ -85,7 +85,7 @@ export default function RootLayout({
     '@type': 'WebApplication',
     name: 'Vovó - Detector de Golpes',
     description: 'Detector de golpes com IA que identifica golpes no WhatsApp, SMS e e-mail',
-    url: 'https://vovovigilante.com.br',
+    url: 'https://www.detectordegolpes.com.br',
     applicationCategory: 'SecurityApplication',
     operatingSystem: 'Web',
     offers: {
