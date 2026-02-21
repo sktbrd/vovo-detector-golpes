@@ -5,6 +5,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import Link from "next/link";
 import { Metadata } from "next";
+import { Calendar, PenLine, Search, Shield } from "lucide-react";
 import ShareButtons from "./ShareButtons";
 
 const postsDirectory = path.join(process.cwd(), "posts");
@@ -61,7 +62,7 @@ export default async function BlogPost({
             href="/"
             className="flex items-center gap-2 text-purple-800 hover:text-purple-600"
           >
-            <Shield className="w-7 h-7"</span>
+            <Shield className="w-7 h-7" aria-hidden="true" />
             <span className="font-bold">Vovó Detector</span>
           </Link>
           <div className="flex gap-3">
@@ -85,10 +86,16 @@ export default async function BlogPost({
       <main className="max-w-4xl mx-auto px-4 py-12">
         <article className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
           {/* Meta */}
-          <div className="mb-6 text-sm text-gray-500">
-            <span>📅 {data.date}</span>
-            <span className="mx-2">•</span>
-            <span>✍️ {data.author || "Vovó Detector"}</span>
+          <div className="mb-6 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-gray-500">
+            <span className="inline-flex items-center gap-1.5">
+              <Calendar className="h-4 w-4" aria-hidden="true" />
+              <span>{data.date}</span>
+            </span>
+            <span aria-hidden="true">•</span>
+            <span className="inline-flex items-center gap-1.5">
+              <PenLine className="h-4 w-4" aria-hidden="true" />
+              <span>{data.author || "Vovó Detector"}</span>
+            </span>
           </div>
 
           {/* Content */}
@@ -101,7 +108,9 @@ export default async function BlogPost({
           {/* CTA */}
           <div className="mt-12 pt-8 border-t border-purple-200">
             <div className="bg-purple-50 rounded-xl p-6 text-center">
-              <Search className="w-16 h-16"</div>
+              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-white text-purple-700 shadow-sm">
+                <Search className="h-8 w-8" aria-hidden="true" />
+              </div>
               <h3 className="text-xl font-bold text-purple-800 mb-2">
                 Recebeu uma mensagem suspeita?
               </h3>
@@ -137,7 +146,7 @@ export default async function BlogPost({
 
       {/* Footer */}
       <footer className="text-center py-8 px-4 text-purple-600 text-sm border-t border-purple-200 mt-12">
-        <p className="mb-2">Feito com para proteger você</p>
+        <p className="mb-2">Feito para proteger você</p>
         <div className="flex justify-center gap-4">
           <Link href="/privacy" className="hover:text-purple-800 underline">
             Privacidade
