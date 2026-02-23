@@ -33,3 +33,14 @@ Existem várias ferramentas e recursos disponíveis para ajudar a evitar golpes 
 
 ## Conclusão e Call-to-Action 📢
 A segurança no Pix é uma responsabilidade compartilhada entre os usuários e as instituições financeiras. Ao estar informado e tomar medidas preventivas, você pode minimizar o risco de ser vítima de golpes. Se você suspeita de um golpe, não hesite em reportá-lo às autoridades competentes e à sua instituição financeira. **Proteja seu dinheiro e mantenha sua conta segura**. Aprenda mais sobre como evitar golpes no Pix e fique sempre um passo à frente dos golpistas.
+
+## 📚 Artigos Relacionados sobre Golpes PIX
+
+- [Como Identificar Golpe no Pix](/blog/como-identificar-golpe-no-pix)
+- [Golpe Pix Itaú: Como Identificar](/blog/golpe-pix-itau-como-identificar)
+- [Golpe Pix Banco do Brasil 2024](/blog/golpe-pix-banco-do-brasil-2024)
+- [Golpe Pix Nubank WhatsApp](/blog/golpe-pix-nubank-whatsapp)
+- [Pix Estornado é Golpe?](/blog/pix-estornado--golpe)
+
+Proteja-se com nossas [Ferramentas Gratuitas](/ferramentas)!
+

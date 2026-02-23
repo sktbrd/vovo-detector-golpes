@@ -137,6 +137,106 @@ const KEYWORD_QUEUE: Keyword[] = [
     lsi: ['débito não autorizado', 'golpe cobrança indevida', 'débito automático falso'],
     intent: 'informational',
     targetLength: 1300
+  },
+  
+  // 🔥 Nova Batch - E-commerce & Delivery
+  {
+    primary: 'site falso como identificar',
+    lsi: ['loja falsa online', 'site golpe sinais', 'como saber se site é confiável'],
+    intent: 'informational',
+    targetLength: 1600
+  },
+  {
+    primary: 'golpe da entrega falsa correios',
+    lsi: ['golpe correios whatsapp', 'mensagem falsa correios', 'golpe taxa de entrega'],
+    intent: 'informational',
+    targetLength: 1400
+  },
+  {
+    primary: 'golpe mercado livre como evitar',
+    lsi: ['golpe ml 2024', 'compra segura mercado livre', 'vendedor falso mercado livre'],
+    intent: 'informational',
+    targetLength: 1500
+  },
+  {
+    primary: 'golpe da compra que não chega',
+    lsi: ['produto não chegou golpe', 'como denunciar loja falsa', 'recuperar dinheiro compra online'],
+    intent: 'informational',
+    targetLength: 1400
+  },
+  
+  // 🔥 Golpes de Investimento
+  {
+    primary: 'pirâmide financeira como identificar',
+    lsi: ['esquema de pirâmide brasil', 'marketing multinível golpe', 'investimento pirâmide sinais'],
+    intent: 'informational',
+    targetLength: 1600
+  },
+  {
+    primary: 'golpe do trader falso',
+    lsi: ['trader instagram golpe', 'curso de trader falso', 'investimento forex golpe'],
+    intent: 'informational',
+    targetLength: 1500
+  },
+  {
+    primary: 'golpe bitcoin whatsapp',
+    lsi: ['investimento bitcoin falso', 'golpe criptomoeda whatsapp', 'bitcoin duplicar dinheiro golpe'],
+    intent: 'informational',
+    targetLength: 1400
+  },
+  
+  // 🔥 Golpes de Emprego
+  {
+    primary: 'golpe da vaga de emprego falsa',
+    lsi: ['vaga falsa linkedin', 'golpe entrevista emprego', 'empresa fantasma recrutamento'],
+    intent: 'informational',
+    targetLength: 1500
+  },
+  {
+    primary: 'golpe do trabalho em casa',
+    lsi: ['trabalho home office falso', 'golpe renda extra', 'vaga remota golpe'],
+    intent: 'informational',
+    targetLength: 1400
+  },
+  {
+    primary: 'golpe do treinamento pago',
+    lsi: ['curso admissão falso', 'taxa treinamento golpe', 'empresa cobra treinamento golpe'],
+    intent: 'informational',
+    targetLength: 1300
+  },
+  
+  // 🔥 Golpes de Relacionamento
+  {
+    primary: 'golpe do amor na internet',
+    lsi: ['romance golpe online', 'namoro virtual falso', 'golpe relacionamento brasil'],
+    intent: 'informational',
+    targetLength: 1500
+  },
+  {
+    primary: 'catfish como identificar',
+    lsi: ['perfil falso namoro', 'fotos falsas online', 'identidade falsa internet'],
+    intent: 'informational',
+    targetLength: 1400
+  },
+  
+  // 🔥 Golpes Diversos
+  {
+    primary: 'golpe black friday como evitar',
+    lsi: ['ofertas falsas black friday', 'site falso black friday', 'golpe desconto irreal'],
+    intent: 'informational',
+    targetLength: 1400
+  },
+  {
+    primary: 'golpe do FGTS liberado',
+    lsi: ['mensagem falsa fgts', 'golpe saque fgts', 'link falso caixa fgts'],
+    intent: 'informational',
+    targetLength: 1300
+  },
+  {
+    primary: 'golpe boleto falso',
+    lsi: ['como saber se boleto é verdadeiro', 'boleto falso sinais', 'validar boleto antes pagar'],
+    intent: 'informational',
+    targetLength: 1500
   }
 ];
 

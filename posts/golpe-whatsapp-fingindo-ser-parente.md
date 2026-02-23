@@ -45,3 +45,14 @@ Os golpistas geralmente começam monitorando as redes sociais das vítimas para 
 📚 A segurança digital é uma responsabilidade compartilhada. Educando-se e seus entes queridos sobre os golpes mais comuns, você pode ajudar a prevenir perdas financeiras e emocionais. Lembre-se, a prevenção é a melhor defesa contra esses crimes. Se você acredita ter sido vítima de um golpe ou precisa de orientação sobre como se proteger, não hesite em buscar ajuda de especialistas em segurança digital ou autoridades competentes.
 
 👉 **Acesse o Detector de Golpes para obter ferramentas gratuitas e informações atualizadas sobre como proteger-se contra golpes online**. Juntos, podemos criar uma comunidade mais segura e informada.
+
+## 📚 Artigos Relacionados sobre Golpes WhatsApp
+
+- [Golpe do WhatsApp Clonado](/blog/golpe-do-whatsapp-clonado)
+- [Golpe WhatsApp Fingindo Ser Parente](/blog/golpe-whatsapp-fingindo-ser-parente)
+- [Golpe WhatsApp Se Passando por Empresa](/blog/golpe-whatsapp-se-passando-por-empresa)
+- [Como Saber se WhatsApp Foi Clonado](/blog/como-saber-se-whatsapp-foi-clonado)
+- [Recuperar WhatsApp Clonado](/blog/recuperar-whatsapp-clonado)
+
+Proteja-se com nossas [Ferramentas Gratuitas](/ferramentas)!
+

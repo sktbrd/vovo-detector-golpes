@@ -32,3 +32,14 @@ Para se proteger contra esses golpes, é importante estar sempre vigilante. Aqui
 
 ## Conclusão e Próximos Passos 🚀
 O golpe Pix Nubank via WhatsApp é uma ameaça real, mas com conhecimento e precaução, você pode se proteger. Lembre-se de sempre verificar a autenticidade das mensagens, nunca fornecer informações pessoais ou bancárias em resposta a contatos não solicitados, e utilize ferramentas de segurança disponíveis. Se você acredita ter sido vítima de um golpe, entre em contato imediatamente com o Nubank e com as autoridades competentes. Proteja seu dinheiro e seu futuro financeiro. 🚫💡
+
+## 📚 Artigos Relacionados sobre Golpes PIX
+
+- [Como Identificar Golpe no Pix](/blog/como-identificar-golpe-no-pix)
+- [Golpe Pix Itaú: Como Identificar](/blog/golpe-pix-itau-como-identificar)
+- [Golpe Pix Banco do Brasil 2024](/blog/golpe-pix-banco-do-brasil-2024)
+- [Golpe Pix Nubank WhatsApp](/blog/golpe-pix-nubank-whatsapp)
+- [Pix Estornado é Golpe?](/blog/pix-estornado--golpe)
+
+Proteja-se com nossas [Ferramentas Gratuitas](/ferramentas)!
+
