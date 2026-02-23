@@ -1,0 +1,42 @@
+🌅 [2026-02-23 11:17:07] Starting daily automation...
+[dotenv@17.3.1] injecting env (1) from .env.local -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+🌅 Starting daily automation...
+⏰ 23/02/2026, 11:17:08
+
+📊 Task 1/2: Search Console data pull
+⚠️  Skipping (not implemented yet)
+
+📝 Task 2/2: Content generation
+🚀 Daily Content Generator
+📅 segunda-feira, 23 de fevereiro de 2026
+
+📚 Existing articles: 15
+
+📝 Generating 3 new articles...
+
+✍️  Generating article for: "golpe whatsapp com link"
+✅ Article generated: "Golpe WhatsApp com Link: Como Se Proteger"
+✅ Saved: /Users/vladnikolaev/.openclaw/workspace-freelancer/vovo/posts/golpe-whatsapp-com-link.md
+
+✍️  Generating article for: "golpe do falso funcionário do banco"
+✅ Article generated: "Golpe do Falso Funcionário de Banco: Como Se Proteger"
+✅ Saved: /Users/vladnikolaev/.openclaw/workspace-freelancer/vovo/posts/golpe-do-falso-funcionario-do-banco.md
+
+✍️  Generating article for: "golpe da maquininha banco do brasil"
+✅ Article generated: "Golpe da Maquininha BB: Como Se Proteger"
+✅ Saved: /Users/vladnikolaev/.openclaw/workspace-freelancer/vovo/posts/golpe-da-maquininha-banco-do-brasil.md
+
+✅ Daily content generation complete!
+💾 Report saved: /Users/vladnikolaev/.openclaw/workspace-freelancer/vovo/automation/data/reports/2026-02-23.json
+
+✅ Daily automation complete!
+🤖 Vovó Daily Report - 2026-02-23
+
+✅ SUCCESS
+
+📝 Content Generation: success
+📄 Articles Created: 3
+📊 Search Console: skipped (not implemented)
+
+---
+Log: automation/data/reports/cron-2026-02-23.log
