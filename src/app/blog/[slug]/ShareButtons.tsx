@@ -1,5 +1,7 @@
 "use client";
 
+import { Share2, MessageCircle, Twitter } from "lucide-react";
+
 interface ShareButtonsProps {
   title: string;
   description: string;
@@ -41,21 +43,24 @@ export default function ShareButtons({ title, description }: ShareButtonsProps) 
       <div className="flex justify-center gap-3 flex-wrap">
         <button
           onClick={handleShare}
-          className="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg text-sm font-medium transition-colors"
+          className="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg text-sm font-medium transition-colors flex items-center gap-2"
         >
+          <Share2 size={16} />
           Copiar Link
         </button>
         <button
           onClick={handleWhatsAppShare}
-          className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg text-sm font-medium transition-colors"
+          className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg text-sm font-medium transition-colors flex items-center gap-2"
         >
+          <MessageCircle size={16} />
           WhatsApp
         </button>
         <button
           onClick={handleTwitterShare}
-          className="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg text-sm font-medium transition-colors"
+          className="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg text-sm font-medium transition-colors flex items-center gap-2"
         >
-          🐦 Twitter
+          <Twitter size={16} />
+          Twitter
         </button>
       </div>
     </div>
