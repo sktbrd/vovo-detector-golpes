@@ -281,7 +281,7 @@ export default function Home() {
               <button
                 key={i}
                 onClick={() => loadExample(example)}
-                className="w-full text-left p-4 bg-slate-50 border-2 border-slate-900 hover:bg-teal-50 hover:border-teal-500 transition-all text-sm md:text-base font-medium hover:shadow-[2px_2px_0px_0px_rgba(6,182,212,1)] hover:-translate-x-0.5 hover:-translate-y-0.5"
+                className="w-full text-left p-4 bg-slate-50 border-2 border-slate-900 text-slate-900 hover:bg-teal-50 hover:border-teal-500 hover:text-slate-900 transition-all text-sm md:text-base font-semibold hover:shadow-[2px_2px_0px_0px_rgba(6,182,212,1)] hover:-translate-x-0.5 hover:-translate-y-0.5"
               >
                 {example.slice(0, 80)}...
               </button>
