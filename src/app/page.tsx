@@ -219,7 +219,7 @@ export default function Home() {
       >
         <div className="text-left md:text-center">
           <motion.div 
-            className="inline-flex mb-6"
+            className="flex justify-start md:justify-center mb-6"
             initial={{ scale: 0, rotate: -180 }}
             animate={{ scale: 1, rotate: 0 }}
             transition={{ 
@@ -229,15 +229,22 @@ export default function Home() {
               delay: 0.2
             }}
           >
-            <Heart className="w-16 h-16 md:w-20 md:h-20 text-pink-500 fill-pink-500 drop-shadow-[4px_4px_0px_rgba(15,23,42,1)]" />
+            <div className="relative">
+              <img 
+                src="/vovo-lupa.png" 
+                alt="Vovó Detetive" 
+                className="w-32 h-32 md:w-40 md:h-40 object-contain drop-shadow-[6px_6px_0px_rgba(15,23,42,1)]"
+              />
+              <Heart className="absolute -top-2 -right-2 w-12 h-12 text-pink-500 fill-pink-500 drop-shadow-[3px_3px_0px_rgba(15,23,42,1)]" />
+            </div>
           </motion.div>
           
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-slate-900 leading-none mb-4">
-            DETECTOR
-            <span className="block text-teal-500 mt-2">DE GOLPES</span>
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black leading-none mb-4">
+            <span className="text-slate-900">DETECTOR</span>
+            <span className="block text-teal-600 mt-2 drop-shadow-[2px_2px_0px_rgba(15,23,42,0.3)]">DE GOLPES</span>
           </h1>
           
-          <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-pink-500 mb-8 leading-tight">
+          <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-pink-600 mb-8 leading-tight drop-shadow-[1px_1px_0px_rgba(15,23,42,0.2)]">
             A vovó mais esperta da internet 👵
           </p>
           
