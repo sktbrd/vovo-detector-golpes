@@ -2,12 +2,26 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0F172A;
+  
+  /* Bold Color Palette (Anti-AI-Slop) */
+  --primary: #06B6D4;      /* Teal-500 */
+  --primary-dark: #0E7490; /* Teal-700 */
+  --primary-light: #67E8F9;/* Teal-300 */
+  --accent: #EC4899;       /* Pink-500 */
+  --accent-dark: #BE185D;  /* Pink-700 */
+  --warning: #F97316;      /* Orange-500 */
+  --danger: #DC2626;       /* Red-600 */
+  --success: #84CC16;      /* Lime-500 */
+  --black: #0F172A;        /* Slate-900 */
+  --white: #F8FAFC;        /* Slate-50 */
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-accent: var(--accent);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -52,25 +66,27 @@ textarea:focus {
 }
 
 .prose h1 {
-  font-size: 2.25rem;
-  font-weight: 700;
-  color: #6b21a8;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #0F172A;
   margin-top: 2rem;
   margin-bottom: 1rem;
+  line-height: 1.1;
 }
 
 .prose h2 {
-  font-size: 1.875rem;
-  font-weight: 700;
-  color: #7c3aed;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #06B6D4;
   margin-top: 2rem;
   margin-bottom: 1rem;
+  line-height: 1.2;
 }
 
 .prose h3 {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #8b5cf6;
+  color: #EC4899;
   margin-top: 1.5rem;
   margin-bottom: 0.75rem;
 }
@@ -99,17 +115,18 @@ textarea:focus {
 }
 
 .prose strong {
-  font-weight: 700;
-  color: #581c87;
+  font-weight: 800;
+  color: #0E7490;
 }
 
 .prose a {
-  color: #8b5cf6;
+  color: #06B6D4;
   text-decoration: underline;
+  font-weight: 600;
 }
 
 .prose a:hover {
-  color: #6b21a8;
+  color: #EC4899;
 }
 
 .prose blockquote {

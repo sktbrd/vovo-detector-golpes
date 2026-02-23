@@ -53,19 +53,17 @@ export default function Home() {
   const [result, setResult] = useState<AnalysisResult | null>(null);
   const [history, setHistory] = useState<HistoryItem[]>([]);
 
-  // Load history from localStorage
   useEffect(() => {
     const saved = localStorage.getItem("vovo-history");
     if (saved) {
       try {
         setHistory(JSON.parse(saved));
       } catch {
-        // Ignore parse errors
+        // Ignore
       }
     }
   }, []);
 
-  // Save to history
   const saveToHistory = (msg: string, res: AnalysisResult) => {
     const item: HistoryItem = {
       id: Date.now().toString(),
@@ -73,12 +71,11 @@ export default function Home() {
       result: res,
       timestamp: Date.now(),
     };
-    const updated = [item, ...history].slice(0, 5); // Keep last 5
+    const updated = [item, ...history].slice(0, 5);
     setHistory(updated);
     localStorage.setItem("vovo-history", JSON.stringify(updated));
   };
 
-  // Confetti celebration
   const celebrate = () => {
     const duration = 3000;
     const animationEnd = Date.now() + duration;
@@ -90,11 +87,9 @@ export default function Home() {
 
     const interval: NodeJS.Timeout = setInterval(() => {
       const timeLeft = animationEnd - Date.now();
-
       if (timeLeft <= 0) {
         return clearInterval(interval);
       }
-
       const particleCount = 50 * (timeLeft / duration);
       confetti({
         ...defaults,
@@ -111,9 +106,7 @@ export default function Home() {
 
   const analyzeMessage = async () => {
     if (!message.trim()) {
-      toast.error("Escreva uma mensagem primeiro", {
-        icon: <FileText className="w-5 h-5" />,
-      });
+      toast.error("Escreva uma mensagem primeiro");
       return;
     }
 
@@ -131,25 +124,17 @@ export default function Home() {
       setResult(data);
       saveToHistory(message, data);
 
-      // Efeitos baseados no resultado
       setTimeout(() => {
         if (data.type === "safe") {
           celebrate();
-          toast.success("Mensagem segura!", {
-            icon: <CheckCircle className="w-5 h-5" />,
-          });
+          toast.success("Mensagem segura!");
         } else if (data.type === "scam") {
-          toast.error("Cuidado! Isso é golpe!", {
-            icon: <XCircle className="w-5 h-5" />,
-          });
-          // Vibração no mobile
+          toast.error("Cuidado! Isso é golpe!");
           if (navigator.vibrate) {
             navigator.vibrate([200, 100, 200]);
           }
         } else {
-          toast("Fique atento!", {
-            icon: <AlertCircle className="w-5 h-5 text-yellow-600" />,
-          });
+          toast("Fique atento!");
         }
       }, 300);
     } catch {
@@ -160,9 +145,7 @@ export default function Home() {
         details: [],
       };
       setResult(errorResult);
-      toast.error("Erro na análise", {
-        icon: <XCircle className="w-5 h-5" />,
-      });
+      toast.error("Erro na análise");
     } finally {
       setLoading(false);
     }
@@ -171,20 +154,13 @@ export default function Home() {
   const clearForm = () => {
     setMessage("");
     setResult(null);
-    toast("Formulário limpo", {
-      icon: <Trash2 className="w-5 h-5" />,
-      duration: 2000,
-    });
+    toast("Formulário limpo");
   };
 
   const loadExample = (example: string) => {
     setMessage(example);
     setResult(null);
-    toast("Exemplo carregado! Clique em verificar", {
-      icon: <FileText className="w-5 h-5" />,
-      duration: 2500,
-    });
-    // Scroll suave para o textarea
+    toast("Exemplo carregado! Clique em analisar");
     setTimeout(() => {
       document.getElementById("message")?.focus();
     }, 100);
@@ -192,469 +168,245 @@ export default function Home() {
 
   const shareResult = () => {
     if (!result) return;
-    const text = `${result.title}\n\n${result.message}\n\nAnalise feita em: vovo.app`;
+    const text = `${result.title}\n\n${result.message}\n\nAnalise feita em: detectordegolpes.com.br`;
     navigator.clipboard.writeText(text);
-    toast.success("Resultado copiado!", {
-      icon: <Copy className="w-5 h-5" />,
-      duration: 2000,
-    });
+    toast.success("Resultado copiado!");
   };
 
-  const getResultStyles = (type: ResultType | null) => {
+  const getResultBg = (type: ResultType) => {
     switch (type) {
-      case "scam":
-        return "bg-red-50 border-red-300 text-red-800";
-      case "suspicious":
-        return "bg-yellow-50 border-yellow-300 text-yellow-800";
-      case "safe":
-        return "bg-green-50 border-green-300 text-green-800";
-      default:
-        return "";
+      case "scam": return "bg-red-50";
+      case "suspicious": return "bg-orange-50";
+      case "safe": return "bg-lime-50";
+      default: return "bg-white";
+    }
+  };
+
+  const getResultBorder = (type: ResultType) => {
+    switch (type) {
+      case "scam": return "border-red-600";
+      case "suspicious": return "border-orange-500";
+      case "safe": return "border-lime-500";
+      default: return "border-slate-900";
     }
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-purple-100 to-purple-50">
+    <div className="min-h-screen bg-slate-50">
       <Toaster
         position="top-center"
         toastOptions={{
           duration: 3000,
           style: {
             background: "#fff",
-            color: "#1f2937",
-            fontWeight: "500",
-            borderRadius: "12px",
-            padding: "16px",
-            boxShadow: "0 10px 25px rgba(0,0,0,0.1)",
+            color: "#0F172A",
+            fontWeight: "600",
+            borderRadius: "0px",
+            padding: "20px",
+            border: "3px solid #0F172A",
+            boxShadow: "4px 4px 0px 0px rgba(15,23,42,1)",
           },
         }}
       />
       <Navbar />
       
-      {/* Header */}
+      {/* HERO - BOLD & ASYMMETRIC */}
       <motion.header 
-        className="py-6 px-4 text-center"
+        className="py-12 px-4 max-w-6xl mx-auto"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        <motion.div 
-          className="flex justify-center mb-3"
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ 
-            type: "spring",
-            stiffness: 260,
-            damping: 20,
-            delay: 0.2
-          }}
-        >
-          <img 
-            src="/vovo-lupa.png" 
-            alt="Vovó Detetive" 
-            className="w-32 h-32 object-contain"
-          />
-        </motion.div>
-        <motion.h1 
-          className="text-4xl font-bold text-purple-800"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-        >
-          Vovó
-        </motion.h1>
-        <motion.p 
-          className="text-purple-600 mt-2 text-lg"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.4 }}
-        >
-          Deixa a vovó dar uma olhada nessa mensagem...
-        </motion.p>
+        <div className="text-left md:text-center">
+          <motion.div 
+            className="inline-flex mb-6"
+            initial={{ scale: 0, rotate: -180 }}
+            animate={{ scale: 1, rotate: 0 }}
+            transition={{ 
+              type: "spring",
+              stiffness: 200,
+              damping: 15,
+              delay: 0.2
+            }}
+          >
+            <Heart className="w-16 h-16 md:w-20 md:h-20 text-pink-500 fill-pink-500 drop-shadow-[4px_4px_0px_rgba(15,23,42,1)]" />
+          </motion.div>
+          
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-slate-900 leading-none mb-4">
+            DETECTOR
+            <span className="block text-teal-500 mt-2">DE GOLPES</span>
+          </h1>
+          
+          <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-pink-500 mb-8 leading-tight">
+            A vovó mais esperta da internet 👵
+          </p>
+          
+          <div className="flex gap-3 justify-start md:justify-center flex-wrap">
+            <span className="inline-flex items-center px-4 py-2 text-sm md:text-base font-bold bg-teal-500 text-white border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] uppercase tracking-wide">
+              🤖 IA AVANÇADA
+            </span>
+            <span className="inline-flex items-center px-4 py-2 text-sm md:text-base font-bold bg-pink-500 text-white border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] uppercase tracking-wide">
+              ⚡ RÁPIDO
+            </span>
+            <span className="inline-flex items-center px-4 py-2 text-sm md:text-base font-bold bg-lime-500 text-white border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] uppercase tracking-wide">
+              🔒 PRIVADO
+            </span>
+          </div>
+        </div>
       </motion.header>
 
-      {/* Main */}
-      <main className="max-w-2xl mx-auto px-4 pb-12">
-        {/* Top Ad */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-          className="mb-6"
-        >
-          <AdSenseSlot slot="top-banner" className="max-w-full" />
-        </motion.div>
-
-        {/* Examples Section */}
+      {/* MAIN */}
+      <main className="max-w-4xl mx-auto px-4 pb-12">
+        
+        {/* EXAMPLES - BOLD CARDS */}
         <motion.div 
-          className="bg-white/80 rounded-2xl shadow-md p-5 mb-6"
+          className="bg-white border-4 border-slate-900 p-6 mb-8"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.4 }}
+          transition={{ delay: 0.3 }}
         >
-          <h3 className="text-sm font-bold text-purple-800 mb-3 flex items-center gap-2">
-            <FileText className="w-4 h-4" />
-            Exemplos de golpes comuns:
+          <h3 className="text-xl font-black text-slate-900 mb-4 uppercase tracking-tight flex items-center gap-2">
+            <FileText className="w-6 h-6" />
+            Exemplos de Golpes Comuns
           </h3>
-          <div className="space-y-2">
+          <div className="space-y-3">
             {EXAMPLES.map((example, i) => (
-              <motion.button
+              <button
                 key={i}
                 onClick={() => loadExample(example)}
-                className="w-full text-left text-sm p-3 bg-purple-50 rounded-lg transition-colors border border-purple-200 text-gray-700"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.6 + i * 0.1 }}
-                whileHover={{ 
-                  scale: 1.02,
-                  backgroundColor: "rgb(243 232 255)",
-                  transition: { duration: 0.2 }
-                }}
-                whileTap={{ scale: 0.98 }}
+                className="w-full text-left p-4 bg-slate-50 border-2 border-slate-900 hover:bg-teal-50 hover:border-teal-500 transition-all text-sm md:text-base font-medium hover:shadow-[2px_2px_0px_0px_rgba(6,182,212,1)] hover:-translate-x-0.5 hover:-translate-y-0.5"
               >
-                {example.slice(0, 80)}
-                {example.length > 80 ? "..." : ""}
-              </motion.button>
+                {example.slice(0, 80)}...
+              </button>
             ))}
           </div>
         </motion.div>
 
-        {/* Input Card */}
-        <motion.div 
-          className="bg-white rounded-2xl shadow-lg p-6 mb-6"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7, duration: 0.4 }}
+        {/* FORM - NEO-BRUTAL */}
+        <motion.div
+          className="bg-white border-4 border-slate-900 p-6 md:p-8 shadow-[8px_8px_0px_0px_rgba(15,23,42,1)] mb-8"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.4 }}
         >
-          <label
-            htmlFor="message"
-            className="block text-gray-700 font-medium mb-3"
-          >
-            Cole aqui a mensagem suspeita:
+          <label htmlFor="message" className="block text-2xl md:text-3xl font-black text-slate-900 mb-4 uppercase">
+            Cole a mensagem suspeita:
           </label>
+          
           <textarea
             id="message"
-            className="w-full h-40 p-4 border-2 border-purple-200 rounded-xl focus:border-purple-400 focus:outline-none resize-none text-gray-800"
-            placeholder="Ex: Parabéns! Você foi selecionado para receber R$500. Clique aqui para resgatar..."
             value={message}
             onChange={(e) => setMessage(e.target.value)}
+            placeholder="Cole aqui a mensagem que você recebeu e quer verificar..."
+            className="w-full h-40 md:h-48 p-4 bg-white border-3 border-slate-900 text-lg focus:border-teal-500 focus:ring-4 focus:ring-teal-200 focus:outline-none placeholder:text-slate-400 placeholder:font-semibold resize-none"
+            disabled={loading}
           />
-          <div className="flex gap-3 mt-4">
-            <motion.button
+
+          <div className="flex gap-3 mt-6 flex-wrap">
+            <button
               onClick={analyzeMessage}
-              disabled={loading || !message.trim()}
-              className="flex-1 bg-purple-600 disabled:bg-purple-300 text-white font-bold py-4 px-6 rounded-xl text-lg"
-              animate={
-                message.trim() && !loading
-                  ? {
-                      boxShadow: [
-                        "0 0 0 0 rgba(126, 34, 206, 0.7)",
-                        "0 0 0 10px rgba(126, 34, 206, 0)",
-                      ],
-                    }
-                  : {}
-              }
-              transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                repeatType: "loop",
-              }}
-              whileHover={{ scale: 1.02, backgroundColor: "rgb(126 34 206)" }}
-              whileTap={{ scale: 0.98 }}
+              disabled={loading}
+              className="flex-1 min-w-[200px] bg-teal-500 text-white px-8 py-4 text-lg md:text-xl font-bold border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 active:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-1 active:translate-y-1 transition-all duration-100 uppercase tracking-wider disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {loading ? (
-                <motion.span 
-                  className="flex items-center justify-center gap-2"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                >
-                  <motion.svg 
-                    className="h-5 w-5" 
-                    viewBox="0 0 24 24"
-                    animate={{ rotate: 360 }}
-                    transition={{ 
-                      repeat: Infinity, 
-                      duration: 1, 
-                      ease: "linear" 
-                    }}
-                  >
-                    <circle
-                      className="opacity-25"
-                      cx="12"
-                      cy="12"
-                      r="10"
-                      stroke="currentColor"
-                      strokeWidth="4"
-                      fill="none"
-                    />
-                    <path
-                      className="opacity-75"
-                      fill="currentColor"
-                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
-                    />
-                  </motion.svg>
-                  Vovó analisando...
-                </motion.span>
-              ) : (
-                <>
-                  <Search className="w-5 h-5 inline mr-2" />
-                  Verificar mensagem
-                </>
-              )}
-            </motion.button>
-            <AnimatePresence>
-              {message && (
-                <motion.button
-                  onClick={clearForm}
-                  className="px-6 py-4 bg-gray-200 text-gray-700 font-bold rounded-xl"
-                  title="Limpar"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.8 }}
-                  whileHover={{ scale: 1.05, backgroundColor: "rgb(209 213 219)" }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Trash2 className="w-5 h-5" />
-                </motion.button>
-              )}
-            </AnimatePresence>
+              {loading ? "ANALISANDO..." : "ANALISAR AGORA"}
+            </button>
+            
+            <button
+              onClick={clearForm}
+              disabled={loading}
+              className="bg-white text-slate-900 px-6 py-4 text-lg font-bold border-4 border-slate-900 hover:bg-slate-100 transition-colors uppercase"
+            >
+              <Trash2 className="w-6 h-6" />
+            </button>
           </div>
         </motion.div>
 
-        {/* Loading Animation */}
-        <AnimatePresence mode="wait">
+        {/* LOADING ANIMATION */}
+        <AnimatePresence>
           {loading && (
             <motion.div
-              className="bg-white rounded-2xl shadow-lg p-8 mb-6"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
-              transition={{ duration: 0.3 }}
+              className="mb-8"
             >
               <ScanAnimation />
             </motion.div>
           )}
         </AnimatePresence>
 
-        {/* Result Card */}
-        <AnimatePresence mode="wait">
-          {result && (
-            <motion.div
-              className={`rounded-2xl border-2 p-6 mb-6 ${getResultStyles(result.type)}`}
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{
-                opacity: 1,
-                scale: 1,
-                y: 0,
-                x: result.type === "scam" ? [0, -10, 10, -10, 10, -5, 5, 0] : 0,
-              }}
-              exit={{ opacity: 0, scale: 0.9, y: -20 }}
-              transition={{
-                type: "spring",
-                stiffness: 300,
-                damping: 25,
-                x: { duration: 0.5, delay: 0.2 },
-              }}
-            >
-              <div className="flex items-start justify-between mb-3">
-                <ResultIcon type={result.type} />
-                <motion.button
-                  onClick={shareResult}
-                  className="px-4 py-2 bg-white/30 rounded-lg text-sm font-medium flex items-center gap-2"
-                  title="Compartilhar resultado"
-                  whileHover={{ 
-                    scale: 1.05, 
-                    backgroundColor: "rgba(255,255,255,0.5)" 
-                  }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Copy className="w-4 h-4" />
-                  Copiar
-                </motion.button>
-              </div>
-              <motion.h2 
-                className="text-2xl font-bold mb-2"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.2 }}
-              >
-                {result.title}
-              </motion.h2>
-              <motion.p 
-                className="text-lg mb-4"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.3 }}
-              >
-                {result.message}
-              </motion.p>
-              {result.details.length > 0 && (
-                <motion.div 
-                  className="mt-4 pt-4 border-t border-current/20"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 }}
-                >
-                  <p className="font-medium mb-2">A vovó notou:</p>
-                  <ul className="list-disc list-inside space-y-1">
-                    {result.details.map((detail, i) => (
-                      <motion.li 
-                        key={i}
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.5 + i * 0.1 }}
-                      >
-                        {detail}
-                      </motion.li>
-                    ))}
-                  </ul>
-                </motion.div>
-              )}
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        {/* Mid Ad */}
-        {result && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-            className="mb-6"
-          >
-            <AdSenseSlot slot="mid-banner" className="max-w-full" />
-          </motion.div>
-        )}
-
-        {/* History Section */}
+        {/* RESULT - BOLD OFFSET SHADOW */}
         <AnimatePresence>
-          {history.length > 0 && (
-            <motion.div 
-              className="bg-white rounded-2xl shadow-lg p-6 mb-6"
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
+          {result && !loading && (
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -30 }}
+              className="relative"
             >
-              <h3 className="text-xl font-bold text-purple-800 mb-4 flex items-center gap-2">
-                <Clock className="w-5 h-5" />
-                Últimas Análises
-              </h3>
-              <div className="space-y-3">
-                {history.map((item, i) => (
-                  <motion.button
-                    key={item.id}
-                    onClick={() => {
-                      setMessage(item.message);
-                      setResult(item.result);
-                    }}
-                    className="w-full text-left p-3 bg-purple-50 rounded-lg border border-purple-200"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.05 }}
-                    whileHover={{ 
-                      scale: 1.02,
-                      backgroundColor: "rgb(243 232 255)"
-                    }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <div className="flex items-start gap-3">
-                      <SmallResultIcon type={item.result.type} />
-                      <div className="flex-1 min-w-0">
-                        <p className="text-sm font-medium text-gray-900 truncate">
-                          {item.result.title}
-                        </p>
-                        <p className="text-xs text-gray-500 truncate">
-                          {item.message.slice(0, 60)}...
-                        </p>
+              <div className={`${getResultBg(result.type)} border-4 ${getResultBorder(result.type)} p-8 relative before:content-[''] before:absolute before:inset-0 before:bg-gradient-to-br before:from-teal-500 before:to-pink-500 before:translate-x-6 before:translate-y-6 before:-z-10 before:transition-transform before:duration-300 hover:before:translate-x-8 hover:before:translate-y-8`}>
+                
+                <div className="flex items-start gap-4 mb-6">
+                  <div className="w-16 h-16 md:w-20 md:h-20 flex-shrink-0">
+                    <ResultIcon type={result.type} />
+                  </div>
+                  <div>
+                    <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-2">
+                      {result.title}
+                    </h2>
+                    <p className="text-xl md:text-2xl font-medium leading-relaxed">
+                      {result.message}
+                    </p>
+                  </div>
+                </div>
+
+                {result.details.length > 0 && (
+                  <div className="mt-6 space-y-2">
+                    {result.details.map((detail, i) => (
+                      <div key={i} className="flex items-start gap-2 text-base md:text-lg font-medium">
+                        <ChevronRight className="w-5 h-5 flex-shrink-0 mt-1" />
+                        <span>{detail}</span>
                       </div>
-                    </div>
-                  </motion.button>
-                ))}
+                    ))}
+                  </div>
+                )}
+
+                <button
+                  onClick={shareResult}
+                  className="mt-6 bg-slate-900 text-white px-6 py-3 text-base font-bold border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all flex items-center gap-2 uppercase"
+                >
+                  <Copy className="w-5 h-5" />
+                  Copiar Resultado
+                </button>
               </div>
             </motion.div>
           )}
         </AnimatePresence>
 
-        {/* Tips Section */}
-        <motion.div 
-          className="bg-white rounded-2xl shadow-lg p-6"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+        {/* CTA BLOG - BOLD */}
+        <motion.div
+          className="mt-12 bg-gradient-to-br from-teal-500 to-pink-500 border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.8 }}
         >
-          <h3 className="text-xl font-bold text-purple-800 mb-4 flex items-center gap-2">
-            <Lightbulb className="w-5 h-5" />
-            Dicas da Vovó
-          </h3>
-          <ul className="space-y-3 text-gray-600">
-            {[
-              "Bancos nunca pedem senha ou código por WhatsApp",
-              "Desconfie de promoções boas demais pra ser verdade",
-              "Links encurtados são um sinal de alerta",
-              "Na dúvida, ligue pro número oficial da empresa"
-            ].map((tip, i) => (
-              <motion.li 
-                key={i}
-                className="flex items-start gap-3"
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-              >
-                <ChevronRight className="w-5 h-5 text-purple-500 flex-shrink-0 mt-0.5" />
-                <span>{tip}</span>
-              </motion.li>
-            ))}
-          </ul>
+          <div className="flex items-center gap-4 mb-4">
+            <BookOpen className="w-12 h-12 text-white" />
+            <h3 className="text-3xl md:text-4xl font-black text-white uppercase">
+              Aprenda Mais
+            </h3>
+          </div>
+          <p className="text-xl text-white font-medium mb-6">
+            Descubra como se proteger de golpes comuns no Brasil
+          </p>
+          <a
+            href="/blog"
+            className="inline-block bg-white text-slate-900 px-8 py-4 text-xl font-bold border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 transition-all uppercase"
+          >
+            Ver Artigos →
+          </a>
         </motion.div>
       </main>
-
-      {/* Footer */}
-      <footer className="text-center py-8 px-4 text-purple-600 text-sm border-t border-purple-200 mt-12">
-        <div className="max-w-2xl mx-auto">
-          <p className="mb-4 flex items-center justify-center gap-2">
-            Feito com <Heart className="w-4 h-4 fill-purple-600" /> para proteger você
-          </p>
-          <div className="flex justify-center gap-6 mb-4 flex-wrap">
-            <a
-              href="/blog"
-              className="hover:text-purple-800 underline font-medium flex items-center gap-1.5"
-            >
-              <BookOpen className="w-4 h-4" />
-              Blog
-            </a>
-            <a
-              href="/privacy"
-              className="hover:text-purple-800 underline"
-            >
-              Política de Privacidade
-            </a>
-            <a
-              href="/terms"
-              className="hover:text-purple-800 underline"
-            >
-              Termos de Uso
-            </a>
-            <a
-              href="https://github.com/sktbrd/vovo-detector-golpes"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-purple-800 underline flex items-center gap-1.5"
-            >
-              <Github className="w-4 h-4" />
-              GitHub
-            </a>
-          </div>
-          <p className="text-xs text-purple-500">
-            © 2026 Vovó Detector de Golpes. Todos os direitos reservados.
-          </p>
-          <p className="text-xs text-purple-500 mt-2">
-            Este site usa cookies para melhorar sua experiência.
-          </p>
-        </div>
-      </footer>
     </div>
   );
 }
