@@ -6,6 +6,7 @@ import {
   getLineType, 
   isVoIP 
 } from "@/lib/phone-data";
+import { findUsefulNumber, getCategoryBadge } from "@/lib/useful-numbers";
 
 // In-memory rate limiting (will upgrade to Redis if needed)
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
@@ -68,7 +69,31 @@ export async function POST(req: NextRequest) {
     // Clean number
     const cleaned = number.replace(/\D/g, '');
     
-    // Validate format
+    // Check if it's a useful/official number (short codes, emergency, etc)
+    const usefulInfo = findUsefulNumber(cleaned);
+    if (usefulInfo) {
+      const badge = getCategoryBadge(usefulInfo.category);
+      return NextResponse.json({
+        isValid: true,
+        isUsefulNumber: true,
+        number: usefulInfo.number,
+        name: usefulInfo.name,
+        category: badge.label,
+        categoryColor: badge.color,
+        description: usefulInfo.description,
+        isTollFree: usefulInfo.isTollFree || false,
+        isShortCode: usefulInfo.isShortCode || false,
+        message: `Número oficial: ${usefulInfo.name}`,
+      }, {
+        headers: {
+          'X-RateLimit-Limit': RATE_LIMIT.toString(),
+          'X-RateLimit-Remaining': rateLimit.remaining.toString(),
+          'X-RateLimit-Reset': rateLimit.resetAt.toString(),
+        }
+      });
+    }
+    
+    // Validate format for regular numbers
     if (cleaned.length < 10 || cleaned.length > 11) {
       return NextResponse.json({
         isValid: false,

@@ -8,7 +8,14 @@ import toast, { Toaster } from "react-hot-toast";
 
 interface VerificationResult {
   isValid: boolean;
+  isUsefulNumber?: boolean;
   number?: string;
+  name?: string;
+  category?: string;
+  categoryColor?: string;
+  description?: string;
+  isTollFree?: boolean;
+  isShortCode?: boolean;
   details?: {
     ddd: string;
     state: string;
@@ -178,6 +185,75 @@ export default function VerificarNumeroPage() {
                     </h3>
                   </div>
                   <p className="text-slate-800 font-medium">{result.error}</p>
+                </div>
+              ) : result.isUsefulNumber ? (
+                /* Useful Number Display */
+                <div className={`border-4 p-6 ${
+                  result.categoryColor === 'red' ? 'bg-red-50 border-red-500' :
+                  result.categoryColor === 'blue' ? 'bg-blue-50 border-blue-500' :
+                  result.categoryColor === 'green' ? 'bg-lime-50 border-lime-500' :
+                  result.categoryColor === 'purple' ? 'bg-purple-50 border-purple-500' :
+                  'bg-teal-50 border-teal-500'
+                }`}>
+                  <div className="flex items-center gap-3 mb-6">
+                    <CheckCircle className={`w-12 h-12 ${
+                      result.categoryColor === 'red' ? 'text-red-600' :
+                      result.categoryColor === 'blue' ? 'text-blue-600' :
+                      result.categoryColor === 'green' ? 'text-lime-600' :
+                      result.categoryColor === 'purple' ? 'text-purple-600' :
+                      'text-teal-600'
+                    }`} strokeWidth={2.5} />
+                    <div>
+                      <h3 className="text-3xl font-black text-slate-900 uppercase">
+                        {result.number}
+                      </h3>
+                      <p className="text-xl font-black text-slate-900 mt-1">
+                        {result.name}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="space-y-4">
+                    <div className="bg-white border-3 border-slate-900 p-4">
+                      <div className="flex items-center justify-between mb-3">
+                        <span className={`px-4 py-2 font-black text-white border-3 border-black uppercase text-sm ${
+                          result.categoryColor === 'red' ? 'bg-red-500' :
+                          result.categoryColor === 'blue' ? 'bg-blue-500' :
+                          result.categoryColor === 'green' ? 'bg-lime-500' :
+                          result.categoryColor === 'purple' ? 'bg-purple-500' :
+                          'bg-teal-500'
+                        }`}>
+                          {result.category}
+                        </span>
+                        {result.isTollFree && (
+                          <span className="px-3 py-1 bg-green-100 text-green-800 border-2 border-green-500 font-black text-xs uppercase">
+                            LIGAÇÃO GRATUITA
+                          </span>
+                        )}
+                        {result.isShortCode && (
+                          <span className="px-3 py-1 bg-blue-100 text-blue-800 border-2 border-blue-500 font-black text-xs uppercase">
+                            CÓDIGO CURTO
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-slate-900 font-bold text-lg">
+                        {result.description}
+                      </p>
+                    </div>
+
+                    <div className="bg-white border-3 border-slate-900 p-4">
+                      <div className="flex items-center gap-2 mb-2">
+                        <CheckCircle className="w-5 h-5 text-lime-600" strokeWidth={2.5} />
+                        <span className="font-black text-slate-900 uppercase text-sm">Verificação</span>
+                      </div>
+                      <p className="text-slate-800 font-bold">
+                        ✅ Número oficial verificado
+                      </p>
+                      <p className="text-slate-600 font-medium text-sm mt-1">
+                        Este é um número legítimo de serviço público ou instituição reconhecida.
+                      </p>
+                    </div>
+                  </div>
                 </div>
               ) : result.isValid && result.details && result.reputation ? (
                 <div className={`border-4 p-6 ${
