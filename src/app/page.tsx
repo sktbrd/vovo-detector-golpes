@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import confetti from "canvas-confetti";
 import toast, { Toaster } from "react-hot-toast";
+import { WebSiteSchema, OrganizationSchema } from "./components/StructuredData";
 import { 
   Search, 
   Trash2, 
@@ -196,6 +197,9 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-slate-50">
+      {/* SEO: Structured Data */}
+      <WebSiteSchema />
+      <OrganizationSchema />
       <Toaster
         position="top-center"
         toastOptions={{

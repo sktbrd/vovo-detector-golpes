@@ -1,5 +1,34 @@
-# https://www.robotstxt.org/robotstxt.html
+# Vovó Detector - Robots.txt
+# Otimizado para SEO máximo
+
 User-agent: *
 Allow: /
+Allow: /blog
+Allow: /blog/*
+Allow: /ferramentas
+Allow: /gerador-senha
+Allow: /verificador-link
+Allow: /validar-cpf
+Allow: /verificar-numero
+Allow: /email-vazado
+Allow: /mensagem-segura
 
-Sitemap: https://www.detectordegolpes.com.br/sitemap.xml
+# Block one-time read messages (no SEO value)
+Disallow: /msg/
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://detectordegolpes.com.br/sitemap.xml
+
+# Crawl-delay (optional, remove if you want aggressive crawling)
+# Crawl-delay: 1
+
+# Specific bots
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
