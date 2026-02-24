@@ -1,13 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-
-// Same in-memory storage (shared via module scope)
-// In production, use Upstash Redis or Supabase
-const messages = new Map<string, {
-  ciphertext: string;
-  iv: string;
-  createdAt: number;
-  expiresAt: number;
-}>();
+import { getMessage, deleteMessage } from "@/lib/redis";
 
 export async function GET(
   req: NextRequest,
@@ -15,7 +7,7 @@ export async function GET(
 ) {
   try {
     const { id } = await params;
-    const message = messages.get(id);
+    const message = await getMessage(id);
     
     if (!message) {
       return NextResponse.json(
@@ -24,24 +16,10 @@ export async function GET(
       );
     }
     
-    // Check if expired
-    if (message.expiresAt < Date.now()) {
-      messages.delete(id);
-      return NextResponse.json(
-        { error: "Message expired" },
-        { status: 410 }
-      );
-    }
+    // Delete immediately after reading (one-time read)
+    await deleteMessage(id);
     
-    // Return message and DELETE immediately (one-time read)
-    const data = {
-      ciphertext: message.ciphertext,
-      iv: message.iv,
-    };
-    
-    messages.delete(id);
-    
-    return NextResponse.json(data);
+    return NextResponse.json(message);
   } catch (error) {
     console.error("Error retrieving message:", error);
     return NextResponse.json(
