@@ -37,11 +37,15 @@ function getAllPosts() {
       let color = "lime";
       
       if (data.keywords) {
-        const keywords = data.keywords.join(" ").toLowerCase();
-        if (keywords.includes("pix")) {
+        // Handle both array and string keywords
+        const keywordsStr = Array.isArray(data.keywords) 
+          ? data.keywords.join(" ").toLowerCase()
+          : String(data.keywords).toLowerCase();
+          
+        if (keywordsStr.includes("pix")) {
           category = "PIX";
           color = "teal";
-        } else if (keywords.includes("whatsapp")) {
+        } else if (keywordsStr.includes("whatsapp")) {
           category = "WHATSAPP";
           color = "pink";
         }
