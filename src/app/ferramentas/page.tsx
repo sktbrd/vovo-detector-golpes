@@ -75,6 +75,15 @@ const tools = [
     bgColor: "bg-pink-500",
   },
   {
+    name: "Mensagem Segura",
+    description: "Envie mensagens que se auto-destroem após leitura",
+    Icon: Lock,
+    href: "/mensagem-segura",
+    color: "pink",
+    bgColor: "bg-pink-500",
+    badge: "Novo",
+  },
+  {
     name: "Email Vazado?",
     description: "Descubra se seu e-mail foi exposto em vazamentos",
     Icon: Mail,
