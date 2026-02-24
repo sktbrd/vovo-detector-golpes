@@ -7,6 +7,7 @@ import {
   isVoIP 
 } from "@/lib/phone-data";
 import { findUsefulNumber, getCategoryBadge } from "@/lib/useful-numbers";
+import { checkSpam } from "@/lib/spam-checker";
 
 // In-memory rate limiting (will upgrade to Redis if needed)
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
@@ -141,6 +142,14 @@ export async function POST(req: NextRequest) {
       warnings.push("⚠️ Operadora não identificada");
     }
     
+    // Check spam databases (Tellows + local)
+    const spamCheck = await checkSpam(cleaned);
+    
+    if (spamCheck.isSpam) {
+      riskScore += spamCheck.score * 0.5; // Weight spam score at 50%
+      warnings.push(...spamCheck.warnings);
+    }
+    
     // Determine risk level
     let riskLevel: "BAIXO" | "MÉDIO" | "ALTO";
     if (riskScore < 20) riskLevel = "BAIXO";
@@ -164,6 +173,11 @@ export async function POST(req: NextRequest) {
         risk: riskLevel,
         warnings,
       },
+      spam: spamCheck.isSpam ? {
+        score: spamCheck.score,
+        sources: spamCheck.sources,
+        category: spamCheck.category,
+      } : undefined,
       message: warnings.length > 0 
         ? "Este número apresenta características suspeitas"
         : "Número válido sem alertas imediatos",

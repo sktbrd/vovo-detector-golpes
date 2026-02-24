@@ -3,7 +3,7 @@
 import { useState } from "react";
 import ToolLayout from "../components/ToolLayout";
 import { motion, AnimatePresence } from "framer-motion";
-import { Smartphone, AlertTriangle, CheckCircle, Info, Clock, MapPin, Wifi } from "lucide-react";
+import { Smartphone, AlertTriangle, CheckCircle, Info, Clock, MapPin, Wifi, Flag, X } from "lucide-react";
 import toast, { Toaster } from "react-hot-toast";
 
 interface VerificationResult {
@@ -30,6 +30,14 @@ interface VerificationResult {
     risk: "BAIXO" | "MÉDIO" | "ALTO";
     warnings: string[];
   };
+  spam?: {
+    score: number;
+    sources: {
+      tellows?: { score: number; reports: number };
+      local?: { reports: number; confidence: number; categories: Record<string, number> };
+    };
+    category?: string;
+  };
   message?: string;
   error?: string;
 }
@@ -39,6 +47,10 @@ export default function VerificarNumeroPage() {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<VerificationResult | null>(null);
   const [rateLimit, setRateLimit] = useState<{ remaining: number; resetAt: number } | null>(null);
+  const [showReportModal, setShowReportModal] = useState(false);
+  const [reportCategory, setReportCategory] = useState<string>("golpe");
+  const [reportComment, setReportComment] = useState("");
+  const [reportingSpam, setReportingSpam] = useState(false);
 
   const handleVerify = async () => {
     if (!phone.trim()) {
@@ -94,6 +106,40 @@ export default function VerificarNumeroPage() {
       });
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleReportSpam = async () => {
+    if (!result?.number) return;
+    
+    setReportingSpam(true);
+    
+    try {
+      const response = await fetch("/api/phone/spam/report", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          number: result.number,
+          category: reportCategory,
+          comment: reportComment.trim() || undefined,
+        }),
+      });
+      
+      const data = await response.json();
+      
+      if (response.ok) {
+        toast.success("Denúncia registrada! Obrigado por ajudar a comunidade.");
+        setShowReportModal(false);
+        setReportComment("");
+        // Refresh verification to show updated stats
+        handleVerify();
+      } else {
+        toast.error(data.error || "Erro ao registrar denúncia");
+      }
+    } catch (error) {
+      toast.error("Erro ao processar denúncia");
+    } finally {
+      setReportingSpam(false);
     }
   };
 
@@ -347,6 +393,51 @@ export default function VerificarNumeroPage() {
                     </div>
                   )}
 
+                  {/* Spam Info */}
+                  {result.spam && result.spam.score > 0 && (
+                    <div className="mt-6 bg-red-50 border-4 border-red-500 p-4">
+                      <h4 className="font-black text-slate-900 uppercase text-sm mb-3 flex items-center gap-2">
+                        <AlertTriangle className="w-5 h-5 text-red-600" strokeWidth={2.5} />
+                        Denúncias de Spam
+                      </h4>
+                      <div className="space-y-3">
+                        {result.spam.sources.tellows && (
+                          <div className="bg-white border-2 border-red-300 p-3">
+                            <p className="text-slate-900 font-bold text-sm">
+                              📊 Tellows: {result.spam.sources.tellows.reports} denúncias
+                            </p>
+                            <p className="text-slate-600 text-xs mt-1">
+                              Score: {result.spam.sources.tellows.score}/100
+                            </p>
+                          </div>
+                        )}
+                        {result.spam.sources.local && result.spam.sources.local.reports > 0 && (
+                          <div className="bg-white border-2 border-red-300 p-3">
+                            <p className="text-slate-900 font-bold text-sm">
+                              🛡️ Vovó Detector: {result.spam.sources.local.reports} denúncias
+                            </p>
+                            {result.spam.category && (
+                              <p className="text-slate-600 text-xs mt-1">
+                                Categoria principal: {result.spam.category}
+                              </p>
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Report Button */}
+                  {!result.isUsefulNumber && (
+                    <button
+                      onClick={() => setShowReportModal(true)}
+                      className="w-full mt-6 bg-slate-900 hover:bg-slate-800 text-white font-black py-3 px-6 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all text-sm uppercase flex items-center justify-center gap-2"
+                    >
+                      <Flag className="w-5 h-5" strokeWidth={2.5} />
+                      Reportar como Spam/Golpe
+                    </button>
+                  )}
+
                   {/* Message */}
                   {result.message && (
                     <div className="mt-6 p-4 bg-white border-3 border-slate-900">
@@ -392,6 +483,95 @@ export default function VerificarNumeroPage() {
           </li>
         </ul>
       </div>
+
+      {/* Report Spam Modal */}
+      <AnimatePresence>
+        {showReportModal && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50"
+            onClick={() => setShowReportModal(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.9, y: 20 }}
+              onClick={(e) => e.stopPropagation()}
+              className="bg-white border-4 border-slate-900 p-6 max-w-md w-full shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
+            >
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-2xl font-black text-slate-900 uppercase">
+                  Reportar Número
+                </h3>
+                <button
+                  onClick={() => setShowReportModal(false)}
+                  className="p-2 hover:bg-slate-100 border-2 border-slate-900"
+                >
+                  <X className="w-5 h-5" strokeWidth={3} />
+                </button>
+              </div>
+
+              <p className="text-slate-700 font-medium mb-4">
+                Número: <strong className="font-black">{result?.number}</strong>
+              </p>
+
+              <div className="mb-4">
+                <label className="block text-slate-900 font-black mb-2 uppercase text-sm">
+                  Categoria:
+                </label>
+                <select
+                  value={reportCategory}
+                  onChange={(e) => setReportCategory(e.target.value)}
+                  className="w-full p-3 border-4 border-slate-900 bg-white font-bold"
+                  disabled={reportingSpam}
+                >
+                  <option value="golpe">Golpe / Fraude</option>
+                  <option value="telemarketing">Telemarketing</option>
+                  <option value="cobranca">Cobrança Abusiva</option>
+                  <option value="outro">Outro</option>
+                </select>
+              </div>
+
+              <div className="mb-6">
+                <label className="block text-slate-900 font-black mb-2 uppercase text-sm">
+                  Comentário (opcional):
+                </label>
+                <textarea
+                  value={reportComment}
+                  onChange={(e) => setReportComment(e.target.value)}
+                  placeholder="Descreva o que aconteceu..."
+                  className="w-full p-3 border-4 border-slate-900 bg-slate-50 font-medium resize-none"
+                  rows={3}
+                  maxLength={500}
+                  disabled={reportingSpam}
+                />
+                <p className="text-xs text-slate-600 mt-1 font-medium">
+                  {reportComment.length}/500 caracteres
+                </p>
+              </div>
+
+              <div className="flex gap-3">
+                <button
+                  onClick={() => setShowReportModal(false)}
+                  disabled={reportingSpam}
+                  className="flex-1 bg-slate-200 hover:bg-slate-300 text-slate-900 font-black py-3 border-3 border-slate-900 uppercase disabled:opacity-50"
+                >
+                  Cancelar
+                </button>
+                <button
+                  onClick={handleReportSpam}
+                  disabled={reportingSpam}
+                  className="flex-1 bg-red-500 hover:bg-red-600 text-white font-black py-3 border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all uppercase disabled:opacity-50"
+                >
+                  {reportingSpam ? "ENVIANDO..." : "REPORTAR"}
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </ToolLayout>
   );
 }
