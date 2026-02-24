@@ -106,20 +106,20 @@ export default function ValidarCPFPage() {
       description="Valide CPF ou CNPJ instantaneamente"
       Icon={Building2}
     >
-      <div className="bg-white rounded-2xl shadow-lg p-8 mb-6">
+      <div className="bg-white border-4 border-slate-900 shadow-[6px_6px_0px_0px_rgba(15,23,42,1)] p-8 mb-6">
         {/* Vovó Message */}
         <motion.div 
-          className="mb-6 p-4 bg-purple-50 border-l-4 border-purple-400 rounded-r-lg"
+          className="mb-6 p-4 bg-teal-50 border-l-4 border-teal-400 "
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.2 }}
         >
-          <p className="text-purple-800 italic">
+          <p className="text-slate-900 italic">
             <strong>A Vovó fala:</strong> "Recebeu um CPF ou CNPJ e quer saber se é válido? Deixa a vovó verificar esses números pra você, meu bem!"
           </p>
         </motion.div>
 
-        <label className="block text-gray-700 font-medium mb-3">
+        <label className="block text-slate-800 font-medium mb-3">
           Digite o CPF ou CNPJ:
         </label>
         <input
@@ -127,14 +127,14 @@ export default function ValidarCPFPage() {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="000.000.000-00 ou 00.000.000/0000-00"
-          className="w-full p-4 border-2 border-purple-200 rounded-xl focus:border-purple-400 focus:outline-none text-lg"
+          className="w-full p-4 border-teal-200 border-4 border-slate-900 focus:border-teal-400 focus:outline-none text-lg"
           onKeyPress={(e) => e.key === "Enter" && handleValidate()}
         />
 
         <motion.button
           onClick={handleValidate}
           disabled={!input.trim()}
-          className="w-full mt-4 bg-purple-600 disabled:bg-purple-300 text-white font-bold py-4 px-6 rounded-xl transition-colors text-lg"
+          className="w-full mt-4 bg-teal-500 disabled:bg-slate-300 text-white font-black py-4 uppercase px-6 border-4 border-slate-900 transition-colors text-lg"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >
@@ -146,7 +146,7 @@ export default function ValidarCPFPage() {
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className={`mt-6 p-6 rounded-xl border-2 ${
+            className={`mt-6 p-6 border-4 ${
               result.valid
                 ? "bg-green-50 border-green-300"
                 : "bg-red-50 border-red-300"
@@ -162,7 +162,7 @@ export default function ValidarCPFPage() {
                 }`}>
                   {result.valid ? "Válido!" : "Inválido!"}
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-slate-700">
                   {result.type.toUpperCase()}:{" "}
                   <span className="font-mono font-bold">{result.formatted}</span>
                 </p>
@@ -176,7 +176,7 @@ export default function ValidarCPFPage() {
                   <p>Formato válido</p>
                 </div>
                 <motion.div 
-                  className="bg-green-100 p-3 rounded-lg"
+                  className="bg-green-100 p-3 border-3 border-black"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                 >
@@ -194,7 +194,7 @@ export default function ValidarCPFPage() {
                   </p>
                 </div>
                 <motion.div 
-                  className="bg-red-100 p-3 rounded-lg"
+                  className="bg-red-100 p-3 border-3 border-black"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                 >
@@ -209,11 +209,11 @@ export default function ValidarCPFPage() {
       </div>
 
       {/* Info */}
-      <div className="bg-purple-50 border-2 border-purple-200 rounded-2xl p-6">
-        <h3 className="text-xl font-bold text-purple-800 mb-4">
+      <div className="bg-teal-50 border-teal-200 border-4 border-slate-900 p-6">
+        <h3 className="text-xl font-bold text-slate-900 mb-4">
           ℹ️ Como Funciona
         </h3>
-        <div className="space-y-3 text-gray-700">
+        <div className="space-y-3 text-slate-800">
           <p>
             <strong>CPF (11 dígitos):</strong> Cadastro de Pessoa Física. Valida
             usando o algoritmo de dígitos verificadores.
@@ -222,7 +222,7 @@ export default function ValidarCPFPage() {
             <strong>CNPJ (14 dígitos):</strong> Cadastro Nacional da Pessoa Jurídica.
             Identifica empresas legalmente registradas.
           </p>
-          <p className="text-sm text-gray-600 mt-4">
+          <p className="text-sm text-slate-700 mt-4">
             ⚠️ <strong>Atenção:</strong> Esta ferramenta apenas VALIDA o formato e
             dígitos verificadores. Não consulta situação cadastral na Receita
             Federal.
@@ -231,11 +231,11 @@ export default function ValidarCPFPage() {
       </div>
 
       {/* Tips */}
-      <div className="mt-6 bg-yellow-50 border-2 border-yellow-200 rounded-2xl p-6">
+      <div className="mt-6 bg-yellow-50 border-yellow-200 border-4 border-slate-900 p-6">
         <h3 className="text-xl font-bold text-yellow-800 mb-4">
           🚨 Dicas de Segurança
         </h3>
-        <ul className="space-y-3 text-gray-700">
+        <ul className="space-y-3 text-slate-800">
           <li className="flex items-start gap-2">
             <span className="text-red-600 font-bold">✗</span>
             <span>
@@ -251,9 +251,9 @@ export default function ValidarCPFPage() {
             </span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-purple-600 font-bold">Check</span>
+            <span className="text-teal-600 font-bold">Check</span>
             <span>
-              Use o <a href="/" className="text-purple-600 underline font-medium">
+              Use o <a href="/" className="text-teal-600 underline font-medium">
                 Detector da Vovó
               </a> pra verificar mensagens suspeitas
             </span>

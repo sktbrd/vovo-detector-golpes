@@ -60,20 +60,20 @@ export default function EmailVazadoPage() {
       description="Descubra se seu e-mail foi exposto em vazamentos de dados"
       Icon={Mail}
     >
-      <div className="bg-white rounded-2xl shadow-lg p-8 mb-6">
+      <div className="bg-white border-4 border-slate-900 shadow-[6px_6px_0px_0px_rgba(15,23,42,1)] p-8 mb-6">
         {/* Vovó Message */}
         <motion.div 
-          className="mb-6 p-4 bg-purple-50 border-l-4 border-purple-400 rounded-r-lg"
+          className="mb-6 p-4 bg-teal-50 border-l-4 border-teal-400 "
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.2 }}
         >
-          <p className="text-purple-800 italic">
+          <p className="text-slate-900 italic">
             <strong>A Vovó fala:</strong> "Vem cá, querido! Deixa eu verificar se algum bandido roubou seus dados por aí. A vovó tem contatos que sabem de tudo!"
           </p>
         </motion.div>
 
-        <label className="block text-gray-700 font-medium mb-3">
+        <label className="block text-slate-800 font-medium mb-3">
           Digite seu e-mail:
         </label>
         <input
@@ -81,14 +81,14 @@ export default function EmailVazadoPage() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="seu@email.com"
-          className="w-full p-4 border-2 border-purple-200 rounded-xl focus:border-purple-400 focus:outline-none text-lg"
+          className="w-full p-4 border-teal-200 border-4 border-slate-900 focus:border-teal-400 focus:outline-none text-lg"
           onKeyPress={(e) => e.key === "Enter" && handleCheck()}
         />
 
         <motion.button
           onClick={handleCheck}
           disabled={loading || !email}
-          className="w-full mt-4 bg-purple-600 disabled:bg-purple-300 text-white font-bold py-4 px-6 rounded-xl transition-colors text-lg"
+          className="w-full mt-4 bg-teal-500 disabled:bg-slate-300 text-white font-black py-4 uppercase px-6 border-4 border-slate-900 transition-colors text-lg"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >
@@ -125,14 +125,14 @@ export default function EmailVazadoPage() {
             className="mt-6"
           >
             {result.breaches.length === 0 ? (
-              <div className="p-6 rounded-xl border-2 bg-green-50 border-green-300">
+              <div className="p-6 border-4 bg-green-50 border-green-300">
                 <div className="flex items-center gap-3 mb-3">
                   <CheckCircle className="w-12 h-12 text-green-600" />
                   <div>
                     <h3 className="text-2xl font-bold text-green-800">
                       Nenhum vazamento encontrado!
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-slate-700">
                       <span className="font-mono">{result.checked}</span>
                     </p>
                   </div>
@@ -143,7 +143,7 @@ export default function EmailVazadoPage() {
                 </p>
               </div>
             ) : (
-              <div className="p-6 rounded-xl border-2 bg-red-50 border-red-300">
+              <div className="p-6 border-4 bg-red-50 border-red-300">
                 <div className="flex items-center gap-3 mb-4">
                   <AlertTriangle className="w-12 h-12 text-red-600" />
                   <div>
@@ -152,7 +152,7 @@ export default function EmailVazadoPage() {
                       {result.breaches.length > 1 ? "s" : ""} encontrado
                       {result.breaches.length > 1 ? "s" : ""}!
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-slate-700">
                       <span className="font-mono">{result.checked}</span>
                     </p>
                   </div>
@@ -162,7 +162,7 @@ export default function EmailVazadoPage() {
                   {result.breaches.map((breach: any) => (
                     <div
                       key={breach.Name}
-                      className="bg-white border border-red-200 rounded-lg p-4"
+                      className="bg-white border border-red-200 border-3 border-black p-4"
                     >
                       <div className="flex items-start justify-between mb-2">
                         <h4 className="font-bold text-red-800">
@@ -174,14 +174,14 @@ export default function EmailVazadoPage() {
                           )}
                         </span>
                       </div>
-                      <p className="text-sm text-gray-700 mb-2">
+                      <p className="text-sm text-slate-800 mb-2">
                         {breach.Description}
                       </p>
-                      <div className="text-xs text-gray-600">
+                      <div className="text-xs text-slate-700">
                         <strong>Dados vazados:</strong>{" "}
                         {breach.DataClasses.join(", ")}
                       </div>
-                      <div className="text-xs text-gray-600 mt-1">
+                      <div className="text-xs text-slate-700 mt-1">
                         <strong>Contas afetadas:</strong>{" "}
                         {breach.PwnCount.toLocaleString("pt-BR")}
                       </div>
@@ -189,7 +189,7 @@ export default function EmailVazadoPage() {
                   ))}
                 </div>
 
-                <div className="mt-4 p-4 bg-red-100 rounded-lg">
+                <div className="mt-4 p-4 bg-red-100 border-3 border-black">
                   <h4 className="font-bold text-red-800 mb-2">
                     O que fazer AGORA:
                   </h4>
@@ -209,12 +209,12 @@ export default function EmailVazadoPage() {
       </div>
 
       {/* Info */}
-      <div className="bg-purple-50 border-2 border-purple-200 rounded-2xl p-6 mb-6">
-        <h3 className="text-xl font-bold text-purple-800 mb-4 flex items-center gap-2">
+      <div className="bg-teal-50 border-teal-200 border-4 border-slate-900 p-6 mb-6">
+        <h3 className="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
           <Info className="w-6 h-6" />
           Como Funciona
         </h3>
-        <div className="space-y-3 text-gray-700">
+        <div className="space-y-3 text-slate-800">
           <p>
             Esta ferramenta consulta o banco de dados do{" "}
             <strong>Have I Been Pwned</strong>, que reúne bilhões de registros
@@ -235,40 +235,40 @@ export default function EmailVazadoPage() {
       </div>
 
       {/* Tips */}
-      <div className="bg-yellow-50 border-2 border-yellow-200 rounded-2xl p-6">
+      <div className="bg-yellow-50 border-yellow-200 border-4 border-slate-900 p-6">
         <h3 className="text-xl font-bold text-yellow-800 mb-4 flex items-center gap-2">
           <Lightbulb className="w-6 h-6" />
           Dicas de Proteção
         </h3>
-        <ul className="space-y-3 text-gray-700">
+        <ul className="space-y-3 text-slate-800">
           <li className="flex items-start gap-2">
-            <span className="text-purple-600 font-bold">1.</span>
+            <span className="text-teal-600 font-bold">1.</span>
             <span>
               <strong>Use senhas únicas</strong> - nunca reutilize a mesma senha
             </span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-purple-600 font-bold">2.</span>
+            <span className="text-teal-600 font-bold">2.</span>
             <span>
               <strong>Gerenciador de senhas</strong> - 1Password, Bitwarden,
               LastPass
             </span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-purple-600 font-bold">3.</span>
+            <span className="text-teal-600 font-bold">3.</span>
             <span>
               <strong>Autenticação em 2 fatores</strong> - sempre que disponível
             </span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-purple-600 font-bold">4.</span>
+            <span className="text-teal-600 font-bold">4.</span>
             <span>
               <strong>E-mails descartáveis</strong> - para cadastros não
               importantes
             </span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-purple-600 font-bold">5.</span>
+            <span className="text-teal-600 font-bold">5.</span>
             <span>
               <strong>Monitore regularmente</strong> - verifique a cada 3-6 meses
             </span>

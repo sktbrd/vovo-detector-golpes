@@ -140,20 +140,20 @@ export default function VerificarNumeroPage() {
       description="Identifique operadora e valide números de telefone"
       Icon={Smartphone}
     >
-      <div className="bg-white rounded-2xl shadow-lg p-8 mb-6">
+      <div className="bg-white border-4 border-slate-900 shadow-[6px_6px_0px_0px_rgba(15,23,42,1)] p-8 mb-6">
         {/* Vovó Message */}
         <motion.div 
-          className="mb-6 p-4 bg-purple-50 border-l-4 border-purple-400 rounded-r-lg"
+          className="mb-6 p-4 bg-teal-50 border-l-4 border-teal-400 "
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.2 }}
         >
-          <p className="text-purple-800 italic">
+          <p className="text-slate-900 italic">
             <strong>A Vovó fala:</strong> "Ligaram de um número estranho? Deixa eu dar uma olhada de onde é esse telefone. A vovó conhece todos os DDDs do Brasil!"
           </p>
         </motion.div>
 
-        <label className="block text-gray-700 font-medium mb-3">
+        <label className="block text-slate-800 font-medium mb-3">
           Digite o número (com DDD):
         </label>
         <input
@@ -161,14 +161,14 @@ export default function VerificarNumeroPage() {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="(11) 91234-5678 ou (11) 1234-5678"
-          className="w-full p-4 border-2 border-purple-200 rounded-xl focus:border-purple-400 focus:outline-none text-lg"
+          className="w-full p-4 border-teal-200 border-4 border-slate-900 focus:border-teal-400 focus:outline-none text-lg"
           onKeyPress={(e) => e.key === "Enter" && handleVerify()}
         />
 
         <motion.button
           onClick={handleVerify}
           disabled={!input.trim()}
-          className="w-full mt-4 bg-purple-600 disabled:bg-purple-300 text-white font-bold py-4 px-6 rounded-xl transition-colors text-lg"
+          className="w-full mt-4 bg-teal-500 disabled:bg-slate-300 text-white font-black py-4 uppercase px-6 border-4 border-slate-900 transition-colors text-lg"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >
@@ -180,7 +180,7 @@ export default function VerificarNumeroPage() {
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className={`mt-6 p-6 rounded-xl border-2 ${
+            className={`mt-6 p-6 border-4 ${
               result.suspicious
                 ? "bg-red-50 border-red-300"
                 : result.valid
@@ -189,7 +189,7 @@ export default function VerificarNumeroPage() {
             }`}
           >
             {result.suspicious && (
-              <div className="mb-4 p-4 bg-red-100 border border-red-300 rounded-lg">
+              <div className="mb-4 p-4 bg-red-100 border border-red-300 border-3 border-black">
                 <div className="flex items-center gap-2 text-red-800 font-bold">
                   <span className="text-2xl">🚨</span>
                   <span>Número Suspeito!</span>
@@ -202,27 +202,27 @@ export default function VerificarNumeroPage() {
 
             <div className="space-y-3">
               <div>
-                <span className="text-gray-600 text-sm">Número formatado:</span>
-                <div className="text-2xl font-mono font-bold text-purple-800">
+                <span className="text-slate-700 text-sm">Número formatado:</span>
+                <div className="text-2xl font-mono font-bold text-slate-900">
                   {result.formatted}
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-4 pt-4 border-t border-gray-200">
+              <div className="grid grid-cols-2 gap-4 pt-4 border-t border-slate-200">
                 <div>
-                  <span className="text-gray-600 text-sm block">DDD:</span>
+                  <span className="text-slate-700 text-sm block">DDD:</span>
                   <span className="text-lg font-bold">{result.ddd}</span>
                 </div>
                 <div>
-                  <span className="text-gray-600 text-sm block">Estado:</span>
+                  <span className="text-slate-700 text-sm block">Estado:</span>
                   <span className="text-lg font-bold">{result.state}</span>
                 </div>
                 <div className="col-span-2">
-                  <span className="text-gray-600 text-sm block">Região:</span>
+                  <span className="text-slate-700 text-sm block">Região:</span>
                   <span className="text-lg font-bold">{result.region}</span>
                 </div>
                 <div>
-                  <span className="text-gray-600 text-sm block">Tipo:</span>
+                  <span className="text-slate-700 text-sm block">Tipo:</span>
                   <span className="text-lg font-bold">
                     {result.type === "mobile" ? "Celular" : "Fixo"}
                   </span>
@@ -234,11 +234,11 @@ export default function VerificarNumeroPage() {
       </div>
 
       {/* Tips */}
-      <div className="bg-yellow-50 border-2 border-yellow-200 rounded-2xl p-6">
+      <div className="bg-yellow-50 border-yellow-200 border-4 border-slate-900 p-6">
         <h3 className="text-xl font-bold text-yellow-800 mb-4">
           🚨 Sinais de Golpe por Telefone
         </h3>
-        <ul className="space-y-3 text-gray-700">
+        <ul className="space-y-3 text-slate-800">
           <li className="flex items-start gap-2">
             <span className="text-red-600 font-bold">⚠️</span>
             <span>
@@ -259,7 +259,7 @@ export default function VerificarNumeroPage() {
             </span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-purple-600 font-bold">Check</span>
+            <span className="text-teal-600 font-bold">Check</span>
             <span>
               <strong>Na dúvida:</strong> desligue e ligue VOCÊ para o número
               oficial

@@ -1,0 +1,140 @@
+🌅 [2026-02-24 04:03:00] Starting daily automation...
+
+node:internal/modules/run_main:123
+    triggerUncaughtException(
+    ^
+Error: 
+You installed esbuild for another platform than the one you're currently using.
+This won't work because esbuild is written with native code and needs to
+install a platform-specific binary executable.
+
+Specifically the "@esbuild/darwin-arm64" package is present but this platform
+needs the "@esbuild/darwin-arm64" package instead. People often get into this
+situation by installing esbuild on Windows or macOS and copying "node_modules"
+into a Docker image that runs Linux, or by copying "node_modules" between
+Windows and WSL environments.
+
+If you are installing with npm, you can try not copying the "node_modules"
+directory when you copy the files over, and running "npm ci" or "npm install"
+on the destination platform after the copy. Or you could consider using yarn
+instead of npm which has built-in support for installing a package on multiple
+platforms simultaneously.
+
+If you are installing with yarn, you can try listing both this platform and the
+other platform in your ".yarnrc.yml" file using the "supportedArchitectures"
+feature: https://yarnpkg.com/configuration/yarnrc/#supportedArchitectures
+Keep in mind that this means multiple copies of esbuild will be present.
+
+Another alternative is to use the "esbuild-wasm" package instead, which works
+the same way on all platforms. But it comes with a heavy performance cost and
+can sometimes be 10x slower than the "esbuild" package, so you may also not
+want to do that.
+
+    at generateBinPath (/Users/vladnikolaev/Code/vovo/node_modules/.pnpm/esbuild@0.27.3/node_modules/esbuild/lib/main.js:1739:17)
+    at esbuildCommandAndArgs (/Users/vladnikolaev/Code/vovo/node_modules/.pnpm/esbuild@0.27.3/node_modules/esbuild/lib/main.js:1820:33)
+    at ensureServiceIsRunning (/Users/vladnikolaev/Code/vovo/node_modules/.pnpm/esbuild@0.27.3/node_modules/esbuild/lib/main.js:1977:25)
+    at startSyncServiceWorker (/Users/vladnikolaev/Code/vovo/node_modules/.pnpm/esbuild@0.27.3/node_modules/esbuild/lib/main.js:2184:19)
+    at Object.<anonymous> (/Users/vladnikolaev/Code/vovo/node_modules/.pnpm/esbuild@0.27.3/node_modules/esbuild/lib/main.js:2225:3)
+    at Module._compile (node:internal/modules/cjs/loader:1706:14)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14) {
+  name: 'TransformError'
+}
+
+Node.js v22.22.0
+🤖 Vovó Daily Report - 2026-02-24
+
+✅ SUCCESS
+
+📝 Content Generation: unknown
+📄 Articles Created: 0
+📊 Search Console: skipped (not implemented)
+
+---
+Log: automation/data/reports/cron-2026-02-24.log
+🌅 [2026-02-24 12:15:34] Starting daily automation...
+[dotenv@17.3.1] injecting env (1) from .env.local -- tip: ⚙️  override existing env vars with { override: true }
+🌅 Starting daily automation...
+⏰ 24/02/2026, 12:15:35
+
+📊 Task 1/2: Search Console data pull
+⚠️  Skipping (not implemented yet)
+
+📝 Task 2/2: Content generation
+🚀 Daily Content Generator
+📅 terça-feira, 24 de fevereiro de 2026
+
+📚 Existing articles: 18
+
+📝 Generating 3 new articles...
+
+✍️  Generating article for: "golpe do falso funcionário do banco"
+✅ Article generated: "Golpe do Falso Funcionário de Banco: Como se Proteger"
+✅ Saved: /Users/vladnikolaev/Code/vovo/posts/golpe-do-falso-funcionario-do-banco.md
+
+✍️  Generating article for: "golpe do empréstimo falso"
+✅ Article generated: "Golpe do Empréstimo Falso: Como Se Proteger"
+✅ Saved: /Users/vladnikolaev/Code/vovo/posts/golpe-do-emprestimo-falso.md
+
+✍️  Generating article for: "como saber se meu cartão foi clonado"
+✅ Article generated: "Detecte um Cartão Clonado: Sinais e Dicas de Proteção"
+✅ Saved: /Users/vladnikolaev/Code/vovo/posts/como-saber-se-meu-cartao-foi-clonado.md
+
+✅ Daily content generation complete!
+💾 Report saved: /Users/vladnikolaev/Code/vovo/automation/data/reports/2026-02-24.json
+
+✅ Daily automation complete!
+🤖 Vovó Daily Report - 2026-02-24
+
+✅ SUCCESS
+
+📝 Content Generation: success
+📄 Articles Created: 3
+📊 Search Console: skipped (not implemented)
+
+---
+Log: automation/data/reports/cron-2026-02-24.log
+🌅 [2026-02-24 12:17:23] Starting daily automation...
+[dotenv@17.3.1] injecting env (1) from .env.local -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+🌅 Starting daily automation...
+⏰ 24/02/2026, 12:17:24
+
+📊 Task 1/2: Search Console data pull
+⚠️  Skipping (not implemented yet)
+
+📝 Task 2/2: Content generation
+🚀 Daily Content Generator
+📅 terça-feira, 24 de fevereiro de 2026
+
+📚 Existing articles: 20
+
+📝 Generating 3 new articles...
+
+✍️  Generating article for: "golpe do falso funcionário do banco"
+✅ Article generated: "Golpe do Falso Funcionário de Banco: Como se Proteger"
+✅ Saved: /Users/vladnikolaev/Code/vovo/posts/golpe-do-falso-funcionario-do-banco.md
+
+✍️  Generating article for: "golpe do empréstimo falso"
+✅ Article generated: "Golpe do Empréstimo Falso: como se proteger"
+✅ Saved: /Users/vladnikolaev/Code/vovo/posts/golpe-do-emprestimo-falso.md
+
+✍️  Generating article for: "como saber se meu cartão foi clonado"
+✅ Article generated: "Detecte Seu Cartão Clonado: Sinais e Dicas"
+✅ Saved: /Users/vladnikolaev/Code/vovo/posts/como-saber-se-meu-cartao-foi-clonado.md
+
+✅ Daily content generation complete!
+💾 Report saved: /Users/vladnikolaev/Code/vovo/automation/data/reports/2026-02-24.json
+
+✅ Daily automation complete!
+🤖 Vovó Daily Report - 2026-02-24
+
+✅ SUCCESS
+
+📝 Content Generation: success
+📄 Articles Created: 3
+📊 Search Console: skipped (not implemented)
+
+---
+Log: automation/data/reports/cron-2026-02-24.log
