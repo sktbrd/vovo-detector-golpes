@@ -17,7 +17,10 @@ import {
   ChevronRight,
   Heart,
   BookOpen,
-  Github
+  Github,
+  Bot,
+  Zap,
+  Lock
 } from "lucide-react";
 import AdSenseSlot from "./components/AdSenseSlot";
 import Navbar from "./components/Navbar";
@@ -245,18 +248,21 @@ export default function Home() {
           </h1>
           
           <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-pink-600 mb-8 leading-tight drop-shadow-[1px_1px_0px_rgba(15,23,42,0.2)]">
-            A vovó mais esperta da internet 👵
+            A vovó mais esperta da internet
           </p>
           
           <div className="flex gap-3 justify-start md:justify-center flex-wrap">
-            <span className="inline-flex items-center px-4 py-2 text-sm md:text-base font-bold bg-teal-500 text-white border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] uppercase tracking-wide">
-              🤖 IA AVANÇADA
+            <span className="inline-flex items-center gap-2 px-4 py-2 text-sm md:text-base font-bold bg-teal-500 text-white border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] uppercase tracking-wide">
+              <Bot className="w-5 h-5" />
+              IA AVANÇADA
             </span>
-            <span className="inline-flex items-center px-4 py-2 text-sm md:text-base font-bold bg-pink-500 text-white border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] uppercase tracking-wide">
-              ⚡ RÁPIDO
+            <span className="inline-flex items-center gap-2 px-4 py-2 text-sm md:text-base font-bold bg-pink-500 text-white border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] uppercase tracking-wide">
+              <Zap className="w-5 h-5" />
+              RÁPIDO
             </span>
-            <span className="inline-flex items-center px-4 py-2 text-sm md:text-base font-bold bg-lime-500 text-white border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] uppercase tracking-wide">
-              🔒 PRIVADO
+            <span className="inline-flex items-center gap-2 px-4 py-2 text-sm md:text-base font-bold bg-lime-500 text-white border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] uppercase tracking-wide">
+              <Lock className="w-5 h-5" />
+              PRIVADO
             </span>
           </div>
         </div>

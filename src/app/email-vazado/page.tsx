@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import ToolLayout from "../components/ToolLayout";
-import { Mail } from "lucide-react";
+import { Mail, CheckCircle, AlertTriangle, Info, Lightbulb, Lock } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function EmailVazadoPage() {
@@ -127,7 +127,7 @@ export default function EmailVazadoPage() {
             {result.breaches.length === 0 ? (
               <div className="p-6 rounded-xl border-2 bg-green-50 border-green-300">
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="text-4xl">✅</div>
+                  <CheckCircle className="w-12 h-12 text-green-600" />
                   <div>
                     <h3 className="text-2xl font-bold text-green-800">
                       Nenhum vazamento encontrado!
@@ -145,7 +145,7 @@ export default function EmailVazadoPage() {
             ) : (
               <div className="p-6 rounded-xl border-2 bg-red-50 border-red-300">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="text-4xl">🚨</div>
+                  <AlertTriangle className="w-12 h-12 text-red-600" />
                   <div>
                     <h3 className="text-2xl font-bold text-red-800">
                       {result.breaches.length} vazamento
@@ -210,8 +210,9 @@ export default function EmailVazadoPage() {
 
       {/* Info */}
       <div className="bg-purple-50 border-2 border-purple-200 rounded-2xl p-6 mb-6">
-        <h3 className="text-xl font-bold text-purple-800 mb-4">
-          ℹ️ Como Funciona
+        <h3 className="text-xl font-bold text-purple-800 mb-4 flex items-center gap-2">
+          <Info className="w-6 h-6" />
+          Como Funciona
         </h3>
         <div className="space-y-3 text-gray-700">
           <p>
@@ -225,17 +226,19 @@ export default function EmailVazadoPage() {
             <li>Lojas online, bancos de dados hackeados</li>
             <li>E centenas de outros vazamentos</li>
           </ul>
-          <p className="text-sm mt-4">
-            🔒 <strong>Privacidade:</strong> Seu e-mail é consultado de forma
-            segura e não é armazenado.
+          <p className="text-sm mt-4 flex items-center gap-2">
+            <Lock className="w-4 h-4" />
+            <span><strong>Privacidade:</strong> Seu e-mail é consultado de forma
+            segura e não é armazenado.</span>
           </p>
         </div>
       </div>
 
       {/* Tips */}
       <div className="bg-yellow-50 border-2 border-yellow-200 rounded-2xl p-6">
-        <h3 className="text-xl font-bold text-yellow-800 mb-4">
-          💡 Dicas de Proteção
+        <h3 className="text-xl font-bold text-yellow-800 mb-4 flex items-center gap-2">
+          <Lightbulb className="w-6 h-6" />
+          Dicas de Proteção
         </h3>
         <ul className="space-y-3 text-gray-700">
           <li className="flex items-start gap-2">
