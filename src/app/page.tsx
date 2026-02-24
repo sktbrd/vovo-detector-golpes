@@ -358,10 +358,10 @@ export default function Home() {
                     <ResultIcon type={result.type} />
                   </div>
                   <div>
-                    <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-2">
+                    <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-2 text-slate-900">
                       {result.title}
                     </h2>
-                    <p className="text-xl md:text-2xl font-medium leading-relaxed">
+                    <p className="text-xl md:text-2xl font-medium leading-relaxed text-slate-800">
                       {result.message}
                     </p>
                   </div>
@@ -370,8 +370,8 @@ export default function Home() {
                 {result.details.length > 0 && (
                   <div className="mt-6 space-y-2">
                     {result.details.map((detail, i) => (
-                      <div key={i} className="flex items-start gap-2 text-base md:text-lg font-medium">
-                        <ChevronRight className="w-5 h-5 flex-shrink-0 mt-1" />
+                      <div key={i} className="flex items-start gap-2 text-base md:text-lg font-medium text-slate-800">
+                        <ChevronRight className="w-5 h-5 flex-shrink-0 mt-1 text-slate-700" />
                         <span>{detail}</span>
                       </div>
                     ))}
