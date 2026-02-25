@@ -129,4 +129,85 @@ html {
   margin-top: 2rem;
 }
 
+/* Fix code block overflow on mobile */
+.blog-content pre {
+  position: relative;
+  max-width: 100%;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #84cc16 #0f172a;
+}
+
+/* Webkit scrollbar for code blocks */
+.blog-content pre::-webkit-scrollbar {
+  height: 8px;
+}
+
+.blog-content pre::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+.blog-content pre::-webkit-scrollbar-thumb {
+  background: #84cc16;
+  border: 2px solid #000;
+}
+
+.blog-content pre code {
+  display: block;
+  white-space: pre;
+  word-wrap: normal;
+  overflow-wrap: normal;
+  min-width: max-content;
+}
+
+/* Ensure inline code doesn't break layout */
+.blog-content p code,
+.blog-content li code {
+  word-break: break-word;
+  overflow-wrap: break-word;
+  hyphens: none;
+}
+
+/* Better mobile scrolling for tables */
+@media (max-width: 767px) {
+  .blog-content table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+  }
+  
+  /* Smaller code on very small screens */
+  .blog-content pre {
+    font-size: 0.65rem;
+    line-height: 1.4;
+  }
+  
+  .blog-content pre code {
+    font-size: 0.65rem;
+  }
+}
+
+/* Visual hint for scrollable content */
+.blog-content pre::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 2rem;
+  background: linear-gradient(to right, transparent, rgba(15, 23, 42, 0.8));
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .blog-content pre::after {
+    display: none;
+  }
+}
+
 /* Note: FAQ highlighting would require :has() or JS-based solution */
