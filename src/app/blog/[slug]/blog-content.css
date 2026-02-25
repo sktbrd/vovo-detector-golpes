@@ -1,0 +1,144 @@
+/* Smooth scroll for TOC links */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 2rem;
+}
+
+/* Custom list icons with neo-brutal style */
+.blog-content ul > li {
+  position: relative;
+  list-style: none;
+  padding-left: 2rem;
+}
+
+.blog-content ul > li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: linear-gradient(135deg, #14b8a6, #ec4899);
+  color: white;
+  font-weight: 900;
+  font-size: 0.875rem;
+  border: 2px solid black;
+  border-radius: 4px;
+  box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 1);
+}
+
+/* Ordered lists with bold numbers */
+.blog-content ol > li {
+  position: relative;
+  padding-left: 2.5rem;
+}
+
+.blog-content ol > li::marker {
+  font-weight: 900;
+  font-size: 1.25rem;
+  color: #14b8a6;
+}
+
+/* Special warning/info/success blocks */
+.blog-content h3:has(+ ul):before,
+.blog-content h4:has(+ ul):before {
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+/* Warning sections */
+.blog-content h3:contains("⚠️"),
+.blog-content h4:contains("⚠️"),
+.blog-content > p:first-child:contains("⚠️") {
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  border: 4px solid #000;
+  border-left: 8px solid #f59e0b;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1);
+}
+
+/* Info sections */
+.blog-content h3:contains("ℹ️"),
+.blog-content h4:contains("ℹ️") {
+  background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+  border: 4px solid #000;
+  border-left: 8px solid #3b82f6;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1);
+}
+
+/* Success sections */
+.blog-content h3:contains("✅"),
+.blog-content h4:contains("✅") {
+  background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+  border: 4px solid #000;
+  border-left: 8px solid #10b981;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1);
+}
+
+/* Nested lists */
+.blog-content ul ul > li::before {
+  content: "→";
+  background: #84cc16;
+}
+
+.blog-content ul ul ul > li::before {
+  content: "•";
+  background: #ec4899;
+}
+
+/* Code blocks with title */
+.blog-content pre:has(code[class*="language-"]) {
+  position: relative;
+}
+
+/* Horizontal rules */
+.blog-content hr {
+  border: none;
+  border-top: 4px solid #000;
+  margin: 3rem 0;
+  box-shadow: 0px 4px 0px 0px rgba(0, 0, 0, 0.1);
+}
+
+/* Better spacing for headings with emojis */
+.blog-content h2,
+.blog-content h3,
+.blog-content h4 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Make emojis in headings larger */
+.blog-content h2 > :first-child:not(a),
+.blog-content h3 > :first-child:not(a),
+.blog-content h4 > :first-child:not(a) {
+  font-size: 1.25em;
+}
+
+/* Improve readability with better line height for long paragraphs */
+.blog-content p {
+  text-align: justify;
+  hyphens: auto;
+}
+
+/* Add visual break between major sections */
+.blog-content h2 + * {
+  margin-top: 2rem;
+}
+
+/* Highlight FAQ questions */
+.blog-content h3:contains("?") {
+  background: linear-gradient(135deg, #fce7f3, #fbcfe8);
+  border: 3px solid #000;
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 1);
+}
