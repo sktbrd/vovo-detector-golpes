@@ -7,6 +7,7 @@ import Link from "next/link";
 import { Metadata } from "next";
 import { Calendar, PenLine, Search, Shield, ArrowLeft, Heart, BookOpen, Clock, CheckCircle2, AlertTriangle, Info } from "lucide-react";
 import ShareButtons from "./ShareButtons";
+import HeadingWithIcon from "./HeadingWithIcon";
 import Navbar from "../../components/Navbar";
 import "./blog-content.css";
 
@@ -20,13 +21,13 @@ function calculateReadingTime(content: string): number {
 
 // Extract headings for table of contents
 function extractHeadings(content: string): { text: string; level: number; id: string }[] {
-  const headingRegex = /^(#{2,3})\s+(.+?)(?:\s+[🔐📱💰🚨🤔📊🔒🚀⚠️❓✅📝🛡️ℹ️])?$/gm;
+  const headingRegex = /^(#{2,3})\s+(.+?)(?:\s+[🔐📱💰🚨🤔📊🔒🚀⚠️❓✅📝🛡️ℹ️📢📚])?$/gm;
   const headings: { text: string; level: number; id: string }[] = [];
   let match;
 
   while ((match = headingRegex.exec(content)) !== null) {
     const level = match[1].length;
-    const text = match[2].trim().replace(/[🔐📱💰🚨🤔📊🔒🚀⚠️❓✅📝🛡️ℹ️]/g, '').trim();
+    const text = match[2].trim().replace(/[🔐📱💰🚨🤔📊🔒🚀⚠️❓✅📝🛡️ℹ️📢📚]/g, '').trim();
     const id = text
       .toLowerCase()
       .normalize('NFD')
@@ -210,24 +211,34 @@ export default async function BlogPost({
               remarkPlugins={[remarkGfm]}
               components={{
                 h2: ({node, children, ...props}) => {
-                  const text = String(children).replace(/[🔐📱💰🚨🤔📊🔒🚀⚠️❓✅📝🛡️ℹ️]/g, '').trim();
+                  const text = String(children).replace(/[🔐📱💰🚨🤔📊🔒🚀⚠️❓✅📝🛡️ℹ️📢📚]/g, '').trim();
                   const id = text
                     .toLowerCase()
                     .normalize('NFD')
                     .replace(/[\u0300-\u036f]/g, '')
                     .replace(/[^\w\s-]/g, '')
                     .replace(/\s+/g, '-');
-                  return <h2 id={id} {...props}>{children}</h2>;
+                  return <HeadingWithIcon level={2} id={id}>{children}</HeadingWithIcon>;
                 },
                 h3: ({node, children, ...props}) => {
-                  const text = String(children).replace(/[🔐📱💰🚨🤔📊🔒🚀⚠️❓✅📝🛡️ℹ️]/g, '').trim();
+                  const text = String(children).replace(/[🔐📱💰🚨🤔📊🔒🚀⚠️❓✅📝🛡️ℹ️📢📚]/g, '').trim();
                   const id = text
                     .toLowerCase()
                     .normalize('NFD')
                     .replace(/[\u0300-\u036f]/g, '')
                     .replace(/[^\w\s-]/g, '')
                     .replace(/\s+/g, '-');
-                  return <h3 id={id} {...props}>{children}</h3>;
+                  return <HeadingWithIcon level={3} id={id}>{children}</HeadingWithIcon>;
+                },
+                h4: ({node, children, ...props}) => {
+                  const text = String(children).replace(/[🔐📱💰🚨🤔📊🔒🚀⚠️❓✅📝🛡️ℹ️📢📚]/g, '').trim();
+                  const id = text
+                    .toLowerCase()
+                    .normalize('NFD')
+                    .replace(/[\u0300-\u036f]/g, '')
+                    .replace(/[^\w\s-]/g, '')
+                    .replace(/\s+/g, '-');
+                  return <HeadingWithIcon level={4} id={id}>{children}</HeadingWithIcon>;
                 },
               }}
             >
