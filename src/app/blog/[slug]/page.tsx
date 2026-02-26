@@ -92,9 +92,56 @@ export default async function BlogPost({
   const readingTime = calculateReadingTime(content);
   const headings = extractHeadings(content);
 
+  // JSON-LD structured data for SEO
+  // Handle keywords as string or array
+  const keywords = Array.isArray(data.keywords) 
+    ? data.keywords.join(", ") 
+    : typeof data.keywords === "string" 
+      ? data.keywords 
+      : "";
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": data.title,
+    "description": data.description,
+    "image": "https://vovodetector.com.br/logo/001-logo-icon-of-a-friendly-elderly-brazilia.png",
+    "datePublished": data.publishedAt || data.date,
+    "dateModified": data.publishedAt || data.date,
+    "author": {
+      "@type": "Organization",
+      "name": data.author || "Vovó Detector",
+      "url": "https://vovodetector.com.br"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Vovó Detector",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://vovodetector.com.br/logo/001-logo-icon-of-a-friendly-elderly-brazilia.png"
+      },
+      "url": "https://vovodetector.com.br"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://vovodetector.com.br/blog/${slug}`
+    },
+    "keywords": keywords,
+    "articleSection": "Segurança Digital",
+    "inLanguage": "pt-BR",
+    "timeRequired": `PT${readingTime}M`
+  };
+
   return (
-    <div className="min-h-screen bg-slate-50">
-      <Navbar />
+    <>
+      {/* JSON-LD for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      
+      <div className="min-h-screen bg-slate-50">
+        <Navbar />
 
       {/* Breadcrumb */}
       <div className="bg-white border-b-4 border-black">
@@ -342,6 +389,7 @@ export default async function BlogPost({
           </Link>
         </div>
       </footer>
-    </div>
+      </div>
+    </>
   );
 }
