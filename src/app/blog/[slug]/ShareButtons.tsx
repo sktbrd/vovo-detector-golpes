@@ -1,6 +1,7 @@
 "use client";
 
-import { Share2, MessageCircle, Twitter } from "lucide-react";
+import { Share2, MessageCircle, Send, Facebook, Linkedin } from "lucide-react";
+import toast from "react-hot-toast";
 
 interface ShareButtonsProps {
   title: string;
@@ -8,59 +9,126 @@ interface ShareButtonsProps {
 }
 
 export default function ShareButtons({ title, description }: ShareButtonsProps) {
-  const handleShare = () => {
-    const url = window.location.href;
-    const text = `${title} - ${description}`;
+  const url = typeof window !== 'undefined' ? window.location.href : '';
+
+  const handleCopyLink = async () => {
+    try {
+      await navigator.clipboard.writeText(url);
+      toast.success("Link copiado!", {
+        duration: 2000,
+        style: {
+          border: '3px solid black',
+          padding: '12px 16px',
+          fontWeight: 'bold',
+        },
+      });
+    } catch (err) {
+      toast.error("Erro ao copiar link");
+    }
+  };
+
+  const handleNativeShare = async () => {
     if (navigator.share) {
-      navigator.share({ title, text, url });
+      try {
+        await navigator.share({ 
+          title, 
+          text: description,
+          url 
+        });
+      } catch (err) {
+        // User cancelled share
+      }
     } else {
-      navigator.clipboard.writeText(url);
-      alert("Link copiado!");
+      handleCopyLink();
     }
   };
 
   const handleWhatsAppShare = () => {
-    const url = window.location.href;
     window.open(
       `https://wa.me/?text=${encodeURIComponent(`${title}\n\n${url}`)}`,
       "_blank"
     );
   };
 
-  const handleTwitterShare = () => {
-    const url = window.location.href;
+  const handleTelegramShare = () => {
     window.open(
-      `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${url}`,
+      `https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`,
+      "_blank"
+    );
+  };
+
+  const handleFacebookShare = () => {
+    window.open(
+      `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
+      "_blank"
+    );
+  };
+
+  const handleLinkedInShare = () => {
+    window.open(
+      `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`,
       "_blank"
     );
   };
 
   return (
     <div className="mt-8 text-center">
-      <p className="text-sm text-gray-500 mb-3">
+      <p className="text-sm md:text-base text-slate-700 font-bold mb-4 uppercase">
         Ajude outras pessoas - compartilhe este artigo!
       </p>
-      <div className="flex justify-center gap-3 flex-wrap">
+      <div className="flex justify-center gap-2 md:gap-3 flex-wrap">
         <button
-          onClick={handleShare}
-          className="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg text-sm font-medium transition-colors flex items-center gap-2"
+          onClick={handleNativeShare}
+          className="px-3 md:px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-900 border-2 border-black text-xs md:text-sm font-black transition-all hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center gap-1.5 md:gap-2 uppercase shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]"
+          aria-label="Compartilhar"
         >
-          <Share2 size={16} />
-          Copiar Link
+          <Share2 size={16} strokeWidth={2.5} />
+          <span className="hidden sm:inline">Compartilhar</span>
         </button>
+        
+        <button
+          onClick={handleCopyLink}
+          className="px-3 md:px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-900 border-2 border-black text-xs md:text-sm font-black transition-all hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center gap-1.5 md:gap-2 uppercase shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]"
+          aria-label="Copiar link"
+        >
+          <Share2 size={16} strokeWidth={2.5} />
+          <span className="hidden sm:inline">Copiar</span>
+        </button>
+
         <button
           onClick={handleWhatsAppShare}
-          className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg text-sm font-medium transition-colors flex items-center gap-2"
+          className="px-3 md:px-4 py-2 bg-green-500 hover:bg-green-600 text-white border-2 border-black text-xs md:text-sm font-black transition-all hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center gap-1.5 md:gap-2 uppercase shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]"
+          aria-label="Compartilhar no WhatsApp"
         >
-          <MessageCircle size={16} />
-          WhatsApp
+          <MessageCircle size={16} strokeWidth={2.5} />
+          <span className="hidden sm:inline">WhatsApp</span>
         </button>
+
         <button
-          onClick={handleTwitterShare}
-          className="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg text-sm font-medium transition-colors flex items-center gap-2"
+          onClick={handleTelegramShare}
+          className="px-3 md:px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white border-2 border-black text-xs md:text-sm font-black transition-all hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center gap-1.5 md:gap-2 uppercase shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]"
+          aria-label="Compartilhar no Telegram"
         >
-          <Twitter size={16} />
-          Twitter
+          <Send size={16} strokeWidth={2.5} />
+          <span className="hidden sm:inline">Telegram</span>
+        </button>
+
+        <button
+          onClick={handleFacebookShare}
+          className="px-3 md:px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white border-2 border-black text-xs md:text-sm font-black transition-all hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center gap-1.5 md:gap-2 uppercase shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]"
+          aria-label="Compartilhar no Facebook"
+        >
+          <Facebook size={16} strokeWidth={2.5} />
+          <span className="hidden sm:inline">Facebook</span>
+        </button>
+
+        <button
+          onClick={handleLinkedInShare}
+          className="px-3 md:px-4 py-2 bg-blue-700 hover:bg-blue-800 text-white border-2 border-black text-xs md:text-sm font-black transition-all hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center gap-1.5 md:gap-2 uppercase shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]"
+          aria-label="Compartilhar no LinkedIn"
+        >
+          <Linkedin size={16} strokeWidth={2.5} />
+          <span className="hidden sm:inline">LinkedIn</span>
         </button>
       </div>
     </div>
