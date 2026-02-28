@@ -2,7 +2,20 @@
 
 import { useState } from "react";
 import ToolLayout from "../components/ToolLayout";
-import { Link2 } from "lucide-react";
+import { 
+  Link2, 
+  AlertTriangle, 
+  ShieldAlert, 
+  Hash, 
+  Lock,
+  XCircle,
+  CheckCircle,
+  GraduationCap,
+  X,
+  Check,
+  Unlock,
+  UserX
+} from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function VerificadorLinkPage() {
@@ -41,7 +54,7 @@ export default function VerificadorLinkPage() {
       // Suspicious TLDs
       const suspiciousTLDs = [".tk", ".ml", ".ga", ".cf", ".gq", ".xyz", ".top"];
       if (suspiciousTLDs.some((tld) => domain.endsWith(tld))) {
-        warnings.push("⚠️ Domínio suspeito - extensão usada em golpes");
+        warnings.push("Domínio suspeito - extensão usada em golpes");
       }
 
       // Lookalike domains
@@ -71,31 +84,31 @@ export default function VerificadorLinkPage() {
           !domainLower.endsWith(`${brand}.com`) &&
           !domainLower.endsWith(`${brand}.gov.br`)
         ) {
-          warnings.push(`🎭 Possível imitação de marca conhecida (${brand})`);
+          warnings.push(`Possível imitação de marca conhecida (${brand})`);
         }
       }
 
       // HTTP (not HTTPS)
       if (urlObj.protocol === "http:") {
-        warnings.push("🔓 Não usa HTTPS - conexão insegura");
+        warnings.push("Não usa HTTPS - conexão insegura");
       } else {
         safe.push("Usa HTTPS - conexão criptografada");
       }
 
       // IP address instead of domain
       if (/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/.test(domain)) {
-        warnings.push("🔢 Usa endereço IP ao invés de domínio - suspeito");
+        warnings.push("Usa endereço IP ao invés de domínio - suspeito");
       }
 
       // Too many subdomains
       const parts = domain.split(".");
       if (parts.length > 4) {
-        warnings.push("📎 Muitos subdomínios - pode ser golpe");
+        warnings.push("Muitos subdomínios - pode ser golpe");
       }
 
       // Numbers in domain (suspicious pattern)
       if (/\d{4,}/.test(domain)) {
-        warnings.push("🔢 Números demais no domínio - padrão suspeito");
+        warnings.push("Números demais no domínio - padrão suspeito");
       }
 
       // Known safe domains
@@ -129,7 +142,7 @@ export default function VerificadorLinkPage() {
       return {
         url: inputUrl,
         suspicious: true,
-        warnings: ["❌ URL inválida - formato incorreto"],
+        warnings: ["URL inválida - formato incorreto"],
         safe: [],
         domain: "Inválido",
       };
@@ -199,8 +212,12 @@ export default function VerificadorLinkPage() {
             }`}
           >
             <div className="flex items-center gap-3 mb-4">
-              <div className="text-4xl">
-                {result.suspicious ? "🚨" : "✅"}
+              <div>
+                {result.suspicious ? (
+                  <ShieldAlert className="w-12 h-12 text-red-600" />
+                ) : (
+                  <CheckCircle className="w-12 h-12 text-green-600" />
+                )}
               </div>
               <div>
                 <h3
@@ -219,12 +236,14 @@ export default function VerificadorLinkPage() {
             {/* Warnings */}
             {result.warnings.length > 0 && (
               <div className="mb-4">
-                <h4 className="font-bold text-red-800 mb-2">
-                  ⚠️ Sinais de Alerta:
+                <h4 className="font-bold text-red-800 mb-2 flex items-center gap-2">
+                  <AlertTriangle className="w-5 h-5" />
+                  Sinais de Alerta:
                 </h4>
                 <ul className="space-y-2">
                   {result.warnings.map((warning, i) => (
-                    <li key={i} className="text-red-700 text-sm">
+                    <li key={i} className="text-red-700 text-sm flex items-start gap-2">
+                      <AlertTriangle className="w-4 h-4 mt-0.5 flex-shrink-0" />
                       {warning}
                     </li>
                   ))}
@@ -235,12 +254,14 @@ export default function VerificadorLinkPage() {
             {/* Safe points */}
             {result.safe.length > 0 && (
               <div>
-                <h4 className="font-bold text-green-800 mb-2">
+                <h4 className="font-bold text-green-800 mb-2 flex items-center gap-2">
+                  <CheckCircle className="w-5 h-5" />
                   Pontos Positivos:
                 </h4>
                 <ul className="space-y-2">
                   {result.safe.map((point, i) => (
-                    <li key={i} className="text-green-700 text-sm">
+                    <li key={i} className="text-green-700 text-sm flex items-start gap-2">
+                      <Check className="w-4 h-4 mt-0.5 flex-shrink-0" />
                       {point}
                     </li>
                   ))}
@@ -286,45 +307,46 @@ export default function VerificadorLinkPage() {
 
       {/* Tips */}
       <div className="bg-yellow-50 border-yellow-200 border-4 border-slate-900 p-6">
-        <h3 className="text-xl font-bold text-yellow-800 mb-4">
-          🎓 Como Identificar Links Perigosos
+        <h3 className="text-xl font-bold text-yellow-800 mb-4 flex items-center gap-2">
+          <GraduationCap className="w-6 h-6" />
+          Como Identificar Links Perigosos
         </h3>
         <ul className="space-y-3 text-slate-800">
           <li className="flex items-start gap-2">
-            <span className="text-red-600 font-bold">✗</span>
+            <X className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
             <span>
               <strong>Links encurtados</strong> (bit.ly, tinyurl) - ocultam
               destino real
             </span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-red-600 font-bold">✗</span>
+            <X className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
             <span>
               <strong>Domínios suspeitos</strong> - .tk, .ml, .xyz geralmente são
               golpes
             </span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-red-600 font-bold">✗</span>
+            <X className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
             <span>
               <strong>Imitação de marcas</strong> - nubank-seguro.com ao invés de
               nubank.com.br
             </span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-red-600 font-bold">✗</span>
+            <X className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
             <span>
               <strong>HTTP (sem S)</strong> - conexão insegura
             </span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-green-600 font-bold">Check</span>
+            <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
             <span>
               <strong>SEMPRE verifique o domínio</strong> antes de clicar
             </span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-green-600 font-bold">Check</span>
+            <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
             <span>
               <strong>Na dúvida, digite</strong> o endereço manualmente
             </span>
@@ -340,21 +362,24 @@ export default function VerificadorLinkPage() {
         <div className="space-y-2">
           <button
             onClick={() => setUrl("bit.ly/premio123")}
-            className="w-full text-left p-3 bg-white border border-teal-200 border-3 border-black hover:bg-teal-50 transition-colors text-sm"
+            className="w-full text-left p-3 bg-white border border-teal-200 border-3 border-black hover:bg-teal-50 transition-colors text-sm flex items-center gap-2"
           >
-            ❌ bit.ly/premio123 (encurtado)
+            <XCircle className="w-5 h-5 text-red-600 flex-shrink-0" />
+            bit.ly/premio123 (encurtado)
           </button>
           <button
             onClick={() => setUrl("http://nubank-seguro.tk")}
-            className="w-full text-left p-3 bg-white border border-teal-200 border-3 border-black hover:bg-teal-50 transition-colors text-sm"
+            className="w-full text-left p-3 bg-white border border-teal-200 border-3 border-black hover:bg-teal-50 transition-colors text-sm flex items-center gap-2"
           >
-            ❌ http://nubank-seguro.tk (imitação + HTTP)
+            <XCircle className="w-5 h-5 text-red-600 flex-shrink-0" />
+            http://nubank-seguro.tk (imitação + HTTP)
           </button>
           <button
             onClick={() => setUrl("https://www.gov.br")}
-            className="w-full text-left p-3 bg-white border border-teal-200 border-3 border-black hover:bg-teal-50 transition-colors text-sm"
+            className="w-full text-left p-3 bg-white border border-teal-200 border-3 border-black hover:bg-teal-50 transition-colors text-sm flex items-center gap-2"
           >
-            ✅ https://www.gov.br (oficial)
+            <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
+            https://www.gov.br (oficial)
           </button>
         </div>
       </div>
