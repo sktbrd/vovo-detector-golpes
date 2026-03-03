@@ -1,7 +1,8 @@
 "use client";
 
-import { Share2, MessageCircle, Send, Facebook, Linkedin } from "lucide-react";
+import { Share2, MessageCircle, Send, Facebook, Linkedin, Link, Copy } from "lucide-react";
 import toast from "react-hot-toast";
+import { useState } from "react";
 
 interface ShareButtonsProps {
   title: string;
@@ -10,6 +11,13 @@ interface ShareButtonsProps {
 
 export default function ShareButtons({ title, description }: ShareButtonsProps) {
   const url = typeof window !== 'undefined' ? window.location.href : '';
+  const [clickedButton, setClickedButton] = useState<string | null>(null);
+
+  const handleButtonClick = (buttonId: string, callback: () => void) => {
+    setClickedButton(buttonId);
+    callback();
+    setTimeout(() => setClickedButton(null), 300);
+  };
 
   const handleCopyLink = async () => {
     try {
@@ -78,54 +86,54 @@ export default function ShareButtons({ title, description }: ShareButtonsProps) 
       </p>
       <div className="flex justify-center gap-2 md:gap-3 flex-wrap">
         <button
-          onClick={handleNativeShare}
-          className="px-3 md:px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-900 border-2 border-black text-xs md:text-sm font-black transition-all hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center gap-1.5 md:gap-2 uppercase shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]"
-          aria-label="Compartilhar"
+          onClick={() => handleButtonClick('share', handleNativeShare)}
+          className={`px-3 md:px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-900 border-2 border-black text-xs md:text-sm font-black transition-all hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center gap-1.5 md:gap-2 uppercase shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] ${clickedButton === 'share' ? 'scale-95' : ''}`}
+          aria-label="Compartilhar artigo via opções do dispositivo"
         >
           <Share2 size={16} strokeWidth={2.5} />
           <span className="hidden sm:inline">Compartilhar</span>
         </button>
         
         <button
-          onClick={handleCopyLink}
-          className="px-3 md:px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-900 border-2 border-black text-xs md:text-sm font-black transition-all hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center gap-1.5 md:gap-2 uppercase shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]"
-          aria-label="Copiar link"
+          onClick={() => handleButtonClick('copy', handleCopyLink)}
+          className={`px-3 md:px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-900 border-2 border-black text-xs md:text-sm font-black transition-all hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center gap-1.5 md:gap-2 uppercase shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] ${clickedButton === 'copy' ? 'scale-95' : ''}`}
+          aria-label="Copiar link do artigo para área de transferência"
         >
-          <Share2 size={16} strokeWidth={2.5} />
+          <Copy size={16} strokeWidth={2.5} />
           <span className="hidden sm:inline">Copiar</span>
         </button>
 
         <button
-          onClick={handleWhatsAppShare}
-          className="px-3 md:px-4 py-2 bg-green-500 hover:bg-green-600 text-white border-2 border-black text-xs md:text-sm font-black transition-all hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center gap-1.5 md:gap-2 uppercase shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]"
-          aria-label="Compartilhar no WhatsApp"
+          onClick={() => handleButtonClick('whatsapp', handleWhatsAppShare)}
+          className={`px-3 md:px-4 py-2 bg-green-500 hover:bg-green-600 text-white border-2 border-black text-xs md:text-sm font-black transition-all hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center gap-1.5 md:gap-2 uppercase shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] ${clickedButton === 'whatsapp' ? 'scale-95' : ''}`}
+          aria-label="Compartilhar artigo no WhatsApp"
         >
           <MessageCircle size={16} strokeWidth={2.5} />
           <span className="hidden sm:inline">WhatsApp</span>
         </button>
 
         <button
-          onClick={handleTelegramShare}
-          className="px-3 md:px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white border-2 border-black text-xs md:text-sm font-black transition-all hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center gap-1.5 md:gap-2 uppercase shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]"
-          aria-label="Compartilhar no Telegram"
+          onClick={() => handleButtonClick('telegram', handleTelegramShare)}
+          className={`px-3 md:px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white border-2 border-black text-xs md:text-sm font-black transition-all hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center gap-1.5 md:gap-2 uppercase shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] ${clickedButton === 'telegram' ? 'scale-95' : ''}`}
+          aria-label="Compartilhar artigo no Telegram"
         >
           <Send size={16} strokeWidth={2.5} />
           <span className="hidden sm:inline">Telegram</span>
         </button>
 
         <button
-          onClick={handleFacebookShare}
-          className="px-3 md:px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white border-2 border-black text-xs md:text-sm font-black transition-all hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center gap-1.5 md:gap-2 uppercase shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]"
-          aria-label="Compartilhar no Facebook"
+          onClick={() => handleButtonClick('facebook', handleFacebookShare)}
+          className={`px-3 md:px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white border-2 border-black text-xs md:text-sm font-black transition-all hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center gap-1.5 md:gap-2 uppercase shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] ${clickedButton === 'facebook' ? 'scale-95' : ''}`}
+          aria-label="Compartilhar artigo no Facebook"
         >
           <Facebook size={16} strokeWidth={2.5} />
           <span className="hidden sm:inline">Facebook</span>
         </button>
 
         <button
-          onClick={handleLinkedInShare}
-          className="px-3 md:px-4 py-2 bg-blue-700 hover:bg-blue-800 text-white border-2 border-black text-xs md:text-sm font-black transition-all hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center gap-1.5 md:gap-2 uppercase shadow-[1px_1px_0px_0px_rgba(0,0,0,1)]"
-          aria-label="Compartilhar no LinkedIn"
+          onClick={() => handleButtonClick('linkedin', handleLinkedInShare)}
+          className={`px-3 md:px-4 py-2 bg-blue-700 hover:bg-blue-800 text-white border-2 border-black text-xs md:text-sm font-black transition-all hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center gap-1.5 md:gap-2 uppercase shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] ${clickedButton === 'linkedin' ? 'scale-95' : ''}`}
+          aria-label="Compartilhar artigo no LinkedIn"
         >
           <Linkedin size={16} strokeWidth={2.5} />
           <span className="hidden sm:inline">LinkedIn</span>
