@@ -43,3 +43,66 @@ Se você suspeita que seu cartão foi clonado, entre em contato com seu banco im
 - [Golpe do Empréstimo Falso](/blog/golpe-do-emprestimo-falso)
 - [Golpe da Maquininha Banco do Brasil](/blog/golpe-da-maquininha-banco-do-brasil)
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Como saber se meu cartão foi clonado?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sinais: (1) compras não reconhecidas no extrato, (2) SMS de compras que você não fez, (3) tentativas de compra bloqueadas, (4) saque/compra em local onde você nunca esteve, (5) cartão bloqueado sem você solicitar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O que fazer se meu cartão foi clonado?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bloqueie o cartão IMEDIATAMENTE pelo app/telefone do banco, conteste as transações fraudulentas (tem até 90 dias), registre BO, e solicite novo cartão com números diferentes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Banco devolve dinheiro de cartão clonado?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim, geralmente. Se você contestar em até 90 dias e não houver evidência de negligência (ex: compartilhar senha), o banco costuma estornar. Guarde comprovantes e registre BO para fortalecer o caso."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como os golpistas clonam cartões?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Métodos: (1) \"chupa-cabra\" em caixas eletrônicos, (2) maquininhas adulteradas, (3) phishing (sites/apps falsos), (4) vazamento de dados de lojas, (5) skimming (dispositivos que leem a tarja magnética)."
+      }
+    }
+  ]
+}
+</script>
+
+
+---
+
+## ❓ Perguntas Frequentes
+
+### Como saber se meu cartão foi clonado?
+
+Sinais: (1) compras não reconhecidas no extrato, (2) SMS de compras que você não fez, (3) tentativas de compra bloqueadas, (4) saque/compra em local onde você nunca esteve, (5) cartão bloqueado sem você solicitar.
+
+### O que fazer se meu cartão foi clonado?
+
+Bloqueie o cartão IMEDIATAMENTE pelo app/telefone do banco, conteste as transações fraudulentas (tem até 90 dias), registre BO, e solicite novo cartão com números diferentes.
+
+### Banco devolve dinheiro de cartão clonado?
+
+Sim, geralmente. Se você contestar em até 90 dias e não houver evidência de negligência (ex: compartilhar senha), o banco costuma estornar. Guarde comprovantes e registre BO para fortalecer o caso.
+
+### Como os golpistas clonam cartões?
+
+Métodos: (1) "chupa-cabra" em caixas eletrônicos, (2) maquininhas adulteradas, (3) phishing (sites/apps falsos), (4) vazamento de dados de lojas, (5) skimming (dispositivos que leem a tarja magnética).
+
+

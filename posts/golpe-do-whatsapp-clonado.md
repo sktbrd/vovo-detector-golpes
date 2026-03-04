@@ -42,3 +42,66 @@ O golpe do WhatsApp clonado é uma ameaça real para a segurança online dos bra
 
 Proteja-se com nossas [Ferramentas Gratuitas](/ferramentas)!
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Como saber se meu WhatsApp foi clonado?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sinais: (1) mensagens lidas que você não abriu, (2) contatos dizem receber mensagens suas pedindo dinheiro, (3) sessões ativas em outros dispositivos (ver em WhatsApp Web), (4) desconexões repentinas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O que fazer se meu WhatsApp foi clonado?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Avise TODOS seus contatos imediatamente, desconecte todas as sessões (WhatsApp > Aparelhos Conectados > Desconectar tudo), ative a verificação em duas etapas, e registre BO na delegacia."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como os golpistas clonam WhatsApp?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Métodos comuns: (1) interceptam SMS com código de ativação, (2) enganam a vítima para fornecer o código, (3) usam engenharia social (\"atualização de cadastro\"), (4) exploram falhas de segurança."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como proteger WhatsApp contra clonagem?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ative verificação em duas etapas (Configurações > Conta > Confirmação em duas etapas), nunca compartilhe código de 6 dígitos, verifique aparelhos conectados regularmente, e desconfie de ligações pedindo códigos."
+      }
+    }
+  ]
+}
+</script>
+
+
+---
+
+## ❓ Perguntas Frequentes
+
+### Como saber se meu WhatsApp foi clonado?
+
+Sinais: (1) mensagens lidas que você não abriu, (2) contatos dizem receber mensagens suas pedindo dinheiro, (3) sessões ativas em outros dispositivos (ver em WhatsApp Web), (4) desconexões repentinas.
+
+### O que fazer se meu WhatsApp foi clonado?
+
+Avise TODOS seus contatos imediatamente, desconecte todas as sessões (WhatsApp > Aparelhos Conectados > Desconectar tudo), ative a verificação em duas etapas, e registre BO na delegacia.
+
+### Como os golpistas clonam WhatsApp?
+
+Métodos comuns: (1) interceptam SMS com código de ativação, (2) enganam a vítima para fornecer o código, (3) usam engenharia social ("atualização de cadastro"), (4) exploram falhas de segurança.
+
+### Como proteger WhatsApp contra clonagem?
+
+Ative verificação em duas etapas (Configurações > Conta > Confirmação em duas etapas), nunca compartilhe código de 6 dígitos, verifique aparelhos conectados regularmente, e desconfie de ligações pedindo códigos.
+
+

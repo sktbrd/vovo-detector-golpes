@@ -44,3 +44,66 @@ A segurança no Pix é uma responsabilidade compartilhada entre os usuários e a
 
 Proteja-se com nossas [Ferramentas Gratuitas](/ferramentas)!
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Como saber se um PIX é golpe?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Desconfie se: (1) a pessoa pede PIX antes de entregar produto, (2) há urgência excessiva, (3) o valor mudou de última hora, (4) o destinatário tem nome diferente do vendedor, (5) pedem PIX para \"confirmar\" algo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O que fazer se cair em golpe do PIX?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Registre um Boletim de Ocorrência (BO) imediatamente, solicite o Mecanismo Especial de Devolução (MED) no app do seu banco em até 80 dias, e entre em contato com o Banco Central pelo site do BC ou telefone 145."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "É possível cancelar um PIX após enviar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não. O PIX é instantâneo e irreversível. Porém, você pode solicitar a devolução via MED se foi vítima de golpe ou fraude. O prazo é de até 80 dias corridos após a transação."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como denunciar golpe do PIX?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Registre BO na delegacia (física ou online), notifique seu banco sobre a fraude, use o MED para tentar recuperar o valor, e denuncie ao Banco Central pelo site ou telefone 145."
+      }
+    }
+  ]
+}
+</script>
+
+
+---
+
+## ❓ Perguntas Frequentes
+
+### Como saber se um PIX é golpe?
+
+Desconfie se: (1) a pessoa pede PIX antes de entregar produto, (2) há urgência excessiva, (3) o valor mudou de última hora, (4) o destinatário tem nome diferente do vendedor, (5) pedem PIX para "confirmar" algo.
+
+### O que fazer se cair em golpe do PIX?
+
+Registre um Boletim de Ocorrência (BO) imediatamente, solicite o Mecanismo Especial de Devolução (MED) no app do seu banco em até 80 dias, e entre em contato com o Banco Central pelo site do BC ou telefone 145.
+
+### É possível cancelar um PIX após enviar?
+
+Não. O PIX é instantâneo e irreversível. Porém, você pode solicitar a devolução via MED se foi vítima de golpe ou fraude. O prazo é de até 80 dias corridos após a transação.
+
+### Como denunciar golpe do PIX?
+
+Registre BO na delegacia (física ou online), notifique seu banco sobre a fraude, use o MED para tentar recuperar o valor, e denuncie ao Banco Central pelo site ou telefone 145.
+
+

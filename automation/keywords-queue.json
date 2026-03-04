@@ -1,0 +1,200 @@
+{
+  "queue": [
+    {
+      "primary": "site falso como identificar",
+      "lsi": [
+        "site de golpe como saber",
+        "site falso sinais",
+        "como verificar se site é confiável",
+        "site fraudulento características"
+      ],
+      "intent": "informational",
+      "targetLength": 1800,
+      "priority": "high"
+    },
+    {
+      "primary": "golpe da entrega falsa correios",
+      "lsi": [
+        "correios golpe whatsapp",
+        "mensagem falsa correios",
+        "golpe taxa de entrega",
+        "link falso correios"
+      ],
+      "intent": "informational",
+      "targetLength": 1600,
+      "priority": "high"
+    },
+    {
+      "primary": "site golpe mercado livre",
+      "lsi": [
+        "mercado livre golpe vendedor",
+        "como saber se vendedor mercado livre é confiável",
+        "golpe mercado livre pagamento",
+        "mercado livre anúncio falso"
+      ],
+      "intent": "informational",
+      "targetLength": 1700,
+      "priority": "high"
+    },
+    {
+      "primary": "como saber se loja online é confiável",
+      "lsi": [
+        "verificar loja virtual",
+        "loja online segura sinais",
+        "site de compras confiável",
+        "e-commerce seguro brasil"
+      ],
+      "intent": "informational",
+      "targetLength": 2000,
+      "priority": "high"
+    },
+    {
+      "primary": "golpe da compra que não chega",
+      "lsi": [
+        "comprei e não recebi o que fazer",
+        "produto não chegou golpe",
+        "compra online não entregue",
+        "recuperar dinheiro compra online"
+      ],
+      "intent": "informational",
+      "targetLength": 1800,
+      "priority": "high"
+    },
+    {
+      "primary": "golpe dos correios whatsapp",
+      "lsi": [
+        "mensagem correios falsa",
+        "correios taxa de entrega golpe",
+        "link correios golpe",
+        "whatsapp correios é golpe"
+      ],
+      "intent": "informational",
+      "targetLength": 1500,
+      "priority": "high"
+    },
+    {
+      "primary": "pirâmide financeira como identificar",
+      "lsi": [
+        "esquema ponzi sinais",
+        "pirâmide financeira brasil",
+        "marketing multinível golpe",
+        "investimento piramidal características"
+      ],
+      "intent": "informational",
+      "targetLength": 2200,
+      "priority": "high"
+    },
+    {
+      "primary": "golpe do trader falso",
+      "lsi": [
+        "trader falso instagram",
+        "golpe forex whatsapp",
+        "curso de trader golpe",
+        "trader milionário golpe"
+      ],
+      "intent": "informational",
+      "targetLength": 1800,
+      "priority": "high"
+    },
+    {
+      "primary": "golpe bitcoin whatsapp",
+      "lsi": [
+        "investimento bitcoin whatsapp",
+        "bitcoin golpe brasil",
+        "criptomoeda whatsapp golpe",
+        "ganhar bitcoin fácil golpe"
+      ],
+      "intent": "informational",
+      "targetLength": 1900,
+      "priority": "high"
+    },
+    {
+      "primary": "investimento falso como denunciar",
+      "lsi": [
+        "onde denunciar golpe financeiro",
+        "denunciar pirâmide financeira",
+        "cvm denúncia golpe",
+        "polícia federal investimento falso"
+      ],
+      "intent": "informational",
+      "targetLength": 1700,
+      "priority": "medium"
+    },
+    {
+      "primary": "golpe do rendimento impossível",
+      "lsi": [
+        "investimento alto retorno golpe",
+        "rendimento garantido golpe",
+        "lucro rápido investimento",
+        "retorno impossível sinais"
+      ],
+      "intent": "informational",
+      "targetLength": 1600,
+      "priority": "medium"
+    },
+    {
+      "primary": "golpe da vaga de emprego falsa",
+      "lsi": [
+        "vaga de emprego golpe whatsapp",
+        "anúncio emprego falso",
+        "golpe linkedin emprego",
+        "trabalho remoto golpe"
+      ],
+      "intent": "informational",
+      "targetLength": 1800,
+      "priority": "high"
+    },
+    {
+      "primary": "golpe do trabalho em casa",
+      "lsi": [
+        "trabalho home office golpe",
+        "trabalho remoto investimento inicial",
+        "ganhar dinheiro casa golpe",
+        "emprego casa falso"
+      ],
+      "intent": "informational",
+      "targetLength": 1700,
+      "priority": "high"
+    },
+    {
+      "primary": "golpe do treinamento pago",
+      "lsi": [
+        "curso emprego golpe",
+        "pagar treinamento vaga",
+        "taxa treinamento golpe",
+        "curso obrigatório emprego"
+      ],
+      "intent": "informational",
+      "targetLength": 1500,
+      "priority": "medium"
+    },
+    {
+      "primary": "golpe instagram empréstimo",
+      "lsi": [
+        "empréstimo instagram é golpe",
+        "empréstimo fácil instagram",
+        "crédito rápido instagram",
+        "financiamento instagram golpe"
+      ],
+      "intent": "informational",
+      "targetLength": 1600,
+      "priority": "high"
+    }
+  ],
+  "metadata": {
+    "created": "2026-03-04",
+    "total_keywords": 15,
+    "priority_breakdown": {
+      "high": 11,
+      "medium": 4
+    },
+    "categories": {
+      "e-commerce": 6,
+      "investimento": 5,
+      "emprego": 3,
+      "redes_sociais": 1
+    },
+    "estimated_days": 5,
+    "notes": "Queue criada para os próximos 5 dias (3 artigos/dia). Foco em diversificação de tópicos para ampliar alcance SEO."
+  }
+}
