@@ -31,3 +31,12 @@ Se você clicou em um link malicioso ou forneceu informações pessoais a um gol
 
 ## Conclusão e Chamada para Ação 📣
 Os golpes com link no WhatsApp são uma ameaça real, mas com conhecimento e precaução, você pode se proteger. Lembre-se de sempre ser cético com mensagens que solicitam que você clique em links, especialmente se elas parecem urgentes ou prometem prêmios inacreditáveis. Use ferramentas de segurança, mantenha seu dispositivo atualizado e eduque seus entes queridos sobre esses golpes. Juntos, podemos criar uma comunidade mais segura online. **Proteja-se hoje mesmo** e compartilhe este conhecimento com seus amigos e familiares.
+
+---
+
+## 📚 Leia Também
+
+- [Golpe do WhatsApp Clonado](/blog/golpe-do-whatsapp-clonado)
+- [Golpe WhatsApp Fingindo ser Parente](/blog/golpe-whatsapp-fingindo-ser-parente)
+- [Golpe WhatsApp se Passando por Empresa](/blog/golpe-whatsapp-se-passando-por-empresa)
+

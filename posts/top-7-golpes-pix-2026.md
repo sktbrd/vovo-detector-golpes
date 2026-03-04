@@ -168,3 +168,12 @@ Recebeu uma mensagem suspeita? **Cole aqui no detector** e a vovó analisa pra v
 ---
 
 *Última atualização: 12 de fevereiro de 2026*
+
+---
+
+## 📚 Leia Também
+
+- [Como Identificar Golpe no PIX](/blog/como-identificar-golpe-no-pix)
+- [Golpe PIX Itaú: Como Identificar](/blog/golpe-pix-itau-como-identificar)
+- [Golpe PIX Banco do Brasil 2024](/blog/golpe-pix-banco-do-brasil-2024)
+
