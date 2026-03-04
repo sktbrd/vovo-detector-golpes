@@ -16,28 +16,155 @@ import {
   Zap,
   TrendingUp,
   AlertCircle,
+  Phone,
+  Mail,
+  CreditCard,
+  Eye,
+  Search,
   type LucideIcon,
 } from "lucide-react";
 
-// Mapeamento emoji → ícone lucide-react
-const emojiToIcon: Record<string, { icon: LucideIcon; color: string; bgColor: string }> = {
-  "🛡️": { icon: Shield, color: "text-teal-600", bgColor: "bg-teal-100" },
-  "🚨": { icon: AlertTriangle, color: "text-red-600", bgColor: "bg-red-100" },
-  "🤔": { icon: HelpCircle, color: "text-purple-600", bgColor: "bg-purple-100" },
-  "📊": { icon: BarChart3, color: "text-blue-600", bgColor: "bg-blue-100" },
-  "🔒": { icon: Lock, color: "text-slate-600", bgColor: "bg-slate-100" },
-  "🔐": { icon: Lock, color: "text-slate-600", bgColor: "bg-slate-100" },
-  "🚀": { icon: Rocket, color: "text-pink-600", bgColor: "bg-pink-100" },
-  "⚠️": { icon: AlertCircle, color: "text-orange-600", bgColor: "bg-orange-100" },
-  "❓": { icon: HelpCircle, color: "text-purple-600", bgColor: "bg-purple-100" },
-  "✅": { icon: CheckCircle2, color: "text-green-600", bgColor: "bg-green-100" },
-  "📝": { icon: FileText, color: "text-blue-600", bgColor: "bg-blue-100" },
-  "📢": { icon: Megaphone, color: "text-pink-600", bgColor: "bg-pink-100" },
-  "📚": { icon: BookOpen, color: "text-indigo-600", bgColor: "bg-indigo-100" },
-  "ℹ️": { icon: Info, color: "text-cyan-600", bgColor: "bg-cyan-100" },
-  "📱": { icon: Zap, color: "text-yellow-600", bgColor: "bg-yellow-100" },
-  "💰": { icon: TrendingUp, color: "text-green-600", bgColor: "bg-green-100" },
-};
+// Mapeamento keyword → ícone lucide-react (ordem importa: mais específico primeiro)
+const keywordToIcon: Array<{
+  keywords: string[];
+  icon: LucideIcon;
+  color: string;
+  bgColor: string;
+}> = [
+  // Segurança e proteção
+  {
+    keywords: ["proteg", "seguranç", "defes", "guard", "privacidad"],
+    icon: Shield,
+    color: "text-teal-600",
+    bgColor: "bg-teal-100",
+  },
+  // Alertas e perigos
+  {
+    keywords: ["golp", "fraud", "perigo", "cuidado", "atenção", "alerta", "risco"],
+    icon: AlertTriangle,
+    color: "text-red-600",
+    bgColor: "bg-red-100",
+  },
+  // Telefone
+  {
+    keywords: ["telefon", "número", "chamad", "ligaç", "sms", "whatsapp"],
+    icon: Phone,
+    color: "text-purple-600",
+    bgColor: "bg-purple-100",
+  },
+  // Email
+  {
+    keywords: ["email", "e-mail", "mensagem", "phishing"],
+    icon: Mail,
+    color: "text-blue-600",
+    bgColor: "bg-blue-100",
+  },
+  // Financeiro
+  {
+    keywords: ["dinheiro", "pagamento", "cartão", "financ", "banco", "pix", "taxa"],
+    icon: CreditCard,
+    color: "text-green-600",
+    bgColor: "bg-green-100",
+  },
+  // Verificação e busca
+  {
+    keywords: ["verific", "identific", "detector", "analis", "checar", "conferir"],
+    icon: Search,
+    color: "text-cyan-600",
+    bgColor: "bg-cyan-100",
+  },
+  // Dados e estatísticas
+  {
+    keywords: ["dado", "estatístic", "número", "percentual", "análise"],
+    icon: BarChart3,
+    color: "text-blue-600",
+    bgColor: "bg-blue-100",
+  },
+  // Privacidade
+  {
+    keywords: ["privad", "confidencial", "sigiloso", "bloqueio", "senha"],
+    icon: Lock,
+    color: "text-slate-600",
+    bgColor: "bg-slate-100",
+  },
+  // Sucesso e confirmação
+  {
+    keywords: ["sucesso", "confirm", "certific", "valid", "aprovad"],
+    icon: CheckCircle2,
+    color: "text-green-600",
+    bgColor: "bg-green-100",
+  },
+  // Dúvidas
+  {
+    keywords: ["como", "por que", "quando", "onde", "qual", "dúvida", "pergunta"],
+    icon: HelpCircle,
+    color: "text-purple-600",
+    bgColor: "bg-purple-100",
+  },
+  // Visualização
+  {
+    keywords: ["ver", "visualiz", "observ", "monitorar"],
+    icon: Eye,
+    color: "text-indigo-600",
+    bgColor: "bg-indigo-100",
+  },
+  // Informação
+  {
+    keywords: ["informaç", "conheç", "saiba", "descubr", "aprend"],
+    icon: Info,
+    color: "text-cyan-600",
+    bgColor: "bg-cyan-100",
+  },
+  // Dicas e guias
+  {
+    keywords: ["dica", "guia", "passo", "tutorial", "exemplo"],
+    icon: FileText,
+    color: "text-blue-600",
+    bgColor: "bg-blue-100",
+  },
+  // Avisos importantes
+  {
+    keywords: ["importante", "atenção", "observ", "nota"],
+    icon: AlertCircle,
+    color: "text-orange-600",
+    bgColor: "bg-orange-100",
+  },
+  // Compartilhamento
+  {
+    keywords: ["compartilh", "divulg", "espalh"],
+    icon: Megaphone,
+    color: "text-pink-600",
+    bgColor: "bg-pink-100",
+  },
+  // Leitura e educação
+  {
+    keywords: ["leitura", "artigo", "conteúdo", "educaç"],
+    icon: BookOpen,
+    color: "text-indigo-600",
+    bgColor: "bg-indigo-100",
+  },
+  // Velocidade e rapidez
+  {
+    keywords: ["rápid", "veloz", "instant", "ágil"],
+    icon: Zap,
+    color: "text-yellow-600",
+    bgColor: "bg-yellow-100",
+  },
+  // Crescimento e tendências
+  {
+    keywords: ["cresci", "aument", "tendênc", "evolução"],
+    icon: TrendingUp,
+    color: "text-green-600",
+    bgColor: "bg-green-100",
+  },
+  // Novo e inovação
+  {
+    keywords: ["novo", "inov", "lançamento"],
+    icon: Rocket,
+    color: "text-pink-600",
+    bgColor: "bg-pink-100",
+  },
+];
 
 interface HeadingWithIconProps {
   level: 2 | 3 | 4;
@@ -45,19 +172,54 @@ interface HeadingWithIconProps {
   id?: string;
 }
 
-export default function HeadingWithIcon({ level, children, id }: HeadingWithIconProps) {
+// Função para detectar ícone baseado em keywords
+function detectIcon(text: string): {
+  icon: LucideIcon;
+  color: string;
+  bgColor: string;
+} | null {
+  const normalizedText = text
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, ""); // Remove acentos
+
+  for (const mapping of keywordToIcon) {
+    for (const keyword of mapping.keywords) {
+      if (normalizedText.includes(keyword)) {
+        return {
+          icon: mapping.icon,
+          color: mapping.color,
+          bgColor: mapping.bgColor,
+        };
+      }
+    }
+  }
+
+  return null;
+}
+
+export default function HeadingWithIcon({
+  level,
+  children,
+  id,
+}: HeadingWithIconProps) {
   const text = String(children);
-  
-  // Detectar emoji no final do texto
-  const emojiMatch = text.match(/([🔐📱💰🚨🤔📊🔒🚀⚠️❓✅📝🛡️ℹ️📢📚])\s*$/);
-  const emoji = emojiMatch ? emojiMatch[1] : null;
-  const cleanText = text.replace(/[🔐📱💰🚨🤔📊🔒🚀⚠️❓✅📝🛡️ℹ️📢📚]\s*$/g, '').trim();
-  
-  // Pegar ícone correspondente
-  const iconData = emoji ? emojiToIcon[emoji] : null;
+
+  // Remover emojis antigos (se ainda existirem no markdown)
+  const cleanText = text
+    .replace(/[🔐📱💰🚨🤔📊🔒🚀⚠️❓✅📝🛡️ℹ️📢📚]/g, "")
+    .trim();
+
+  // Detectar ícone baseado em keywords
+  const iconData = detectIcon(cleanText);
   const IconComponent = iconData?.icon;
 
-  const iconSize = level === 2 ? 'w-6 h-6 md:w-8 md:h-8' : level === 3 ? 'w-5 h-5 md:w-6 md:h-6' : 'w-4 h-4 md:w-5 md:h-5';
+  const iconSize =
+    level === 2
+      ? "w-6 h-6 md:w-8 md:h-8"
+      : level === 3
+      ? "w-5 h-5 md:w-6 md:h-6"
+      : "w-4 h-4 md:w-5 md:h-5";
 
   const content = (
     <>
@@ -80,10 +242,22 @@ export default function HeadingWithIcon({ level, children, id }: HeadingWithIcon
 
   // Renderizar elemento apropriado baseado no level
   if (level === 2) {
-    return <h2 id={id} className={className}>{content}</h2>;
+    return (
+      <h2 id={id} className={className}>
+        {content}
+      </h2>
+    );
   } else if (level === 3) {
-    return <h3 id={id} className={className}>{content}</h3>;
+    return (
+      <h3 id={id} className={className}>
+        {content}
+      </h3>
+    );
   } else {
-    return <h4 id={id} className={className}>{content}</h4>;
+    return (
+      <h4 id={id} className={className}>
+        {content}
+      </h4>
+    );
   }
 }

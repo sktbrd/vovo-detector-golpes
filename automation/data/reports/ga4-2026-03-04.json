@@ -1,0 +1,91 @@
+{
+  "timestamp": "2026-03-04T02:39:38.980Z",
+  "period": "last_7_days",
+  "summary": {
+    "totalUsers": 22,
+    "totalPageviews": 101,
+    "totalSessions": 29,
+    "avgUsersPerDay": 3,
+    "avgPageviewsPerDay": 14
+  },
+  "daily": [
+    {
+      "date": "2026-02-24",
+      "users": 9,
+      "pageviews": 59,
+      "sessions": 14
+    },
+    {
+      "date": "2026-02-25",
+      "users": 5,
+      "pageviews": 19,
+      "sessions": 7
+    },
+    {
+      "date": "2026-02-27",
+      "users": 4,
+      "pageviews": 4,
+      "sessions": 4
+    },
+    {
+      "date": "2026-02-26",
+      "users": 2,
+      "pageviews": 17,
+      "sessions": 2
+    },
+    {
+      "date": "2026-02-28",
+      "users": 1,
+      "pageviews": 1,
+      "sessions": 1
+    },
+    {
+      "date": "2026-03-03",
+      "users": 1,
+      "pageviews": 1,
+      "sessions": 1
+    }
+  ],
+  "topPages": [
+    {
+      "path": "/",
+      "pageviews": 31
+    },
+    {
+      "path": "/ferramentas",
+      "pageviews": 20
+    },
+    {
+      "path": "/mensagem-segura",
+      "pageviews": 13
+    },
+    {
+      "path": "/blog",
+      "pageviews": 8
+    },
+    {
+      "path": "/verificar-numero",
+      "pageviews": 6
+    },
+    {
+      "path": "/msg/1798c3ce-38cd-4cff-a4c9-b74f780ca6b8",
+      "pageviews": 4
+    },
+    {
+      "path": "/msg/455395ef-9dc0-4378-a3bc-e275a03f60fa",
+      "pageviews": 4
+    },
+    {
+      "path": "/gerador-senha",
+      "pageviews": 3
+    },
+    {
+      "path": "/blog/como-identificar-golpe-no-pix",
+      "pageviews": 2
+    },
+    {
+      "path": "/verificador-link",
+      "pageviews": 2
+    }
+  ]
+}
