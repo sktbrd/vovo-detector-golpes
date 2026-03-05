@@ -34,7 +34,7 @@ function getLatestPosts(): Post[] {
         title: data.title || '',
         description: data.description || '',
         publishedAt: data.publishedAt || new Date().toISOString(),
-        keywords: data.keywords || [],
+        keywords: Array.isArray(data.keywords) ? data.keywords : [],
       };
     })
     .sort((a, b) => {
