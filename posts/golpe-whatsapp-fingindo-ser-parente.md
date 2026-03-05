@@ -1,5 +1,5 @@
 ---
-title: "Golpe Whatsapp Fingindo Ser Parente: Como Se Proteger"
+title: "Golpe do 'Oi Mãe': R$15.000 Roubados de Famílias (Como Evitar)"
 description: "Aprenda a identificar e evitar golpes no Whatsapp que fingem ser parentes, proteja sua segurança digital e financeira com dicas práticas"
 publishedAt: "2026-02-22T19:26:26.890Z"
 keywords: ["golpe whatsapp fingindo ser parente","golpe whatsapp família","golpe whatsapp se passando por filho","golpe whatsapp parente pedindo dinheiro"]

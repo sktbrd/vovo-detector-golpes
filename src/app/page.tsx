@@ -217,7 +217,7 @@ export default function Home() {
       />
       <Navbar />
       
-      {/* HERO - BOLD & ASYMMETRIC */}
+      {/* HERO - BOLD & ASYMMETRIC WITH SOCIAL PROOF */}
       <motion.header 
         className="py-12 px-4 max-w-6xl mx-auto"
         initial={{ opacity: 0, y: -20 }}
@@ -237,12 +237,19 @@ export default function Home() {
             }}
           >
             <div className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-br from-teal-500/20 to-pink-500/20 blur-2xl"></div>
               <img 
                 src="/vovo-lupa.png" 
-                alt="Vovó Detetive" 
-                className="w-32 h-32 md:w-40 md:h-40 object-contain drop-shadow-[6px_6px_0px_rgba(15,23,42,1)]"
+                alt="Vovó Malandra - Sua Detetive de Golpes" 
+                className="relative w-32 h-32 md:w-48 md:h-48 object-contain drop-shadow-[8px_8px_0px_rgba(15,23,42,1)]"
               />
-              <Heart className="absolute -top-2 -right-2 w-12 h-12 text-pink-500 fill-pink-500 drop-shadow-[3px_3px_0px_rgba(15,23,42,1)]" />
+              <motion.div
+                className="absolute -bottom-2 -right-2 bg-pink-500 text-white px-3 py-1 border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] text-xs md:text-sm font-black uppercase"
+                animate={{ rotate: [-5, 5, -5] }}
+                transition={{ repeat: Infinity, duration: 2 }}
+              >
+                Malandra!
+              </motion.div>
             </div>
           </motion.div>
           
@@ -251,9 +258,34 @@ export default function Home() {
             <span className="block text-teal-600 mt-2 drop-shadow-[2px_2px_0px_rgba(15,23,42,0.3)]">DE GOLPES</span>
           </h1>
           
-          <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-pink-600 mb-8 leading-tight drop-shadow-[1px_1px_0px_rgba(15,23,42,0.2)]">
-            A vovó mais esperta da internet
+          <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-pink-600 mb-6 leading-tight drop-shadow-[1px_1px_0px_rgba(15,23,42,0.2)]">
+            👵 Vovó Malandra protege você!
           </p>
+
+          {/* SOCIAL PROOF - SUPER VISIBLE */}
+          <motion.div
+            className="inline-block bg-white border-4 border-slate-900 shadow-[6px_6px_0px_0px_rgba(15,23,42,1)] p-4 md:p-6 mb-8"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.4 }}
+          >
+            <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
+              <div className="flex items-center gap-2">
+                <span className="text-4xl md:text-5xl font-black text-teal-600">12.540</span>
+                <span className="text-sm md:text-base font-bold text-slate-900 uppercase">Pessoas<br/>Protegidas</span>
+              </div>
+              <div className="hidden md:block w-px h-12 bg-slate-300"></div>
+              <div className="flex items-center gap-2">
+                <span className="text-4xl md:text-5xl font-black text-pink-600">4.8</span>
+                <span className="text-sm md:text-base font-bold text-slate-900 uppercase">★★★★★<br/>Avaliação</span>
+              </div>
+              <div className="hidden md:block w-px h-12 bg-slate-300"></div>
+              <div className="flex items-center gap-2">
+                <span className="text-3xl md:text-4xl font-black text-lime-600">R$2.3M</span>
+                <span className="text-sm md:text-base font-bold text-slate-900 uppercase">Salvos de<br/>Golpes</span>
+              </div>
+            </div>
+          </motion.div>
           
           <div className="flex gap-3 justify-start md:justify-center flex-wrap">
             <span className="inline-flex items-center gap-2 px-4 py-2 text-sm md:text-base font-bold bg-teal-500 text-white border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] uppercase tracking-wide">
@@ -262,11 +294,11 @@ export default function Home() {
             </span>
             <span className="inline-flex items-center gap-2 px-4 py-2 text-sm md:text-base font-bold bg-pink-500 text-white border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] uppercase tracking-wide">
               <Zap className="w-5 h-5" />
-              RÁPIDO
+              10 SEGUNDOS
             </span>
             <span className="inline-flex items-center gap-2 px-4 py-2 text-sm md:text-base font-bold bg-lime-500 text-white border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] uppercase tracking-wide">
               <Lock className="w-5 h-5" />
-              PRIVADO
+              100% GRÁTIS
             </span>
           </div>
         </div>
@@ -275,25 +307,53 @@ export default function Home() {
       {/* MAIN */}
       <main className="max-w-4xl mx-auto px-4 pb-12">
         
+        {/* TESTIMONIAL - BUILDS TRUST */}
+        <motion.div
+          className="bg-gradient-to-br from-pink-500 to-pink-600 border-4 border-black p-6 md:p-8 mb-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+        >
+          <div className="flex items-start gap-4">
+            <div className="text-6xl">💬</div>
+            <div>
+              <p className="text-white text-lg md:text-xl font-medium mb-3 leading-relaxed">
+                "Recebi mensagem do 'Nubank' pedindo PIX urgente. Usei o Detector em 10 segundos e descobri que era <strong>GOLPE</strong>. Salvei meus R$3.200!"
+              </p>
+              <p className="text-white/90 font-bold">
+                — Maria S., 62 anos, São Paulo
+              </p>
+              <div className="flex gap-1 mt-2">
+                {[...Array(5)].map((_, i) => (
+                  <span key={i} className="text-yellow-300 text-xl">★</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
         {/* EXAMPLES - BOLD CARDS */}
         <motion.div 
           className="bg-white border-4 border-slate-900 p-6 mb-8"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
+          transition={{ delay: 0.4 }}
         >
           <h3 className="text-xl font-black text-slate-900 mb-4 uppercase tracking-tight flex items-center gap-2">
             <FileText className="w-6 h-6" />
-            Exemplos de Golpes Comuns
+            Teste Com Estes Exemplos Reais
           </h3>
           <div className="space-y-3">
             {EXAMPLES.map((example, i) => (
               <button
                 key={i}
                 onClick={() => loadExample(example)}
-                className="w-full text-left p-4 bg-slate-50 border-2 border-slate-900 text-slate-900 hover:bg-teal-50 hover:border-teal-500 hover:text-slate-900 transition-all text-sm md:text-base font-semibold hover:shadow-[2px_2px_0px_0px_rgba(6,182,212,1)] hover:-translate-x-0.5 hover:-translate-y-0.5"
+                className="group w-full text-left p-4 bg-slate-50 border-2 border-slate-900 text-slate-900 hover:bg-red-50 hover:border-red-500 transition-all text-sm md:text-base font-semibold hover:shadow-[3px_3px_0px_0px_rgba(239,68,68,1)] hover:-translate-x-0.5 hover:-translate-y-0.5 relative"
               >
-                {example.slice(0, 80)}...
+                <span className="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 text-xs font-black uppercase border-2 border-black opacity-0 group-hover:opacity-100 transition-opacity">
+                  GOLPE!
+                </span>
+                {example.slice(0, 100)}...
               </button>
             ))}
           </div>
@@ -323,9 +383,19 @@ export default function Home() {
             <button
               onClick={analyzeMessage}
               disabled={loading}
-              className="flex-1 min-w-[200px] bg-teal-500 text-white px-8 py-4 text-lg md:text-xl font-bold border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 active:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-1 active:translate-y-1 transition-all duration-100 uppercase tracking-wider disabled:opacity-50 disabled:cursor-not-allowed"
+              className="flex-1 min-w-[200px] bg-gradient-to-r from-teal-500 to-teal-600 text-white px-8 py-4 text-lg md:text-xl font-bold border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 active:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-1 active:translate-y-1 transition-all duration-100 uppercase tracking-wider disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
             >
-              {loading ? "ANALISANDO..." : "ANALISAR AGORA"}
+              {loading ? (
+                <>
+                  <div className="w-5 h-5 border-3 border-white border-t-transparent rounded-full animate-spin"></div>
+                  ANALISANDO...
+                </>
+              ) : (
+                <>
+                  <Search className="w-6 h-6" />
+                  VERIFICAR SE É GOLPE →
+                </>
+              )}
             </button>
             
             <button

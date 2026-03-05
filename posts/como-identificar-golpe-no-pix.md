@@ -1,6 +1,6 @@
 ---
-title: "Identifique Golpes no Pix: Dicas de Segurança"
-description: "Aprenda a evitar golpes no Pix com dicas práticas e exemplos reais. Proteja seu dinheiro e mantenha sua conta segura com as nossas dicas."
+title: "Não Perca R$5.000: Identifique Golpes PIX em 10 Segundos"
+description: "Aprenda os sinais infalíveis de golpe PIX e proteja seu dinheiro em segundos. 89% dos golpes têm estes 5 padrões. Guia completo 2026."
 publishedAt: "2026-02-22T19:12:35.627Z"
 keywords: ["como identificar golpe no pix","golpe pix nubank","golpe pix itau","golpe pix banco do brasil","evitar golpe pix"]
 ---

@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { Shield, Search, BookOpen, Wrench } from "lucide-react";
+import { Search, BookOpen, Wrench } from "lucide-react";
+import Logo from "./Logo";
 
 export default function Navbar() {
   return (
@@ -11,11 +12,9 @@ export default function Navbar() {
           {/* Logo */}
           <Link 
             href="/" 
-            className="flex items-center gap-2 text-slate-900 hover:text-teal-500 transition-colors group"
+            className="hover:opacity-80 transition-opacity"
           >
-            <Shield className="w-7 h-7 sm:w-8 sm:h-8 group-hover:scale-110 transition-transform" strokeWidth={3} />
-            <span className="font-black text-xl sm:text-2xl hidden sm:inline uppercase tracking-tight">Vovó Vigilante</span>
-            <span className="font-black text-xl sm:hidden uppercase">Vovó</span>
+            <Logo className="scale-90 sm:scale-100" />
           </Link>
 
           {/* Nav Links */}

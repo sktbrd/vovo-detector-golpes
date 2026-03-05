@@ -1,5 +1,5 @@
 ---
-title: "Golpe Pix Nubank: Como Se Proteger?"
+title: "Golpe PIX Nubank: Mensagem Falsa Rouba R$7.000 (Como Evitar)"
 description: "Aprenda a evitar golpes de Pix no Nubank via WhatsApp e proteja seu dinheiro. Dicas práticas e ferramentas gratuitas para segurança online."
 publishedAt: "2026-02-22T19:21:53.402Z"
 keywords: ["golpe pix nubank whatsapp","golpe nubank 2024","pix falso nubank","golpe whatsapp nubank","como evitar golpe pix nubank"]
