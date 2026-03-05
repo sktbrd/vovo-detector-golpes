@@ -4,6 +4,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import PopularArticles from '@/components/PopularArticles';
 import NewsletterSignup from '@/components/NewsletterSignup';
+import { BookOpen, Zap, MessageCircle, Building2 } from 'lucide-react';
 
 interface Post {
   slug: string;
@@ -50,10 +51,15 @@ export default function BlogPage() {
       <div className="container mx-auto px-4 py-16 max-w-7xl">
         {/* Hero */}
         <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight">
-            📚 Blog<br />
-            <span className="text-orange-600">Detector de Golpes</span>
-          </h1>
+          <div className="flex items-center justify-center gap-4 mb-6">
+            <div className="bg-orange-100 border-3 border-black p-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+              <BookOpen className="w-12 h-12 md:w-16 md:h-16 text-orange-600" strokeWidth={2.5} />
+            </div>
+            <h1 className="text-5xl md:text-7xl font-black leading-tight">
+              Blog<br />
+              <span className="text-orange-600">Detector de Golpes</span>
+            </h1>
+          </div>
           <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto mb-8">
             Aprenda tudo sobre golpes digitais. Guias completos, atualizados e 100% gratuitos.
           </p>
@@ -65,7 +71,9 @@ export default function BlogPage() {
             href="/golpes-pix"
             className="bg-orange-500 text-white p-8 rounded-2xl border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all group"
           >
-            <div className="text-4xl mb-4">🔥</div>
+            <div className="bg-white/20 border-2 border-white/50 p-3 inline-block mb-4 shadow-[2px_2px_0px_0px_rgba(255,255,255,0.3)]">
+              <Zap className="w-8 h-8 text-white" strokeWidth={2.5} />
+            </div>
             <h2 className="text-2xl font-black mb-2">Golpes do PIX</h2>
             <p className="text-orange-100 mb-4">7 artigos completos sobre fraudes no PIX</p>
             <span className="text-white font-bold group-hover:underline">
@@ -77,7 +85,9 @@ export default function BlogPage() {
             href="/golpes-whatsapp"
             className="bg-green-500 text-white p-8 rounded-2xl border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all group"
           >
-            <div className="text-4xl mb-4">📱</div>
+            <div className="bg-white/20 border-2 border-white/50 p-3 inline-block mb-4 shadow-[2px_2px_0px_0px_rgba(255,255,255,0.3)]">
+              <MessageCircle className="w-8 h-8 text-white" strokeWidth={2.5} />
+            </div>
             <h2 className="text-2xl font-black mb-2">Golpes do WhatsApp</h2>
             <p className="text-green-100 mb-4">7 artigos sobre fraudes no WhatsApp</p>
             <span className="text-white font-bold group-hover:underline">
@@ -89,7 +99,9 @@ export default function BlogPage() {
             href="/golpes-bancos"
             className="bg-blue-500 text-white p-8 rounded-2xl border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all group"
           >
-            <div className="text-4xl mb-4">🏦</div>
+            <div className="bg-white/20 border-2 border-white/50 p-3 inline-block mb-4 shadow-[2px_2px_0px_0px_rgba(255,255,255,0.3)]">
+              <Building2 className="w-8 h-8 text-white" strokeWidth={2.5} />
+            </div>
             <h2 className="text-2xl font-black mb-2">Golpes Bancários</h2>
             <p className="text-blue-100 mb-4">4 artigos sobre fraudes bancárias</p>
             <span className="text-white font-bold group-hover:underline">
