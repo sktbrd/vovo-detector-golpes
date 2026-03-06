@@ -57,16 +57,22 @@ export async function generateMetadata({
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data } = matter(fileContents);
 
+  const canonicalUrl = `https://www.detectordegolpes.com.br/blog/${slug}`;
+  
   return {
     title: `${data.title} | Vovó Detector`,
     description: data.description,
     keywords: data.keywords,
     authors: [{ name: data.author || "Vovó Detector" }],
+    alternates: {
+      canonical: canonicalUrl,
+    },
     openGraph: {
       title: data.title,
       description: data.description,
       type: "article",
       publishedTime: data.date,
+      url: canonicalUrl,
     },
   };
 }
