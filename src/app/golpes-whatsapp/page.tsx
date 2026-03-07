@@ -1,5 +1,17 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { 
+  AlertTriangle, 
+  BookOpen, 
+  HelpCircle, 
+  Smartphone, 
+  Users, 
+  Building2, 
+  Search, 
+  RotateCcw, 
+  Link as LinkIcon, 
+  Monitor 
+} from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Golpes do WhatsApp: Guia Completo 2026 | Detector de Golpes',
@@ -12,43 +24,43 @@ const whatsappArticles = [
     slug: 'golpe-do-whatsapp-clonado',
     title: 'Golpe do WhatsApp Clonado',
     description: 'Como identificar e recuperar conta clonada',
-    icon: '📱',
+    Icon: Smartphone,
   },
   {
     slug: 'golpe-whatsapp-fingindo-ser-parente',
     title: 'Golpe Fingindo ser Parente',
     description: 'O golpe mais comum no Brasil',
-    icon: '👨‍👩‍👧',
+    Icon: Users,
   },
   {
     slug: 'golpe-whatsapp-se-passando-por-empresa',
     title: 'Golpe se Passando por Empresa',
     description: 'Golpes corporativos e como evitar',
-    icon: '🏢',
+    Icon: Building2,
   },
   {
     slug: 'como-saber-se-whatsapp-foi-clonado',
     title: 'Como Saber se Foi Clonado',
     description: '5 sinais de que sua conta foi invadida',
-    icon: '🔍',
+    Icon: Search,
   },
   {
     slug: 'recuperar-whatsapp-clonado',
     title: 'Recuperar WhatsApp Clonado',
     description: 'Passo a passo para recuperar sua conta',
-    icon: '🔄',
+    Icon: RotateCcw,
   },
   {
     slug: 'golpe-whatsapp-com-link',
     title: 'Golpe com Link Falso',
     description: 'Links maliciosos e como identificar',
-    icon: '🔗',
+    Icon: LinkIcon,
   },
   {
     slug: 'novo-golpe-whatsapp-web',
     title: 'Novo Golpe WhatsApp Web',
     description: 'Golpe do QR Code e WhatsApp Web',
-    icon: '💻',
+    Icon: Monitor,
   },
 ];
 
@@ -58,8 +70,13 @@ export default function GolpesWhatsAppPage() {
       <div className="container mx-auto px-4 py-16 max-w-6xl">
         {/* Hero */}
         <div className="text-center mb-16">
+          <div className="flex justify-center mb-6">
+            <div className="bg-green-500 p-4 border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+              <AlertTriangle className="w-16 h-16 text-white" strokeWidth={3} />
+            </div>
+          </div>
           <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight">
-            🚨 Golpes do WhatsApp<br />
+            Golpes do WhatsApp<br />
             <span className="text-green-600">Guia Completo 2026</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto mb-8">
@@ -99,29 +116,44 @@ export default function GolpesWhatsAppPage() {
         </div>
 
         {/* Articles Grid */}
-        <h2 className="text-4xl font-black mb-8 text-center">📚 Artigos sobre Golpes do WhatsApp</h2>
+        <div className="flex items-center justify-center gap-3 mb-8">
+          <div className="bg-white p-3 border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+            <BookOpen className="w-8 h-8 text-green-600" strokeWidth={2.5} />
+          </div>
+          <h2 className="text-4xl font-black text-center">Artigos sobre Golpes do WhatsApp</h2>
+        </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-          {whatsappArticles.map((article) => (
-            <Link
-              key={article.slug}
-              href={`/blog/${article.slug}`}
-              className="bg-white border-4 border-black p-6 hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all group"
-            >
-              <div className="text-4xl mb-4">{article.icon}</div>
-              <h3 className="text-xl font-bold mb-2 group-hover:text-green-600 transition-colors">
-                {article.title}
-              </h3>
-              <p className="text-gray-600 mb-4">{article.description}</p>
-              <span className="text-green-600 font-bold group-hover:underline">
-                Ler mais →
-              </span>
-            </Link>
-          ))}
+          {whatsappArticles.map((article) => {
+            const IconComponent = article.Icon;
+            return (
+              <Link
+                key={article.slug}
+                href={`/blog/${article.slug}`}
+                className="bg-white border-4 border-black p-6 hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all group"
+              >
+                <div className="bg-green-50 w-16 h-16 flex items-center justify-center border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] mb-4">
+                  <IconComponent className="w-8 h-8 text-green-600" strokeWidth={2.5} />
+                </div>
+                <h3 className="text-xl font-bold mb-2 group-hover:text-green-600 transition-colors">
+                  {article.title}
+                </h3>
+                <p className="text-gray-600 mb-4">{article.description}</p>
+                <span className="text-green-600 font-bold group-hover:underline">
+                  Ler mais →
+                </span>
+              </Link>
+            );
+          })}
         </div>
 
         {/* FAQ */}
         <div className="bg-green-50 border-4 border-black p-8 mb-16">
-          <h2 className="text-3xl font-black mb-6">❓ Perguntas Frequentes</h2>
+          <div className="flex items-center gap-3 mb-6">
+            <div className="bg-white p-2 border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
+              <HelpCircle className="w-8 h-8 text-green-600" strokeWidth={2.5} />
+            </div>
+            <h2 className="text-3xl font-black">Perguntas Frequentes</h2>
+          </div>
           <div className="space-y-4">
             <details className="bg-white border-2 border-black p-4">
               <summary className="font-bold cursor-pointer">
