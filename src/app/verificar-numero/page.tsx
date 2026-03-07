@@ -292,8 +292,9 @@ export default function VerificarNumeroPage() {
                         <CheckCircle className="w-5 h-5 text-lime-600" strokeWidth={2.5} />
                         <span className="font-black text-slate-900 uppercase text-sm">Verificação</span>
                       </div>
-                      <p className="text-slate-800 font-bold">
-                        ✅ Número oficial verificado
+                      <p className="text-slate-800 font-bold flex items-center gap-2">
+                        <CheckCircle className="w-5 h-5 text-lime-600" strokeWidth={2.5} />
+                        Número oficial verificado
                       </p>
                       <p className="text-slate-600 font-medium text-sm mt-1">
                         Este é um número legítimo de serviço público ou instituição reconhecida.
@@ -381,8 +382,9 @@ export default function VerificarNumeroPage() {
                   {/* Warnings */}
                   {result.reputation.warnings.length > 0 && (
                     <div className="space-y-2">
-                      <h4 className="font-black text-slate-900 uppercase text-sm mb-3">
-                        ⚠️ Alertas:
+                      <h4 className="font-black text-slate-900 uppercase text-sm mb-3 flex items-center gap-2">
+                        <AlertTriangle className="w-5 h-5 text-yellow-600" strokeWidth={2.5} />
+                        Alertas:
                       </h4>
                       {result.reputation.warnings.map((warning, i) => (
                         <div key={i} className="bg-white border-3 border-slate-900 p-3 flex items-start gap-2">
