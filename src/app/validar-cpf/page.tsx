@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import ToolLayout from "../components/ToolLayout";
-import { Building2 } from "lucide-react";
+import { Building2, CheckCircle, XCircle, Info, AlertTriangle } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function ValidarCPFPage() {
@@ -153,8 +153,14 @@ export default function ValidarCPFPage() {
             }`}
           >
             <div className="flex items-center gap-3 mb-3">
-              <div className="text-4xl">
-                {result.valid ? "✅" : "❌"}
+              <div className={`p-3 border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] ${
+                result.valid ? "bg-green-500" : "bg-red-500"
+              }`}>
+                {result.valid ? (
+                  <CheckCircle className="w-10 h-10 text-white" strokeWidth={3} />
+                ) : (
+                  <XCircle className="w-10 h-10 text-white" strokeWidth={3} />
+                )}
               </div>
               <div>
                 <h3 className={`text-2xl font-bold ${
@@ -210,9 +216,14 @@ export default function ValidarCPFPage() {
 
       {/* Info */}
       <div className="bg-teal-50 border-teal-200 border-4 border-slate-900 p-6">
-        <h3 className="text-xl font-bold text-slate-900 mb-4">
-          ℹ️ Como Funciona
-        </h3>
+        <div className="flex items-center gap-2 mb-4">
+          <div className="bg-white p-2 border-2 border-slate-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+            <Info className="w-6 h-6 text-teal-600" strokeWidth={2.5} />
+          </div>
+          <h3 className="text-xl font-bold text-slate-900">
+            Como Funciona
+          </h3>
+        </div>
         <div className="space-y-3 text-slate-800">
           <p>
             <strong>CPF (11 dígitos):</strong> Cadastro de Pessoa Física. Valida
@@ -222,11 +233,14 @@ export default function ValidarCPFPage() {
             <strong>CNPJ (14 dígitos):</strong> Cadastro Nacional da Pessoa Jurídica.
             Identifica empresas legalmente registradas.
           </p>
-          <p className="text-sm text-slate-700 mt-4">
-            ⚠️ <strong>Atenção:</strong> Esta ferramenta apenas VALIDA o formato e
-            dígitos verificadores. Não consulta situação cadastral na Receita
-            Federal.
-          </p>
+          <div className="flex items-start gap-2 text-sm text-slate-700 mt-4 bg-amber-50 p-3 border-2 border-amber-300">
+            <AlertTriangle className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" strokeWidth={2.5} />
+            <p>
+              <strong>Atenção:</strong> Esta ferramenta apenas VALIDA o formato e
+              dígitos verificadores. Não consulta situação cadastral na Receita
+              Federal.
+            </p>
+          </div>
         </div>
       </div>
 
