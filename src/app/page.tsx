@@ -21,7 +21,8 @@ import {
   Github,
   Bot,
   Zap,
-  Lock
+  Lock,
+  MessageCircle
 } from "lucide-react";
 import AdSenseSlot from "./components/AdSenseSlot";
 import Navbar from "./components/Navbar";
@@ -315,7 +316,9 @@ export default function Home() {
           transition={{ delay: 0.3 }}
         >
           <div className="flex items-start gap-4">
-            <div className="text-6xl">💬</div>
+            <div className="bg-white border-2 border-black rounded p-3 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] flex-shrink-0">
+              <MessageCircle className="w-12 h-12 text-pink-600" strokeWidth={2.5} />
+            </div>
             <div>
               <p className="text-white text-lg md:text-xl font-medium mb-3 leading-relaxed">
                 "Recebi mensagem do 'Nubank' pedindo PIX urgente. Usei o Detector em 10 segundos e descobri que era <strong>GOLPE</strong>. Salvei meus R$3.200!"
