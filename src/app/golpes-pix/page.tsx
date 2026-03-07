@@ -1,5 +1,17 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { 
+  AlertTriangle, 
+  BookOpen, 
+  HelpCircle, 
+  TrendingUp, 
+  Search, 
+  Building2, 
+  Landmark, 
+  Heart, 
+  CheckCircle, 
+  RotateCcw 
+} from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Golpes do PIX: Guia Completo 2026 | Detector de Golpes',
@@ -12,43 +24,43 @@ const pixArticles = [
     slug: 'top-7-golpes-pix-2026',
     title: 'Top 7 Golpes PIX em 2026',
     description: 'Os golpes mais comuns e perigosos do PIX em 2026',
-    icon: '🔝',
+    Icon: TrendingUp,
   },
   {
     slug: 'como-identificar-golpe-no-pix',
     title: 'Como Identificar Golpe no PIX',
     description: 'Sinais de alerta e como se proteger',
-    icon: '🔍',
+    Icon: Search,
   },
   {
     slug: 'golpe-pix-itau-como-identificar',
     title: 'Golpe PIX Itaú',
     description: 'Golpes específicos envolvendo o Itaú',
-    icon: '🏦',
+    Icon: Building2,
   },
   {
     slug: 'golpe-pix-banco-do-brasil-2024',
     title: 'Golpe PIX Banco do Brasil',
     description: 'Fraudes no BB e como evitar',
-    icon: '🏛️',
+    Icon: Landmark,
   },
   {
     slug: 'golpe-pix-nubank-whatsapp',
     title: 'Golpe PIX Nubank via WhatsApp',
     description: 'Golpes que combinam PIX e WhatsApp',
-    icon: '💜',
+    Icon: Heart,
   },
   {
     slug: 'como-saber-se-um-pix--golpe',
     title: 'Como Saber se um PIX é Golpe',
     description: 'Checklist completo de verificação',
-    icon: '✅',
+    Icon: CheckCircle,
   },
   {
     slug: 'pix-estornado--golpe',
     title: 'PIX Estornado é Golpe?',
     description: 'Entenda o golpe do estorno falso',
-    icon: '↩️',
+    Icon: RotateCcw,
   },
 ];
 
@@ -58,8 +70,13 @@ export default function GolpesPIXPage() {
       <div className="container mx-auto px-4 py-16 max-w-6xl">
         {/* Hero Section */}
         <div className="text-center mb-16">
+          <div className="flex justify-center mb-6">
+            <div className="bg-orange-500 p-4 border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+              <AlertTriangle className="w-16 h-16 text-white" strokeWidth={3} />
+            </div>
+          </div>
           <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight">
-            🚨 Golpes do PIX<br />
+            Golpes do PIX<br />
             <span className="text-orange-600">Guia Completo 2026</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto mb-8">
@@ -99,29 +116,44 @@ export default function GolpesPIXPage() {
         </div>
 
         {/* Articles Grid */}
-        <h2 className="text-4xl font-black mb-8 text-center">📚 Artigos sobre Golpes do PIX</h2>
+        <div className="flex items-center justify-center gap-3 mb-8">
+          <div className="bg-white p-3 border-3 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+            <BookOpen className="w-8 h-8 text-orange-600" strokeWidth={2.5} />
+          </div>
+          <h2 className="text-4xl font-black text-center">Artigos sobre Golpes do PIX</h2>
+        </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-          {pixArticles.map((article) => (
-            <Link
-              key={article.slug}
-              href={`/blog/${article.slug}`}
-              className="bg-white border-4 border-black p-6 hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all group"
-            >
-              <div className="text-4xl mb-4">{article.icon}</div>
-              <h3 className="text-xl font-bold mb-2 group-hover:text-orange-600 transition-colors">
-                {article.title}
-              </h3>
-              <p className="text-gray-600 mb-4">{article.description}</p>
-              <span className="text-orange-600 font-bold group-hover:underline">
-                Ler mais →
-              </span>
-            </Link>
-          ))}
+          {pixArticles.map((article) => {
+            const IconComponent = article.Icon;
+            return (
+              <Link
+                key={article.slug}
+                href={`/blog/${article.slug}`}
+                className="bg-white border-4 border-black p-6 hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all group"
+              >
+                <div className="bg-orange-50 w-16 h-16 flex items-center justify-center border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] mb-4">
+                  <IconComponent className="w-8 h-8 text-orange-600" strokeWidth={2.5} />
+                </div>
+                <h3 className="text-xl font-bold mb-2 group-hover:text-orange-600 transition-colors">
+                  {article.title}
+                </h3>
+                <p className="text-gray-600 mb-4">{article.description}</p>
+                <span className="text-orange-600 font-bold group-hover:underline">
+                  Ler mais →
+                </span>
+              </Link>
+            );
+          })}
         </div>
 
         {/* FAQ Preview */}
         <div className="bg-orange-50 border-4 border-black p-8 mb-16">
-          <h2 className="text-3xl font-black mb-6">❓ Perguntas Frequentes</h2>
+          <div className="flex items-center gap-3 mb-6">
+            <div className="bg-white p-2 border-3 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
+              <HelpCircle className="w-8 h-8 text-orange-600" strokeWidth={2.5} />
+            </div>
+            <h2 className="text-3xl font-black">Perguntas Frequentes</h2>
+          </div>
           <div className="space-y-4">
             <details className="bg-white border-2 border-black p-4">
               <summary className="font-bold cursor-pointer">
