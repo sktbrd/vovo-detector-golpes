@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { readdirSync, readFileSync } from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import { AlertTriangle, Calendar, Clock } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Últimos Golpes Detectados | Detector de Golpes',
@@ -70,10 +71,12 @@ export default function UltimosGolpesPage() {
       <div className="container mx-auto px-4 py-16 max-w-4xl">
         {/* Hero */}
         <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight">
-            🚨 Últimos Golpes<br />
-            <span className="text-red-600">Detectados</span>
-          </h1>
+          <div className="inline-flex items-center gap-4 mb-6 bg-red-500 text-white px-8 py-4 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+            <AlertTriangle size={48} strokeWidth={3} />
+            <h1 className="text-4xl md:text-5xl font-black leading-tight">
+              ÚLTIMOS GOLPES
+            </h1>
+          </div>
           <p className="text-xl md:text-2xl text-gray-700 max-w-2xl mx-auto mb-8">
             Fique por dentro dos golpes mais recentes no Brasil. Atualizado diariamente.
           </p>
@@ -109,17 +112,20 @@ export default function UltimosGolpesPage() {
               >
                 <div className="flex items-start gap-4">
                   <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-2">
+                    <div className="flex items-center gap-3 mb-2 flex-wrap">
                       {isNew && (
-                        <span className="bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                        <span className="bg-red-500 text-white px-3 py-1 rounded text-xs font-bold flex items-center gap-1.5 border-2 border-black">
+                          <AlertTriangle size={14} strokeWidth={3} />
                           NOVO
                         </span>
                       )}
-                      <span className="text-sm text-gray-600">
+                      <span className="text-sm text-gray-600 flex items-center gap-1.5">
+                        <Calendar size={14} strokeWidth={2} />
                         {formatDate(post.publishedAt)}
                       </span>
                       {daysAgo <= 1 && (
-                        <span className="text-sm text-orange-600 font-bold">
+                        <span className="text-sm text-orange-600 font-bold flex items-center gap-1.5">
+                          <Clock size={14} strokeWidth={2} />
                           Há {daysAgo === 0 ? 'hoje' : daysAgo === 1 ? '1 dia' : `${daysAgo} dias`}
                         </span>
                       )}
