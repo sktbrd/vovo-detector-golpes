@@ -22,7 +22,8 @@ import {
   Bot,
   Zap,
   Lock,
-  MessageCircle
+  MessageCircle,
+  ShieldCheck
 } from "lucide-react";
 import AdSenseSlot from "./components/AdSenseSlot";
 import Navbar from "./components/Navbar";
@@ -259,8 +260,9 @@ export default function Home() {
             <span className="block text-teal-600 mt-2 drop-shadow-[2px_2px_0px_rgba(15,23,42,0.3)]">DE GOLPES</span>
           </h1>
           
-          <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-pink-600 mb-6 leading-tight drop-shadow-[1px_1px_0px_rgba(15,23,42,0.2)]">
-            👵 Vovó Malandra protege você!
+          <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-pink-600 mb-6 leading-tight drop-shadow-[1px_1px_0px_rgba(15,23,42,0.2)] flex items-center gap-3 justify-start md:justify-center">
+            <ShieldCheck className="w-10 h-10 md:w-12 md:h-12 flex-shrink-0" strokeWidth={3} />
+            Vovó Malandra protege você!
           </p>
 
           {/* SOCIAL PROOF - SUPER VISIBLE */}
