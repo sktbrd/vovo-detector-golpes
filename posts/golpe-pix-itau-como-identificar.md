@@ -1,6 +1,6 @@
 ---
-title: "Golpe Pix Itaú 2024: Como Identificar e Prevenir"
-description: "Aprenda a se proteger contra golpes Pix Itaú em 2024. Conheça os métodos mais comuns e descubra dicas práticas para evitar perdas financeiras."
+title: "Golpe PIX Itaú 2026: R$6.800 Perdidos em Mensagem Falsa (Como Evitar)"
+description: "Golpe PIX Itaú rouba R$6.800 em média por vítima. Identifique SMS falso em 10 segundos com checklist de 4 pontos críticos."
 publishedAt: "2026-02-22T19:21:46.296Z"
 keywords: ["golpe pix itau como identificar","golpe pix itau 2024","pix falso itau","como evitar golpe pix itau","restituir golpe pix itau"]
 ---

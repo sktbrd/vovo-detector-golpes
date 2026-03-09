@@ -1,0 +1,84 @@
+🌅 [2026-03-09 04:00:07] Starting daily automation...
+[dotenv@17.3.1] injecting env (3) from .env.local -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+🌅 Starting daily automation...
+⏰ 09/03/2026, 04:00:08
+
+📊 Task 1/2: Search Console data pull
+⚠️  Skipping (not implemented yet)
+
+📝 Task 2/2: Content generation
+🚀 Daily Content Generator
+📅 segunda-feira, 9 de março de 2026
+
+📚 Existing articles: 22
+
+📝 Generating 3 new articles...
+
+✍️  Generating article for: "golpe do falso funcionário do banco"
+✅ Article generated: "Golpe do Falso Funcionário de Banco: Como Se Proteger"
+✅ Saved: /Users/vladnikolaev/Code/vovo/posts/golpe-do-falso-funcionario-do-banco.md
+
+✍️  Generating article for: "golpe do empréstimo falso"
+✅ Article generated: "Golpe do Empréstimo Falso: Como se Proteger"
+✅ Saved: /Users/vladnikolaev/Code/vovo/posts/golpe-do-emprestimo-falso.md
+
+✍️  Generating article for: "como saber se meu cartão foi clonado"
+✅ Article generated: "Sinais de Cartão Clonado: Como Detectar e Proteger"
+✅ Saved: /Users/vladnikolaev/Code/vovo/posts/como-saber-se-meu-cartao-foi-clonado.md
+
+✅ Daily content generation complete!
+💾 Report saved: /Users/vladnikolaev/Code/vovo/automation/data/reports/2026-03-09.json
+
+✅ Daily automation complete!
+🤖 Vovó Daily Report - 2026-03-09
+
+✅ SUCCESS
+
+📝 Content Generation: success
+📄 Articles Created: 3
+📊 Search Console: skipped (not implemented)
+
+---
+Log: automation/data/reports/cron-2026-03-09.log
+🌅 [2026-03-09 04:01:40] Starting daily automation...
+[dotenv@17.3.1] injecting env (3) from .env.local -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+🌅 Starting daily automation...
+⏰ 09/03/2026, 04:01:40
+
+📊 Task 1/2: Search Console data pull
+⚠️  Skipping (not implemented yet)
+
+📝 Task 2/2: Content generation
+🚀 Daily Content Generator
+📅 segunda-feira, 9 de março de 2026
+
+📚 Existing articles: 22
+
+📝 Generating 3 new articles...
+
+✍️  Generating article for: "golpe do falso funcionário do banco"
+✅ Article generated: "Golpe do Falso Funcionário do Banco: Como Se Proteger"
+✅ Saved: /Users/vladnikolaev/Code/vovo/posts/golpe-do-falso-funcionario-do-banco.md
+
+✍️  Generating article for: "golpe do empréstimo falso"
+✅ Article generated: "Golpe do Empréstimo Falso: Como Se Proteger"
+✅ Saved: /Users/vladnikolaev/Code/vovo/posts/golpe-do-emprestimo-falso.md
+
+✍️  Generating article for: "como saber se meu cartão foi clonado"
+✅ Article generated: "Detecte Seu Cartão Clonado: Sinais e Dicas"
+✅ Saved: /Users/vladnikolaev/Code/vovo/posts/como-saber-se-meu-cartao-foi-clonado.md
+
+✅ Daily content generation complete!
+💾 Report saved: /Users/vladnikolaev/Code/vovo/automation/data/reports/2026-03-09.json
+
+✅ Daily automation complete!
+🤖 Vovó Daily Report - 2026-03-09
+
+✅ SUCCESS
+
+📝 Content Generation: success
+📄 Articles Created: 3
+📊 Search Console: skipped (not implemented)
+
+---
+Log: automation/data/reports/cron-2026-03-09.log

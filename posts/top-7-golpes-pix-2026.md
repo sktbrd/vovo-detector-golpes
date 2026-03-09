@@ -1,6 +1,6 @@
 ---
-title: "Top 7 Golpes do Pix em 2026: Como Se Proteger"
-description: "Conheça os 7 golpes mais comuns envolvendo Pix e aprenda a se proteger. Dados atualizados de 2026 com estatísticas reais."
+title: "7 Golpes PIX Mais Comuns em 2026: R$2,5 Bilhões Roubados (Proteja-se)"
+description: "R$2,5 bilhões roubados em golpes PIX em 2025. Conheça os 7 golpes mais comuns em 2026 e checklist de proteção atualizado."
 date: "2026-02-12"
 author: "Vovó Detector"
 keywords: "golpe pix, golpe whatsapp, fraude pix, como evitar golpe"

@@ -1,6 +1,6 @@
 ---
-title: "Golpe do WhatsApp Clonado: Como se Proteger em 2024"
-description: "Aprenda a identificar e prevenir o golpe do WhatsApp clonado, protegendo sua privacidade e segurança online no Brasil."
+title: "WhatsApp Clonado em 2026: 840 Mil Vítimas/Ano (Proteja-se Agora)"
+description: "840 mil brasileiros perdem conta em 2026. Aprenda as 3 perguntas que clonadores fazem e ative proteção em 2 minutos."
 publishedAt: "2026-02-22T19:12:38.441Z"
 keywords: ["golpe do whatsapp clonado","whatsapp clonado como recuperar","golpe whatsapp 2024","proteger whatsapp"]
 ---

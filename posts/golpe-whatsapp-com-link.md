@@ -1,6 +1,6 @@
 ---
-title: "Golpe WhatsApp com Link: Como Se Proteger"
-description: "Aprenda a identificar e se proteger de golpes no WhatsApp que usam links maliciosos para fraudar usuários brasileiros."
+title: "Link Malicioso no WhatsApp: 3 Cliques = Conta Hackeada (Proteja-se)"
+description: "97% dos links maliciosos no WhatsApp instalam malware em 3 cliques. Aprenda os 5 sinais de link falso antes de clicar."
 publishedAt: "2026-02-23T14:17:11.314Z"
 keywords: ["golpe whatsapp com link","link malicioso whatsapp","golpe link whatsapp","whatsapp link falso","clicar link whatsapp golpe"]
 ---

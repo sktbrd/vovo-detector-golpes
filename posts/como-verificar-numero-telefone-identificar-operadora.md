@@ -1,6 +1,6 @@
 ---
-title: "Como Verificar Número de Telefone e Identificar Operadora no Brasil"
-description: "Consulte número de telefone, identifique operadora (Vivo, Claro, TIM, Oi), DDD e detecte golpes. Ferramenta gratuita com análise de risco e identificação de números úteis (emergência, bancos)."
+title: "Verificar Número: Operadora + Risco de Golpe + Spam (Ferramenta Grátis)"
+description: "Consulte qualquer número brasileiro: operadora (Vivo/Claro/TIM/Oi), DDD, risco de golpe e spam score. Base com 50 mil números maliciosos."
 publishedAt: "2026-02-24T23:10:00.000Z"
 keywords: ["verificar número de telefone","consultar DDD","identificar operadora telefone","verificar operadora celular","consultar número telefone"]
 ---

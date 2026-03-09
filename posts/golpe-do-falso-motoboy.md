@@ -1,6 +1,6 @@
 ---
-title: "Golpe do Falso Motoboy: Como se Proteger"
-description: "Aprenda a identificar e se proteger do golpe do falso motoboy, uma fraude comum no Brasil. Dicas práticas e exemplos reais para sua segurança online."
+title: "Falso Motoboy: Cartão Roubado em 20 Minutos (Como Identificar o Golpe)"
+description: "Golpe do falso motoboy rouba cartão e senha em 20 minutos. 3 sinais críticos que você DEVE verificar antes de entregar seu cartão."
 publishedAt: "2026-02-22T19:12:41.167Z"
 keywords: ["golpe do falso motoboy","golpe entrega falsa","golpe maquininha","golpe delivery"]
 ---

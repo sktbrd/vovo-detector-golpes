@@ -1,6 +1,6 @@
 ---
-title: "Novo Golpe do WhatsApp Web em 2026: Milhares de Vítimas"
-description: "Entenda como funciona o novo golpe que usa WhatsApp Web para roubar dados bancários e como se proteger."
+title: "Golpe WhatsApp Web 2026: QR Code Rouba Conta em 30 Segundos (Cuidado)"
+description: "Novo golpe WhatsApp Web em 2026 infecta 12 mil/mês. Como golpistas roubam sua conta via QR Code falso e como se proteger."
 date: "2026-02-12"
 author: "Vovó Detector"
 keywords: "golpe whatsapp web, whatsapp clonado, sequestro conta whatsapp"

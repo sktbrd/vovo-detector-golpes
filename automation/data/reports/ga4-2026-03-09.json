@@ -1,0 +1,79 @@
+{
+  "timestamp": "2026-03-09T14:35:02.136Z",
+  "period": "last_7_days",
+  "summary": {
+    "totalUsers": 13,
+    "totalPageviews": 42,
+    "totalSessions": 17,
+    "avgUsersPerDay": 2,
+    "avgPageviewsPerDay": 6
+  },
+  "daily": [
+    {
+      "date": "2026-03-05",
+      "users": 5,
+      "pageviews": 22,
+      "sessions": 7
+    },
+    {
+      "date": "2026-03-07",
+      "users": 5,
+      "pageviews": 5,
+      "sessions": 5
+    },
+    {
+      "date": "2026-03-03",
+      "users": 2,
+      "pageviews": 3,
+      "sessions": 2
+    },
+    {
+      "date": "2026-03-04",
+      "users": 1,
+      "pageviews": 12,
+      "sessions": 3
+    }
+  ],
+  "topPages": [
+    {
+      "path": "/",
+      "pageviews": 12
+    },
+    {
+      "path": "/ferramentas",
+      "pageviews": 10
+    },
+    {
+      "path": "/mensagem-segura",
+      "pageviews": 7
+    },
+    {
+      "path": "/email-vazado",
+      "pageviews": 2
+    },
+    {
+      "path": "/golpes-pix",
+      "pageviews": 2
+    },
+    {
+      "path": "/msg/2e8fed6c-9cce-4341-842c-2885c7d8ce8b",
+      "pageviews": 2
+    },
+    {
+      "path": "/msg/8c94f869-735f-4c94-84a1-24bde1692501",
+      "pageviews": 2
+    },
+    {
+      "path": "/blog/top-7-golpes-pix-2026",
+      "pageviews": 1
+    },
+    {
+      "path": "/msg/a9ad8895-8834-4d05-bf54-cb3308466a00",
+      "pageviews": 1
+    },
+    {
+      "path": "/msg/b86da891-d434-4621-8ecc-6c467c3b94a8",
+      "pageviews": 1
+    }
+  ]
+}

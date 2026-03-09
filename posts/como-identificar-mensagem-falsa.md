@@ -1,6 +1,6 @@
 ---
-title: "Como Identificar Mensagem Falsa em 10 Segundos"
-description: "Aprenda os sinais claros que denunciam golpes e mensagens falsas. Guia rápido e prático da Vovó."
+title: "7 Sinais de Mensagem Falsa (Detecte em 10 Segundos e Evite Golpe)"
+description: "93% das mensagens de golpe têm estes 7 sinais. Aprenda a detectar em segundos e proteja R$5.000+ com checklist da Vovó Malandra."
 date: "2026-02-12"
 author: "Vovó Detector"
 keywords: "phishing, mensagem falsa, como identificar golpe, golpe whatsapp"

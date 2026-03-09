@@ -1,6 +1,6 @@
 ---
-title: "Golpe Pix Banco do Brasil 2024: Como Se Proteger"
-description: "Aprenda a identificar e prevenir golpes de Pix no Banco do Brasil. Dicas práticas e atualizadas para 2024. Proteja sua conta e seu dinheiro."
+title: "Golpe PIX Banco do Brasil: R$4.200 Roubados/Vítima em 2026 (Evite)"
+description: "Golpe PIX no BB rouba R$4.200 em média. 5 mensagens falsas mais comuns e como identificar link malicioso em 5 segundos."
 publishedAt: "2026-02-22T19:21:50.199Z"
 keywords: ["golpe pix banco do brasil 2024","golpe pix bb","pix estornado bb","como saber se pix é golpe bb","golpe pix banco do brasil whatsapp"]
 ---

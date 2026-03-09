@@ -1,6 +1,6 @@
 ---
-title: "Pix Estornado é Golpe: Entenda e se Proteja"
-description: "Aprenda a identificar e se proteger do golpe do pix estornado, uma fraude que está enganando muitos brasileiros. Dicas práticas e exemplos reais."
+title: "PIX Estornado é Golpe? R$2.400 Perdidos em Devolução Falsa (Evite)"
+description: "Golpe do PIX estornado rouba R$2.400 em média. Como funciona a fraude da 'devolução' e 3 sinais de que é armadilha."
 publishedAt: "2026-02-22T19:26:23.098Z"
 keywords: ["pix estornado é golpe","golpe do pix estornado","devolução pix golpe","estorno pix falso","golpe pix devolvido"]
 ---

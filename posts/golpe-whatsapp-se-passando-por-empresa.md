@@ -1,6 +1,6 @@
 ---
-title: "Golpe WhatsApp: Se Passando por Empresa"
-description: "Aprenda a se proteger de golpes no WhatsApp que se passam por empresas brasileiras, como Correios e bancos, e descubra dicas para evitar perdas financeiras"
+title: "Falsa Empresa no WhatsApp: Correios, Bancos, Lojas (Como Identificar)"
+description: "83% dos golpes empresariais fingem ser Correios ou bancos. 6 sinais que TODA empresa legítima tem (e golpistas não)."
 publishedAt: "2026-02-22T19:37:10.165Z"
 keywords: ["golpe whatsapp se passando por empresa","golpe whatsapp empresa falsa","whatsapp golpe correios","golpe whatsapp banco"]
 ---

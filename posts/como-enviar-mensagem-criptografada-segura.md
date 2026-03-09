@@ -1,6 +1,6 @@
 ---
-title: "Como Enviar Mensagem Criptografada Segura e Autodestrutível"
-description: "Aprenda a enviar mensagens criptografadas que se autodestroem após serem lidas. Proteção AES-GCM 256-bit para compartilhar senhas e informações sensíveis com segurança."
+title: "Mensagem Criptografada AES-256: Autodestrutiva em 1 Leitura (Grátis)"
+description: "Envie senhas e dados sensíveis com criptografia militar AES-GCM 256-bit. Mensagem se autodestrói após 1 leitura. Zero registro. 100% privado."
 publishedAt: "2026-02-24T23:05:00.000Z"
 keywords: ["enviar mensagem criptografada","mensagem autodestrutível","compartilhar senha segura","mensagem que se autodestrói","enviar mensagem segura"]
 ---

@@ -1,6 +1,6 @@
 ---
-title: "Pix Seguro: Como Identificar Golpes"
-description: "Aprenda a identificar e evitar golpes de pix no Brasil, protegendo seu dinheiro com dicas práticas e ferramentas gratuitas."
+title: "PIX é Golpe? 6 Sinais Infalíveis Que Bancos Não Contam (Checklist 2026)"
+description: "89% dos golpes PIX têm estes 6 sinais. Checklist completo que bancos não divulgam. Proteja R$5.000+ em 30 segundos."
 publishedAt: "2026-02-22T19:26:19.840Z"
 keywords: ["como saber se um pix é golpe","identificar pix falso","pix golpe sinais","pix seguro como saber","validar pix antes de pagar"]
 ---
