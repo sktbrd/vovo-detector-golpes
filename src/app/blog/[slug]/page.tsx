@@ -113,31 +113,36 @@ export default async function BlogPost({
       ? data.keywords 
       : "";
 
-  const jsonLd = {
+  const baseUrl = "https://www.detectordegolpes.com.br";
+  const currentUrl = `${baseUrl}/blog/${slug}`;
+  const logoUrl = `${baseUrl}/logo/001-logo-icon-of-a-friendly-elderly-brazilia.png`;
+
+  // Article Schema
+  const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": data.title,
     "description": data.description,
-    "image": "https://vovodetector.com.br/logo/001-logo-icon-of-a-friendly-elderly-brazilia.png",
+    "image": logoUrl,
     "datePublished": data.publishedAt || data.date,
     "dateModified": data.publishedAt || data.date,
     "author": {
       "@type": "Organization",
-      "name": data.author || "Vovó Detector",
-      "url": "https://vovodetector.com.br"
+      "name": data.author || "Detector de Golpes",
+      "url": baseUrl
     },
     "publisher": {
       "@type": "Organization",
-      "name": "Vovó Detector",
+      "name": "Detector de Golpes",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://vovodetector.com.br/logo/001-logo-icon-of-a-friendly-elderly-brazilia.png"
+        "url": logoUrl
       },
-      "url": "https://vovodetector.com.br"
+      "url": baseUrl
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": `https://vovodetector.com.br/blog/${slug}`
+      "@id": currentUrl
     },
     "keywords": keywords,
     "articleSection": "Segurança Digital",
@@ -145,12 +150,44 @@ export default async function BlogPost({
     "timeRequired": `PT${readingTime}M`
   };
 
+  // Breadcrumb Schema
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": baseUrl
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": `${baseUrl}/blog`
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": data.title,
+        "item": currentUrl
+      }
+    ]
+  };
+
   return (
     <>
-      {/* JSON-LD for SEO */}
+      {/* Article Schema */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      
+      {/* Breadcrumb Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       
       <div className="min-h-screen bg-slate-50">
