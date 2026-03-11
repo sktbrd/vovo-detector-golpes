@@ -12,6 +12,7 @@ import SummaryBox from "./SummaryBox";
 import CtaBox from "./CtaBox";
 import MorePostsBox from "./MorePostsBox";
 import Navbar from "../../components/Navbar";
+import { extractFAQFromMarkdown, generateFAQSchema } from "@/lib/extractFAQ";
 import "./blog-content.css";
 
 const postsDirectory = path.join(process.cwd(), "posts");
@@ -104,6 +105,10 @@ export default async function BlogPost({
 
   const readingTime = calculateReadingTime(content);
   const headings = extractHeadings(content);
+  
+  // Extract FAQ items from content
+  const faqItems = extractFAQFromMarkdown(content);
+  const faqSchema = generateFAQSchema(faqItems);
 
   // JSON-LD structured data for SEO
   // Handle keywords as string or array
@@ -189,6 +194,14 @@ export default async function BlogPost({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
+      
+      {/* FAQ Schema (if FAQ questions found) */}
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
       
       <div className="min-h-screen bg-slate-50">
         <Navbar />
