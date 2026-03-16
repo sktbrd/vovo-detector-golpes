@@ -1,6 +1,6 @@
 "use client";
 
-import { Share2, MessageCircle, Send, Facebook, Linkedin, Link, Copy } from "lucide-react";
+import { Share2, MessageCircle, Send, Facebook, Linkedin, Copy, Twitter, Check } from "lucide-react";
 import toast from "react-hot-toast";
 import { useState } from "react";
 
@@ -12,6 +12,7 @@ interface ShareButtonsProps {
 export default function ShareButtons({ title, description }: ShareButtonsProps) {
   const url = typeof window !== 'undefined' ? window.location.href : '';
   const [clickedButton, setClickedButton] = useState<string | null>(null);
+  const [copiedSuccess, setCopiedSuccess] = useState(false);
 
   const handleButtonClick = (buttonId: string, callback: () => void) => {
     setClickedButton(buttonId);
@@ -22,6 +23,7 @@ export default function ShareButtons({ title, description }: ShareButtonsProps) 
   const handleCopyLink = async () => {
     try {
       await navigator.clipboard.writeText(url);
+      setCopiedSuccess(true);
       toast.success("Link copiado!", {
         duration: 2000,
         style: {
@@ -30,6 +32,7 @@ export default function ShareButtons({ title, description }: ShareButtonsProps) 
           fontWeight: 'bold',
         },
       });
+      setTimeout(() => setCopiedSuccess(false), 2500);
     } catch (err) {
       toast.error("Erro ao copiar link");
     }
@@ -79,6 +82,13 @@ export default function ShareButtons({ title, description }: ShareButtonsProps) 
     );
   };
 
+  const handleTwitterShare = () => {
+    window.open(
+      `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`,
+      "_blank"
+    );
+  };
+
   return (
     <div className="mt-8 text-center">
       <p className="text-sm md:text-base text-slate-700 font-bold mb-4 uppercase">
@@ -96,11 +106,11 @@ export default function ShareButtons({ title, description }: ShareButtonsProps) 
         
         <button
           onClick={() => handleButtonClick('copy', handleCopyLink)}
-          className={`px-3 md:px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-900 border-2 border-black text-xs md:text-sm font-black transition-all hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center gap-1.5 md:gap-2 uppercase shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] ${clickedButton === 'copy' ? 'scale-95' : ''}`}
+          className={`px-3 md:px-4 py-2 ${copiedSuccess ? 'bg-green-500 text-white' : 'bg-slate-100 text-slate-900 hover:bg-slate-200'} border-2 border-black text-xs md:text-sm font-black transition-all hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center gap-1.5 md:gap-2 uppercase shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] ${clickedButton === 'copy' ? 'scale-95' : ''}`}
           aria-label="Copiar link do artigo para área de transferência"
         >
-          <Copy size={16} strokeWidth={2.5} />
-          <span className="hidden sm:inline">Copiar</span>
+          {copiedSuccess ? <Check size={16} strokeWidth={2.5} /> : <Copy size={16} strokeWidth={2.5} />}
+          <span className="hidden sm:inline">{copiedSuccess ? 'Copiado!' : 'Copiar'}</span>
         </button>
 
         <button
@@ -119,6 +129,15 @@ export default function ShareButtons({ title, description }: ShareButtonsProps) 
         >
           <Send size={16} strokeWidth={2.5} />
           <span className="hidden sm:inline">Telegram</span>
+        </button>
+
+        <button
+          onClick={() => handleButtonClick('twitter', handleTwitterShare)}
+          className={`px-3 md:px-4 py-2 bg-black hover:bg-slate-800 text-white border-2 border-black text-xs md:text-sm font-black transition-all hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center gap-1.5 md:gap-2 uppercase shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] ${clickedButton === 'twitter' ? 'scale-95' : ''}`}
+          aria-label="Compartilhar artigo no Twitter/X"
+        >
+          <Twitter size={16} strokeWidth={2.5} />
+          <span className="hidden sm:inline">Twitter</span>
         </button>
 
         <button
