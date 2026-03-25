@@ -17,6 +17,7 @@ import {
   Sparkles
 } from "lucide-react";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 export const metadata: Metadata = {
   title: "Ferramentas de Segurança Gratuitas | Vovó Vigilante",
@@ -243,14 +244,7 @@ export default function FerramentasPage() {
         </div>
       </main>
 
-      <footer className="text-center py-12 px-4 text-slate-700 text-sm border-t-4 border-slate-900 mt-16 bg-white">
-        <div className="flex justify-center gap-6 flex-wrap">
-          <Link href="/privacy" className="hover:text-teal-500 transition-colors font-bold uppercase">Privacidade</Link>
-          <Link href="/terms" className="hover:text-teal-500 transition-colors font-bold uppercase">Termos</Link>
-          <Link href="/sobre" className="hover:text-teal-500 transition-colors font-bold uppercase">Sobre</Link>
-          <Link href="/contato" className="hover:text-teal-500 transition-colors font-bold uppercase">Contato</Link>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

@@ -4,6 +4,8 @@ import path from 'path';
 import matter from 'gray-matter';
 import PopularArticles from '@/components/PopularArticles';
 import NewsletterSignup from '@/components/NewsletterSignup';
+import Navbar from '@/app/components/Navbar';
+import Footer from '@/app/components/Footer';
 import { BookOpen, Zap, MessageCircle, Building2 } from 'lucide-react';
 
 interface Post {
@@ -47,7 +49,9 @@ export default function BlogPage() {
   const posts = getAllPosts();
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-orange-50 to-white">
+    <div className="min-h-screen bg-gradient-to-b from-orange-50 to-white">
+      <Navbar />
+      <main>
       <div className="container mx-auto px-4 py-16 max-w-7xl">
         {/* Hero */}
         <div className="text-center mb-16">
@@ -115,21 +119,54 @@ export default function BlogPage() {
           <div className="lg:col-span-2">
             <h2 className="text-4xl font-black mb-8">Todos os Artigos</h2>
             <div className="space-y-6">
-              {posts.map((post) => (
-                <Link
-                  key={post.slug}
-                  href={`/blog/${post.slug}`}
-                  className="block bg-white border-4 border-black p-6 hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all group"
-                >
-                  <h3 className="text-2xl font-black mb-2 group-hover:text-orange-600 transition-colors">
-                    {post.title}
-                  </h3>
-                  <p className="text-gray-700 mb-4">{post.description}</p>
-                  <span className="text-orange-600 font-bold group-hover:underline">
-                    Ler mais →
-                  </span>
-                </Link>
-              ))}
+              {posts.map((post, idx) => {
+                // Alternate gradient colors for visual variety
+                const gradients = [
+                  'from-orange-500 to-red-500',
+                  'from-teal-500 to-cyan-500',
+                  'from-pink-500 to-purple-500',
+                  'from-lime-500 to-green-500',
+                ];
+                const gradient = gradients[idx % gradients.length];
+                
+                return (
+                  <Link
+                    key={post.slug}
+                    href={`/blog/${post.slug}`}
+                    className="block bg-white border-4 border-black p-6 hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-x-1 hover:-translate-y-1 transition-all group relative overflow-hidden"
+                  >
+                    {/* Accent gradient bar */}
+                    <div className={`absolute top-0 left-0 w-2 h-full bg-gradient-to-b ${gradient}`}></div>
+                    
+                    <div className="pl-4">
+                      <div className="flex items-start justify-between gap-4 mb-3">
+                        <h3 className="text-2xl font-black group-hover:text-orange-600 transition-colors leading-tight">
+                          {post.title}
+                        </h3>
+                        <div className={`flex-shrink-0 w-12 h-12 bg-gradient-to-br ${gradient} border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center group-hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] group-hover:-translate-x-0.5 group-hover:-translate-y-0.5 transition-all`}>
+                          <BookOpen className="w-6 h-6 text-white" strokeWidth={2.5} />
+                        </div>
+                      </div>
+                      
+                      <p className="text-gray-700 mb-4 leading-relaxed font-medium">{post.description}</p>
+                      
+                      <div className="flex items-center justify-between">
+                        <span className="text-orange-600 font-bold group-hover:underline flex items-center gap-2">
+                          Ler artigo completo
+                          <span className="group-hover:translate-x-1 transition-transform">→</span>
+                        </span>
+                        <span className="text-sm text-gray-500 font-semibold">
+                          {new Date(post.publishedAt).toLocaleDateString('pt-BR', { 
+                            day: '2-digit', 
+                            month: 'short', 
+                            year: 'numeric' 
+                          })}
+                        </span>
+                      </div>
+                    </div>
+                  </Link>
+                );
+              })}
             </div>
           </div>
 
@@ -145,6 +182,8 @@ export default function BlogPage() {
           </div>
         </div>
       </div>
-    </main>
+      </main>
+      <Footer />
+    </div>
   );
 }

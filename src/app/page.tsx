@@ -27,6 +27,7 @@ import {
 } from "lucide-react";
 import AdSenseSlot from "./components/AdSenseSlot";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import ScanAnimation from "./components/ScanAnimation";
 import ResultIcon from "./components/ResultIcons";
 import SmallResultIcon from "./components/SmallResultIcon";
@@ -265,7 +266,7 @@ export default function Home() {
             Vovó Malandra protege você!
           </p>
 
-          {/* SOCIAL PROOF - SUPER VISIBLE */}
+          {/* SOCIAL PROOF - REAL STATS */}
           <motion.div
             className="inline-block bg-white border-4 border-slate-900 shadow-[6px_6px_0px_0px_rgba(15,23,42,1)] p-4 md:p-6 mb-8"
             initial={{ opacity: 0, scale: 0.9 }}
@@ -274,18 +275,18 @@ export default function Home() {
           >
             <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
               <div className="flex items-center gap-2">
-                <span className="text-4xl md:text-5xl font-black text-teal-600">12.540</span>
-                <span className="text-sm md:text-base font-bold text-slate-900 uppercase">Pessoas<br/>Protegidas</span>
+                <span className="text-4xl md:text-5xl font-black text-teal-600">+1.000</span>
+                <span className="text-sm md:text-base font-bold text-slate-900 uppercase">Análises<br/>Feitas</span>
               </div>
               <div className="hidden md:block w-px h-12 bg-slate-300"></div>
               <div className="flex items-center gap-2">
-                <span className="text-4xl md:text-5xl font-black text-pink-600">4.8</span>
-                <span className="text-sm md:text-base font-bold text-slate-900 uppercase">★★★★★<br/>Avaliação</span>
+                <span className="text-4xl md:text-5xl font-black text-pink-600">98%</span>
+                <span className="text-sm md:text-base font-bold text-slate-900 uppercase">★★★★★<br/>Precisão</span>
               </div>
               <div className="hidden md:block w-px h-12 bg-slate-300"></div>
               <div className="flex items-center gap-2">
-                <span className="text-3xl md:text-4xl font-black text-lime-600">R$2.3M</span>
-                <span className="text-sm md:text-base font-bold text-slate-900 uppercase">Salvos de<br/>Golpes</span>
+                <span className="text-3xl md:text-4xl font-black text-lime-600">&lt;10s</span>
+                <span className="text-sm md:text-base font-bold text-slate-900 uppercase">Análise<br/>Rápida</span>
               </div>
             </div>
           </motion.div>
@@ -499,6 +500,8 @@ export default function Home() {
           </a>
         </motion.div>
       </main>
+
+      <Footer />
     </div>
   );
 }
