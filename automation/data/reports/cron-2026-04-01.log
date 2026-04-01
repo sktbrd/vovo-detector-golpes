@@ -1,0 +1,42 @@
+🌅 [2026-04-01 04:01:09] Starting daily automation...
+[dotenv@17.3.1] injecting env (3) from .env.local -- tip: ⚙️  override existing env vars with { override: true }
+🌅 Starting daily automation...
+⏰ 01/04/2026, 04:01:09
+
+📊 Task 1/2: Search Console data pull
+⚠️  Skipping (not implemented yet)
+
+📝 Task 2/2: Content generation
+🚀 Daily Content Generator
+📅 quarta-feira, 1 de abril de 2026
+
+📚 Existing articles: 25
+
+📝 Generating 3 new articles...
+
+✍️  Generating article for: "golpe do falso funcionário do banco"
+✅ Article generated: "Golpe do Falso Funcionário de Banco: Como se Proteger"
+✅ Saved: /Users/vladnikolaev/Code/vovo/posts/golpe-do-falso-funcionario-do-banco.md
+
+✍️  Generating article for: "golpe do empréstimo falso"
+✅ Article generated: "Golpe do Empréstimo Falso: Ataque Cibernético no Brasil"
+✅ Saved: /Users/vladnikolaev/Code/vovo/posts/golpe-do-emprestimo-falso.md
+
+✍️  Generating article for: "como saber se meu cartão foi clonado"
+❌ Failed to generate article: Groq API error: 429 - {"error":{"message":"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kgr87m5he2maz1k9dt8jjyjx` service tier `on_demand` on tokens per minute (TPM): Limit 12000, Used 9377, Requested 4403. Please try again in 8.9s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing","type":"tokens","code":"rate_limit_exceeded"}}
+
+❌ Content generation failed: Groq API error: 429 - {"error":{"message":"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kgr87m5he2maz1k9dt8jjyjx` service tier `on_demand` on tokens per minute (TPM): Limit 12000, Used 9377, Requested 4403. Please try again in 8.9s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing","type":"tokens","code":"rate_limit_exceeded"}}
+
+💾 Report saved: /Users/vladnikolaev/Code/vovo/automation/data/reports/2026-04-01.json
+
+✅ Daily automation complete!
+🤖 Vovó Daily Report - 2026-04-01
+
+✅ SUCCESS
+
+📝 Content Generation: failed
+📄 Articles Created: 0
+📊 Search Console: skipped (not implemented)
+
+---
+Log: automation/data/reports/cron-2026-04-01.log

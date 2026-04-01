@@ -1,0 +1,13 @@
+{
+  "date": "2026-04-01",
+  "timestamp": "2026-04-01T07:01:09.850Z",
+  "tasks": {
+    "searchConsole": {
+      "status": "skipped"
+    },
+    "contentGeneration": {
+      "status": "failed",
+      "error": "Groq API error: 429 - {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kgr87m5he2maz1k9dt8jjyjx` service tier `on_demand` on tokens per minute (TPM): Limit 12000, Used 9377, Requested 4403. Please try again in 8.9s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}\n"
+    }
+  }
+}
