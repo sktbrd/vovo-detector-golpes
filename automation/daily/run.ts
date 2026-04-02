@@ -52,16 +52,17 @@ async function main() {
   // Task 2: Generate content
   try {
     console.log('📝 Task 2/2: Content generation');
-    await generateDailyContent();
+    const articlesCreated = await generateDailyContent();
     report.tasks.contentGeneration.status = 'success';
-    report.tasks.contentGeneration.articlesCreated = 3; // Will be dynamic later
+    report.tasks.contentGeneration.articlesCreated = articlesCreated;
   } catch (error: any) {
     console.error('❌ Content generation failed:', error.message);
     report.tasks.contentGeneration.status = 'failed';
+    report.tasks.contentGeneration.articlesCreated = 0;
     report.tasks.contentGeneration.error = error.message;
   }
   
-  // Save report
+  // Save JSON report
   const reportDir = join(__dirname, '../data/reports');
   if (!existsSync(reportDir)) {
     mkdirSync(reportDir, { recursive: true });
@@ -69,6 +70,40 @@ async function main() {
   const reportPath = join(reportDir, `${report.date}.json`);
   writeFileSync(reportPath, JSON.stringify(report, null, 2));
   console.log(`💾 Report saved: ${reportPath}`);
+  
+  // Save MD report for Daily Report job (08:00)
+  const mdReportDir = join(__dirname, '../../reports');
+  if (!existsSync(mdReportDir)) {
+    mkdirSync(mdReportDir, { recursive: true });
+  }
+  
+  const articlesCount = report.tasks.contentGeneration.articlesCreated || 0;
+  const contentStatus = report.tasks.contentGeneration.status === 'success' 
+    ? `✅ ${articlesCount} artigos gerados` 
+    : `❌ Falhou: ${report.tasks.contentGeneration.error}`;
+  
+  const mdContent = `# Daily Report - ${report.date}
+
+## Resumo
+
+**Data:** ${new Date(report.timestamp).toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' })}
+
+### Tarefas Executadas
+
+#### 📝 Geração de Conteúdo
+${contentStatus}
+
+#### 📊 Search Console
+Skipped (não implementado)
+
+---
+
+**Status geral:** ${report.tasks.contentGeneration.status === 'success' ? '✅ Sucesso' : '⚠️ Parcial/Falha'}
+`;
+  
+  const mdReportPath = join(mdReportDir, `${report.date}.md`);
+  writeFileSync(mdReportPath, mdContent);
+  console.log(`📄 MD report saved: ${mdReportPath}`);
   
   console.log('\n✅ Daily automation complete!');
   

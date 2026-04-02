@@ -382,21 +382,29 @@ async function main() {
   
   if (newKeywords.length === 0) {
     console.log('⚠️  No new keywords in queue. Add more to KEYWORD_QUEUE.');
-    return;
+    return 0;
   }
   
   console.log(`\n📝 Generating ${Math.min(3, newKeywords.length)} new articles...\n`);
   
   // Generate up to 3 articles per day
   const articlesToGenerate = newKeywords.slice(0, 3);
+  let successCount = 0;
   
   for (const keyword of articlesToGenerate) {
-    const article = await generateArticle(keyword);
-    await saveArticle(article);
-    console.log('');
+    try {
+      const article = await generateArticle(keyword);
+      await saveArticle(article);
+      successCount++;
+      console.log('');
+    } catch (error: any) {
+      console.error(`❌ Failed to generate article for "${keyword.primary}": ${error.message}\n`);
+      // Continue to next article
+    }
   }
   
-  console.log('✅ Daily content generation complete!');
+  console.log(`✅ Daily content generation complete! (${successCount}/${articlesToGenerate.length} articles)`);
+  return successCount;
 }
 
 if (require.main === module) {
