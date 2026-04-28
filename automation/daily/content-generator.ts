@@ -12,7 +12,7 @@
  */
 
 import { config } from 'dotenv';
-import { writeFileSync, readFileSync, readdirSync } from 'fs';
+import { existsSync, writeFileSync, readdirSync } from 'fs';
 import { join } from 'path';
 
 // Load env vars from .env.local
@@ -20,6 +20,33 @@ config({ path: join(__dirname, '../../.env.local') });
 
 const GROQ_API_KEY = process.env.GROQ_API_KEY;
 const POSTS_DIR = join(__dirname, '../../posts');
+
+const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+
+// Keep slug generation identical for duplicate checks and file writes.
+// The previous duplicate filter only stripped non-ASCII chars, so accented
+// keywords like "empréstimo" did not match their saved slug and were
+// regenerated/overwritten on every cron run.
+const normalizeSlug = (text: string): string => {
+  return text
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/ç/g, 'c')
+    .replace(/[^\w\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '');
+};
+
+const getRetryDelayMs = (errorBody: string, attempt: number): number => {
+  const match = errorBody.match(/try again in ([\d.]+)s/i);
+  if (match) {
+    return Math.ceil((Number(match[1]) + 1) * 1000);
+  }
+
+  return Math.min(60_000, 5_000 * 2 ** attempt);
+};
 
 interface Keyword {
   primary: string;
@@ -279,7 +306,7 @@ Diretrizes:
     throw new Error('Missing GROQ_API_KEY');
   }
 
-  try {
+  for (let attempt = 0; attempt < 3; attempt++) {
     // Call Groq API
     const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
       method: 'POST',
@@ -299,6 +326,14 @@ Diretrizes:
       })
     });
 
+    if (!response.ok && response.status === 429 && attempt < 2) {
+      const error = await response.text();
+      const delayMs = getRetryDelayMs(error, attempt);
+      console.warn(`⚠️  Groq rate limit hit. Retrying in ${Math.round(delayMs / 1000)}s...`);
+      await sleep(delayMs);
+      continue;
+    }
+
     if (!response.ok) {
       const error = await response.text();
       throw new Error(`Groq API error: ${response.status} - ${error}`);
@@ -306,24 +341,6 @@ Diretrizes:
 
     const data = await response.json();
     const generated = JSON.parse(data.choices[0].message.content);
-
-    // Normalize slug (remove accents, convert to kebab-case)
-    const normalizeSlug = (text: string): string => {
-      return text
-        .toLowerCase()
-        .normalize('NFD') // Decompose accented characters
-        .replace(/[\u0300-\u036f]/g, '') // Remove diacritics
-        .replace(/[áàâã]/g, 'a')
-        .replace(/[éèê]/g, 'e')
-        .replace(/[íì]/g, 'i')
-        .replace(/[óòôõ]/g, 'o')
-        .replace(/[úù]/g, 'u')
-        .replace(/ç/g, 'c')
-        .replace(/[^\w\s-]/g, '') // Remove non-word chars except spaces and hyphens
-        .replace(/\s+/g, '-') // Replace spaces with hyphens
-        .replace(/-+/g, '-') // Replace multiple hyphens with single
-        .replace(/^-|-$/g, ''); // Remove leading/trailing hyphens
-    };
 
     const article: Article = {
       title: generated.title,
@@ -337,15 +354,18 @@ Diretrizes:
     console.log(`✅ Article generated: "${article.title}"`);
     return article;
 
-  } catch (error: any) {
-    console.error(`❌ Failed to generate article: ${error.message}`);
-    throw error;
   }
+
+  throw new Error('Groq API error: retry attempts exhausted');
 }
 
 async function saveArticle(article: Article) {
   const filename = `${article.slug}.md`;
   const filepath = join(POSTS_DIR, filename);
+
+  if (existsSync(filepath)) {
+    throw new Error(`Article already exists: ${filename}`);
+  }
   
   const frontmatter = `---
 title: "${article.title}"
@@ -376,7 +396,7 @@ async function main() {
   
   // Filter queue to avoid duplicates
   const newKeywords = KEYWORD_QUEUE.filter(k => {
-    const slug = k.primary.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
+    const slug = normalizeSlug(k.primary);
     return !existingSlugs.includes(slug);
   });
   
@@ -397,6 +417,12 @@ async function main() {
       await saveArticle(article);
       successCount++;
       console.log('');
+
+      // Groq's free tier has a low TPM limit; space requests to avoid
+      // partial daily runs when generating multiple long articles.
+      if (successCount < articlesToGenerate.length) {
+        await sleep(12_000);
+      }
     } catch (error: any) {
       console.error(`❌ Failed to generate article for "${keyword.primary}": ${error.message}\n`);
       // Continue to next article
