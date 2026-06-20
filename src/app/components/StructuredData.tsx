@@ -1,19 +1,21 @@
 // Schema.org Structured Data components
 
+const CANONICAL_BASE_URL = "https://www.detectordegolpes.com.br";
+
 export function WebSiteSchema() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Vovó Detector de Golpes",
     "alternateName": "Detector de Golpes",
-    "url": "https://detectordegolpes.com.br",
+    "url": CANONICAL_BASE_URL,
     "description": "Detector de golpes online gratuito. Analise mensagens suspeitas com inteligência artificial e proteja-se contra fraudes no Brasil.",
     "inLanguage": "pt-BR",
     "potentialAction": {
       "@type": "SearchAction",
       "target": {
         "@type": "EntryPoint",
-        "urlTemplate": "https://detectordegolpes.com.br/?q={search_term_string}"
+        "urlTemplate": `${CANONICAL_BASE_URL}/?q={search_term_string}`
       },
       "query-input": "required name=search_term_string"
     }
@@ -32,8 +34,8 @@ export function OrganizationSchema() {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Vovó Detector de Golpes",
-    "url": "https://detectordegolpes.com.br",
-    "logo": "https://detectordegolpes.com.br/vovo-lupa.png",
+    "url": CANONICAL_BASE_URL,
+    "logo": `${CANONICAL_BASE_URL}/vovo-lupa.png`,
     "description": "Plataforma gratuita de proteção contra golpes digitais no Brasil",
     "sameAs": [
       "https://github.com/sktbrd/vovo-detector-golpes"
@@ -110,7 +112,7 @@ export function ArticleSchema({
       "name": "Vovó Detector de Golpes",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://detectordegolpes.com.br/vovo-lupa.png"
+        "url": `${CANONICAL_BASE_URL}/vovo-lupa.png`
       }
     },
     "mainEntityOfPage": {

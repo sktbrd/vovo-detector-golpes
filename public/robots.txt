@@ -18,7 +18,7 @@ Disallow: /msg/
 Disallow: /api/
 
 # Sitemap
-Sitemap: https://detectordegolpes.com.br/sitemap.xml
+Sitemap: https://www.detectordegolpes.com.br/sitemap.xml
 
 # Crawl-delay (optional, remove if you want aggressive crawling)
 # Crawl-delay: 1

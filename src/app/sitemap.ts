@@ -4,7 +4,7 @@ import path from 'path'
 import matter from 'gray-matter'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://detectordegolpes.com.br'
+  const baseUrl = 'https://www.detectordegolpes.com.br'
   
   // Static pages
   const staticPages: MetadataRoute.Sitemap = [
