@@ -1,0 +1,43 @@
+🌅 [2026-06-20 04:00:10] Starting daily automation...
+[dotenv@17.3.1] injecting env (1) from .env.local -- tip: ⚙️  enable debug logging with { debug: true }
+🌅 Starting daily automation...
+⏰ 20/06/2026, 04:00:10
+
+📊 Task 1/2: Search Console data pull
+⚠️  Skipping (not implemented yet)
+
+📝 Task 2/2: Content generation
+🚀 Daily Content Generator
+📅 sábado, 20 de junho de 2026
+
+📚 Existing articles: 31
+
+📝 Generating 3 new articles...
+
+✍️  Generating article for: "golpe da compra que não chega"
+✅ Article generated: "Golpe da Compra que Não Chega: Como Se Proteger"
+✅ Saved: /Users/vladnikolaev/.openclaw/workspace-freelancer/vovo/posts/golpe-da-compra-que-nao-chega.md
+
+✍️  Generating article for: "pirâmide financeira como identificar"
+✅ Article generated: "Pirâmide Financeira: Como Identificar e Se Proteger"
+✅ Saved: /Users/vladnikolaev/.openclaw/workspace-freelancer/vovo/posts/piramide-financeira-como-identificar.md
+
+✍️  Generating article for: "golpe do trader falso"
+✅ Article generated: "Golpe do Trader Falso: Como Se Proteger"
+✅ Saved: /Users/vladnikolaev/.openclaw/workspace-freelancer/vovo/posts/golpe-do-trader-falso.md
+
+✅ Daily content generation complete! (3/3 articles)
+💾 Report saved: /Users/vladnikolaev/.openclaw/workspace-freelancer/vovo/automation/data/reports/2026-06-20.json
+📄 MD report saved: /Users/vladnikolaev/.openclaw/workspace-freelancer/vovo/reports/2026-06-20.md
+
+✅ Daily automation complete!
+🤖 Vovó Daily Report - 2026-06-20
+
+✅ SUCCESS
+
+📝 Content Generation: success
+📄 Articles Created: 3
+📊 Search Console: skipped (not implemented)
+
+---
+Log: automation/data/reports/cron-2026-06-20.log
