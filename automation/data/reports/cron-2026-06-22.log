@@ -1,0 +1,43 @@
+🌅 [2026-06-22 04:00:10] Starting daily automation...
+[dotenv@17.3.1] injecting env (1) from .env.local -- tip: ⚙️  override existing env vars with { override: true }
+🌅 Starting daily automation...
+⏰ 22/06/2026, 04:00:10
+
+📊 Task 1/2: Search Console data pull
+⚠️  Skipping (not implemented yet)
+
+📝 Task 2/2: Content generation
+🚀 Daily Content Generator
+📅 segunda-feira, 22 de junho de 2026
+
+📚 Existing articles: 37
+
+📝 Generating 3 new articles...
+
+✍️  Generating article for: "golpe do treinamento pago"
+✅ Article generated: "Golpe do Treinamento Pago: Proteja-se!"
+✅ Saved: /Users/vladnikolaev/.openclaw/workspace-freelancer/vovo/posts/golpe-do-treinamento-pago.md
+
+✍️  Generating article for: "golpe do amor na internet"
+✅ Article generated: "Golpe do Amor na Internet: Como Se Proteger"
+✅ Saved: /Users/vladnikolaev/.openclaw/workspace-freelancer/vovo/posts/golpe-do-amor-na-internet.md
+
+✍️  Generating article for: "catfish como identificar"
+✅ Article generated: "Catfish: Como Identificar Perfil Falso Online"
+✅ Saved: /Users/vladnikolaev/.openclaw/workspace-freelancer/vovo/posts/catfish-como-identificar.md
+
+✅ Daily content generation complete! (3/3 articles)
+💾 Report saved: /Users/vladnikolaev/.openclaw/workspace-freelancer/vovo/automation/data/reports/2026-06-22.json
+📄 MD report saved: /Users/vladnikolaev/.openclaw/workspace-freelancer/vovo/reports/2026-06-22.md
+
+✅ Daily automation complete!
+🤖 Vovó Daily Report - 2026-06-22
+
+✅ SUCCESS
+
+📝 Content Generation: success
+📄 Articles Created: 3
+📊 Search Console: skipped (not implemented)
+
+---
+Log: automation/data/reports/cron-2026-06-22.log
