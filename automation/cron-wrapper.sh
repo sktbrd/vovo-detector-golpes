@@ -2,7 +2,7 @@
 # OpenClaw Cron Wrapper
 # Executa automação diária e reporta status via message tool
 
-set -e
+set -euo pipefail
 
 WORKSPACE="/Users/vladnikolaev/.openclaw/workspace-freelancer/vovo"
 LOG_FILE="$WORKSPACE/automation/data/reports/cron-$(date +%Y-%m-%d).log"
