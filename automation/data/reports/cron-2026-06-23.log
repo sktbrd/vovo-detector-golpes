@@ -1,0 +1,56 @@
+🌅 [2026-06-23 04:01:54] Starting daily automation...
+undefined
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command "tsx" not found
+🤖 Vovó Daily Report - 2026-06-23
+
+✅ SUCCESS
+
+📝 Content Generation: unknown
+📄 Articles Created: 0
+📊 Search Console: skipped (not implemented)
+
+---
+Log: automation/data/reports/cron-2026-06-23.log
+🌅 [2026-06-23 04:32:44] Starting daily automation...
+[dotenv@17.3.1] injecting env (1) from .env.local -- tip: ⚙️  write to custom object with { processEnv: myObject }
+🌅 Starting daily automation...
+⏰ 23/06/2026, 04:32:45
+
+📊 Task 1/2: Search Console data pull
+⚠️  Skipping (not implemented yet)
+
+📝 Task 2/2: Content generation
+🚀 Daily Content Generator
+📅 terça-feira, 23 de junho de 2026
+
+📚 Existing articles: 40
+
+📝 Generating 3 new articles...
+
+✍️  Generating article for: "golpe black friday como evitar"
+✅ Article generated: "Golpe Black Friday: Como Evitar Ofertas Falsas"
+✅ Saved: /Users/vladnikolaev/.openclaw/workspace-freelancer/vovo/posts/golpe-black-friday-como-evitar.md
+
+✍️  Generating article for: "golpe do FGTS liberado"
+✅ Article generated: "Golpe do FGTS Liberado: Proteja-se de Mensagens Falsas"
+✅ Saved: /Users/vladnikolaev/.openclaw/workspace-freelancer/vovo/posts/golpe-do-fgts-liberado.md
+
+✍️  Generating article for: "golpe boleto falso"
+✅ Article generated: "Golpe Boleto Falso: Como se Proteger"
+✅ Saved: /Users/vladnikolaev/.openclaw/workspace-freelancer/vovo/posts/golpe-boleto-falso.md
+
+✅ Daily content generation complete! (3/3 articles)
+💾 Report saved: /Users/vladnikolaev/.openclaw/workspace-freelancer/vovo/automation/data/reports/2026-06-23.json
+📄 MD report saved: /Users/vladnikolaev/.openclaw/workspace-freelancer/vovo/reports/2026-06-23.md
+
+✅ Daily automation complete!
+🤖 Vovó Daily Report - 2026-06-23
+
+✅ SUCCESS
+
+📝 Content Generation: success
+📄 Articles Created: 3
+📊 Search Console: skipped (not implemented)
+
+---
+Log: automation/data/reports/cron-2026-06-23.log

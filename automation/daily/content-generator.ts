@@ -264,6 +264,128 @@ const KEYWORD_QUEUE: Keyword[] = [
     lsi: ['como saber se boleto é verdadeiro', 'boleto falso sinais', 'validar boleto antes pagar'],
     intent: 'informational',
     targetLength: 1500
+  },
+
+  // 🔥 Nova Batch - Social, Pix & Marketplace
+  {
+    primary: 'golpe pix devolução',
+    lsi: ['devolução pix falsa', 'golpe pix reembolso', 'pix devolvido golpe', 'comprovante pix falso'],
+    intent: 'informational',
+    targetLength: 1400
+  },
+  {
+    primary: 'golpe whatsapp conta clonada',
+    lsi: ['conta whatsapp clonada golpe', 'mensagem de whatsapp clonado', 'proteger whatsapp de clonagem'],
+    intent: 'informational',
+    targetLength: 1500
+  },
+  {
+    primary: 'golpe dos correios whatsapp',
+    lsi: ['sms falso correios', 'taxa alfandegária falsa', 'link falso correios whatsapp'],
+    intent: 'informational',
+    targetLength: 1400
+  },
+  {
+    primary: 'como saber se loja online é confiável',
+    lsi: ['verificar loja online', 'loja virtual falsa', 'site confiável para comprar', 'compra segura online'],
+    intent: 'informational',
+    targetLength: 1600
+  },
+  {
+    primary: 'golpe instagram empréstimo',
+    lsi: ['empréstimo falso instagram', 'perfil falso empréstimo', 'golpe dinheiro rápido instagram'],
+    intent: 'informational',
+    targetLength: 1400
+  },
+  {
+    primary: 'golpe facebook marketplace',
+    lsi: ['compra falsa facebook', 'vendedor falso marketplace', 'golpe marketplace pagamento antecipado'],
+    intent: 'informational',
+    targetLength: 1500
+  },
+  {
+    primary: 'perfil falso instagram como identificar',
+    lsi: ['instagram falso sinais', 'conta fake instagram', 'perfil falso golpe'],
+    intent: 'informational',
+    targetLength: 1400
+  },
+  {
+    primary: 'golpe no tiktok',
+    lsi: ['promoção falsa tiktok', 'perfil falso tiktok golpe', 'link malicioso tiktok'],
+    intent: 'informational',
+    targetLength: 1300
+  },
+  {
+    primary: 'golpe telegram investimento',
+    lsi: ['grupo telegram investimento falso', 'robô trader telegram golpe', 'sinal falso telegram'],
+    intent: 'informational',
+    targetLength: 1500
+  },
+  {
+    primary: 'investimento falso como denunciar',
+    lsi: ['denunciar golpe investimento', 'investimento fraudulento', 'como recuperar dinheiro golpe investimento'],
+    intent: 'informational',
+    targetLength: 1600
+  },
+  {
+    primary: 'golpe rendimento impossível',
+    lsi: ['renda garantida golpe', 'lucro fácil falso', 'promessa de rendimento alto'],
+    intent: 'informational',
+    targetLength: 1400
+  },
+  {
+    primary: 'entrevista de emprego golpe',
+    lsi: ['entrevista falsa emprego', 'recrutador falso', 'processo seletivo golpe'],
+    intent: 'informational',
+    targetLength: 1400
+  },
+  {
+    primary: 'trabalho home office golpe',
+    lsi: ['vaga home office falsa', 'trabalho remoto golpe', 'renda extra home office falsa'],
+    intent: 'informational',
+    targetLength: 1400
+  },
+  {
+    primary: 'golpe do romance brasileiro',
+    lsi: ['golpe amor brasil', 'romance scam brasileiro', 'relacionamento falso golpe'],
+    intent: 'informational',
+    targetLength: 1500
+  },
+  {
+    primary: 'namoro online golpe',
+    lsi: ['golpe namoro virtual', 'perfil falso namoro online', 'pedir dinheiro namoro golpe'],
+    intent: 'informational',
+    targetLength: 1400
+  },
+  {
+    primary: 'perfil falso tinder',
+    lsi: ['tinder golpe', 'catfish tinder', 'como identificar perfil fake tinder'],
+    intent: 'informational',
+    targetLength: 1300
+  },
+  {
+    primary: 'golpe de natal whatsapp',
+    lsi: ['promoção falsa natal', 'link falso presente natal', 'golpe fim de ano whatsapp'],
+    intent: 'informational',
+    targetLength: 1300
+  },
+  {
+    primary: 'golpe imposto de renda',
+    lsi: ['restituição falsa imposto de renda', 'email falso receita federal', 'golpe malha fina'],
+    intent: 'informational',
+    targetLength: 1500
+  },
+  {
+    primary: 'golpe email corporativo',
+    lsi: ['phishing corporativo', 'email falso empresa', 'fraude boleto empresa'],
+    intent: 'informational',
+    targetLength: 1500
+  },
+  {
+    primary: 'golpe nota fiscal falsa',
+    lsi: ['nota fiscal falsa email', 'boleto nota fiscal golpe', 'fraude nota fiscal eletrônica'],
+    intent: 'informational',
+    targetLength: 1400
   }
 ];
 
