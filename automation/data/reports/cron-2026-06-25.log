@@ -1,0 +1,43 @@
+🌅 [2026-06-25 04:00:10] Starting daily automation...
+[dotenv@17.3.1] injecting env (1) from .env.local -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+🌅 Starting daily automation...
+⏰ 25/06/2026, 04:00:10
+
+📊 Task 1/2: Search Console data pull
+⚠️  Skipping (not implemented yet)
+
+📝 Task 2/2: Content generation
+🚀 Daily Content Generator
+📅 quinta-feira, 25 de junho de 2026
+
+📚 Existing articles: 48
+
+📝 Generating 3 new articles...
+
+✍️  Generating article for: "golpe facebook marketplace"
+✅ Article generated: "Golpe Facebook Marketplace: Como Se Proteger"
+✅ Saved: /Users/vladnikolaev/.openclaw/workspace-freelancer/vovo/posts/golpe-facebook-marketplace.md
+
+✍️  Generating article for: "perfil falso instagram como identificar"
+✅ Article generated: "Identifique Perfis Falsos no Instagram"
+✅ Saved: /Users/vladnikolaev/.openclaw/workspace-freelancer/vovo/posts/perfil-falso-instagram-como-identificar.md
+
+✍️  Generating article for: "golpe no tiktok"
+✅ Article generated: "Golpe no TikTok: Como se Proteger de Perfis Falsos"
+✅ Saved: /Users/vladnikolaev/.openclaw/workspace-freelancer/vovo/posts/golpe-no-tiktok.md
+
+✅ Daily content generation complete! (3/3 articles)
+💾 Report saved: /Users/vladnikolaev/.openclaw/workspace-freelancer/vovo/automation/data/reports/2026-06-25.json
+📄 MD report saved: /Users/vladnikolaev/.openclaw/workspace-freelancer/vovo/reports/2026-06-25.md
+
+✅ Daily automation complete!
+🤖 Vovó Daily Report - 2026-06-25
+
+✅ SUCCESS
+
+📝 Content Generation: success
+📄 Articles Created: 3
+📊 Search Console: skipped (not implemented)
+
+---
+Log: automation/data/reports/cron-2026-06-25.log
